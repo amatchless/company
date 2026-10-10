@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.4.0');
+define('AMATCHLESS_VERSION', '2.5.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -489,3 +489,27 @@ function amatchless_heartbeat_settings($settings) {
     return $settings;
 }
 add_filter('heartbeat_settings', 'amatchless_heartbeat_settings');
+
+/* ── Favicon (the Amatchless logo) ───────────────────────────── */
+// Replaces any Site Icon set under Appearance → Customize, so the logo is always used.
+remove_action('wp_head', 'wp_site_icon', 99);
+function amatchless_favicon_tags() {
+    $dir = get_template_directory_uri() . '/assets/icons/';
+    echo '<link rel="icon" href="' . esc_url($dir . 'favicon.ico') . '" sizes="48x48">' . "\n";
+    echo '<link rel="icon" type="image/png" href="' . esc_url($dir . 'favicon-32.png') . '" sizes="32x32">' . "\n";
+    echo '<link rel="icon" type="image/png" href="' . esc_url($dir . 'icon-192.png') . '" sizes="192x192">' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url($dir . 'apple-touch-icon.png') . '">' . "\n";
+}
+add_action('wp_head', 'amatchless_favicon_tags', 99);
+add_action('login_head', 'amatchless_favicon_tags');
+add_action('admin_head', 'amatchless_favicon_tags');
+
+// Browsers still ask for /favicon.ico directly; answer with the logo icon.
+add_action('do_faviconico', function () {
+    $file = get_template_directory() . '/assets/icons/favicon.ico';
+    if (!is_readable($file)) return;
+    header('Content-Type: image/x-icon');
+    header('Cache-Control: public, max-age=604800');
+    readfile($file);
+    exit;
+});
