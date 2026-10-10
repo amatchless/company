@@ -397,6 +397,10 @@ add_filter('login_errors', 'amatchless_login_error');
 
 /* ── Security: Disable user enumeration via REST API ────────── */
 function amatchless_disable_rest_user_enum($endpoints) {
+    // Staff who can list users (admins) keep the endpoints: the block editor's author picker needs them.
+    if (current_user_can('list_users')) {
+        return $endpoints;
+    }
     if (isset($endpoints['/wp/v2/users'])) {
         unset($endpoints['/wp/v2/users']);
     }
