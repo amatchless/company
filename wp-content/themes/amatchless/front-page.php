@@ -63,9 +63,23 @@
 
 <!-- ============ MANIFESTO ============ -->
 <section>
-  <div class="wrap manifesto">
-    <p>Most agencies sell you a service. We start with your <span class="flame">business.</span></p>
-    <p class="sub">We dig into how you operate and where it hurts: slow processes, missed leads, manual work, a brand nobody notices. Then we recommend the fix and build it ourselves — software made for your business, AI and automation that cut the busywork, and marketing that fills your pipeline. One team, one plan, nothing lost between vendors.</p>
+  <div class="wrap manifesto manifesto-grid">
+    <div class="manifesto-copy up">
+      <p>Most agencies sell you a service. We start with your <span class="flame">business.</span></p>
+      <p class="sub">We dig into how you operate and where it hurts: slow processes, missed leads, manual work, a brand nobody notices. Then we recommend the fix and build it ourselves — software made for your business, AI and automation that cut the busywork, and marketing that fills your pipeline. One team, one plan, nothing lost between vendors.</p>
+    </div>
+    <aside class="pain-card up" aria-label="Common business problems and how we fix them">
+      <div class="pain-head"><span>What we hear</span><span>What we do</span></div>
+      <ul class="pain-list">
+        <li><span class="pain">Leads slip through the cracks</span><span class="fix">Automated capture and follow-up</span></li>
+        <li><span class="pain">Too much manual, repetitive work</span><span class="fix">Process automation and AI</span></li>
+        <li><span class="pain">Tools that don't talk to each other</span><span class="fix">Custom software that joins them up</span></li>
+        <li><span class="pain">Customers can't find us online</span><span class="fix">SEO and content marketing</span></li>
+        <li><span class="pain">Ad spend that doesn't pay back</span><span class="fix">Performance campaigns built for ROAS</span></li>
+        <li><span class="pain">Our brand has no reach</span><span class="fix">Influencer and social marketing</span></li>
+      </ul>
+      <a class="pain-cta" href="<?php echo esc_url(amatchless_anchor('contact')); ?>">Tell us what's slowing you down <span aria-hidden="true">↗</span></a>
+    </aside>
   </div>
 </section>
 
