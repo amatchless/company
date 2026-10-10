@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.2.0');
+define('AMATCHLESS_VERSION', '2.3.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -280,6 +280,8 @@ function amatchless_schema() {
 add_action('wp_head', 'amatchless_schema');
 
 /* ── Contact Form AJAX ───────────────────────────────────────── */
+require_once get_template_directory() . '/inc/leads.php';
+
 function amatchless_contact_submit() {
     check_ajax_referer('amatchless_contact_nonce', 'nonce');
 
@@ -290,10 +292,14 @@ function amatchless_contact_submit() {
     $service = sanitize_text_field(wp_unslash($_POST['service'] ?? ''));
     $budget  = sanitize_text_field(wp_unslash($_POST['budget']  ?? ''));
     $message = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
+    $ip      = sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? '');
 
     if (empty($name) || !is_email($email) || empty($company)) {
         wp_send_json_error(['message' => 'Please fill in all required fields correctly.']);
     }
+
+    // Save first, so the lead is in wp-admin → Leads even if the email fails.
+    $lead_id = amatchless_save_lead(compact('name', 'email', 'company', 'phone', 'service', 'budget', 'message', 'ip'));
 
     $subject = "New Lead: {$name} from {$company}";
     $body    = "New strategy call enquiry from amatchless.com\n\n"
@@ -304,8 +310,9 @@ function amatchless_contact_submit() {
              . "Service: {$service}\n"
              . "Budget:  {$budget}\n\n"
              . "Message:\n{$message}\n\n"
-             . "IP: " . sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? '') . "\n"
-             . "Submitted: " . current_time('mysql');
+             . "IP: {$ip}\n"
+             . "Submitted: " . current_time('mysql')
+             . ($lead_id ? "\n\nView in admin: " . admin_url('post.php?post=' . $lead_id . '&action=edit') : '');
 
     $headers = [
         'Content-Type: text/plain; charset=UTF-8',
@@ -313,50 +320,26 @@ function amatchless_contact_submit() {
         'Reply-To: ' . $email,
     ];
 
-    $sent = wp_mail('info@amatchless.com', $subject, $body, $headers);
-
-    // Save lead to custom DB table as backup
-    global $wpdb;
-    $wpdb->insert(
-        $wpdb->prefix . 'amatchless_leads',
-        ['name' => $name, 'email' => $email, 'company' => $company, 'phone' => $phone,
-         'service' => $service, 'budget' => $budget, 'message' => $message, 'created_at' => current_time('mysql')],
-        ['%s','%s','%s','%s','%s','%s','%s','%s']
-    );
-
-    if ($sent) {
-        wp_send_json_success(['message' => 'Success']);
-    } else {
-        // Even if email fails, lead is saved to DB
-        wp_send_json_success(['message' => 'Saved']);
+    $sent = wp_mail(AMATCHLESS_EMAIL, $subject, $body, $headers);
+    if ($lead_id) {
+        update_post_meta($lead_id, '_lead_emailed', $sent ? 'Yes' : 'No — sending failed');
     }
+
+    if (!$lead_id && !$sent) {
+        wp_send_json_error(['message' => 'Sorry, something went wrong. Please email us at ' . AMATCHLESS_EMAIL . '.']);
+    }
+    wp_send_json_success(['message' => 'Success']);
 }
 add_action('wp_ajax_nopriv_amatchless_contact', 'amatchless_contact_submit');
 add_action('wp_ajax_amatchless_contact', 'amatchless_contact_submit');
 
-/* ── Create leads table on theme activate ────────────────────── */
-function amatchless_create_leads_table() {
-    global $wpdb;
-    $table = $wpdb->prefix . 'amatchless_leads';
-    if ($wpdb->get_var("SHOW TABLES LIKE '{$table}'") !== $table) {
-        $charset = $wpdb->get_charset_collate();
-        $sql = "CREATE TABLE {$table} (
-            id bigint(20) NOT NULL AUTO_INCREMENT,
-            name varchar(200) NOT NULL,
-            email varchar(200) NOT NULL,
-            company varchar(200) NOT NULL,
-            phone varchar(50) DEFAULT '',
-            service varchar(200) DEFAULT '',
-            budget varchar(100) DEFAULT '',
-            message text DEFAULT '',
-            created_at datetime NOT NULL,
-            PRIMARY KEY (id)
-        ) {$charset};";
-        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-        dbDelta($sql);
+// Send site mail with an amatchless.com return path, so SPF checks the domain the email claims to be from.
+function amatchless_mail_sender($phpmailer) {
+    if (!$phpmailer->Sender && str_ends_with(strtolower($phpmailer->From), '@amatchless.com')) {
+        $phpmailer->Sender = $phpmailer->From;
     }
 }
-add_action('after_setup_theme', 'amatchless_create_leads_table');
+add_action('phpmailer_init', 'amatchless_mail_sender');
 
 /* ── Excerpt ──────────────────────────────────────────────────── */
 function amatchless_excerpt_length() { return 22; }
