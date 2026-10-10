@@ -595,3 +595,16 @@ textarea.form-ctrl{min-height:120px;resize:vertical}
 @media(prefers-reduced-motion:reduce){.action-bar,.faq-item summary::after{transition:none}}
 
 .form-row.one{grid-template-columns:1fr}
+
+/* Forms that stand out: raised gold-edged panel, light input boxes, readable placeholders */
+.lead-form{padding:30px;border-radius:22px;background:linear-gradient(180deg,#2E2619,#221C12);border:1.5px solid var(--gold);box-shadow:0 0 0 4px var(--gold-glow),0 30px 70px -30px rgba(235,164,60,.45)}
+.lead-form .form-lbl{color:var(--bone);font-weight:600}
+.form-note{color:var(--bone-dim)}
+.form-ctrl{background:#F6F0E2;color:#1A1409;border:1.5px solid #D9CDB0}
+.form-ctrl::placeholder{color:#645B49;opacity:1}
+.form-ctrl:hover{border-color:var(--gold)}
+.form-ctrl:focus{border-color:var(--gold);background:#FFFBF1;box-shadow:0 0 0 4px rgba(235,164,60,.45)}
+.form-ctrl.err{border-color:#d0573a;box-shadow:0 0 0 3px rgba(208,87,58,.25)}
+select.form-ctrl option{background:#F6F0E2;color:#1A1409}
+.hero-capture{background:rgba(46,38,25,.85);border:1.5px solid var(--gold);border-radius:18px;padding:14px;box-shadow:0 0 0 4px var(--gold-glow),0 24px 60px -28px rgba(235,164,60,.5)}
+@media(max-width:680px){.lead-form{padding:20px 16px}}
