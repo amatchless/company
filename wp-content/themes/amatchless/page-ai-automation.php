@@ -4,7 +4,7 @@
   <div class="wrap">
     <span class="eyebrow">AI Automation</span>
     <h1>Let the busywork <span class="flame">run itself.</span></h1>
-    <p class="lede">AI and automation wired into the work itself, so leads get answered, content ships and reports write themselves.</p>
+    <p class="lede">Software, AI and automation built around your business, so processes run smoothly and your team can focus on growth.</p>
   </div>
 </section>
 

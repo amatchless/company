@@ -3,8 +3,8 @@
 <section class="page-head page-head--section">
   <div class="wrap">
     <span class="eyebrow">Services</span>
-    <h1>Everything you need to grow, <span class="flame">under one roof.</span></h1>
-    <p class="lede">Eight services across brand, growth and systems, delivered by one accountable team that works as one.</p>
+    <h1>Understand. Build. <span class="flame">Grow.</span></h1>
+    <p class="lede">From business discovery and custom software to AI, automation and every kind of marketing, one team covers the whole job.</p>
   </div>
 </section>
 

@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.5.0');
+define('AMATCHLESS_VERSION', '2.6.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -44,10 +44,10 @@ function amatchless_page_url($slug) {
 function amatchless_create_section_pages() {
     if (get_option('amatchless_pages_created') === '1') return;
     $excerpts = [
-        'services'      => 'Branding, content, social, SEO, Google and Meta ads, web development, automations and custom software from one accountable team.',
+        'services'      => 'Business discovery, custom software, AI, automation and marketing — SEO, digital, influencer and content — from one accountable team.',
         'work'          => 'Selected projects and case studies for Isola, AleuCo, Bailey\'s Blossoms, Moment, Haliburton Forest and MD Biocoals.',
-        'about'         => 'Amatchless is one team for creative, media and code, built to close the gap between good marketing and real growth.',
-        'ai-automation' => 'AI and automation wired into the work itself: leads on autopilot, content and reporting pipelines, and custom AI assistants.',
+        'about'         => 'Amatchless is one partner for the whole business: we understand it first, then build what makes it efficient and market it to grow.',
+        'ai-automation' => 'Custom software, AI and automation built around your business so processes run on their own.',
     ];
     foreach (amatchless_section_pages() as $slug => $info) {
         if (get_page_by_path($slug)) continue;
@@ -126,8 +126,8 @@ function amatchless_og_meta() {
     // Only add when Yoast hasn't covered it
     if (function_exists('wpseo_init')) return;
     if (is_front_page()) {
-        $title       = 'Digital Marketing Agency in New Delhi | SEO, AEO, GEO & Performance Ads | Amatchless';
-        $description = 'Amatchless is New Delhi\'s premier creative & digital growth agency. We deliver SEO, Answer Engine Optimisation (AEO), GEO, performance advertising, content marketing, and AI-powered automation for ambitious brands.';
+        $title       = 'Software, AI & Digital Marketing Partner in New Delhi | Amatchless';
+        $description = 'Amatchless is a one-stop partner for business growth. We understand your business and its pain points, then build custom software, AI and automation to make it more efficient, and grow it with SEO, digital, influencer and content marketing.';
         $url         = home_url('/');
     } elseif (is_singular()) {
         $title       = get_the_title() . ' | Amatchless';

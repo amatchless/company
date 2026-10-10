@@ -3,10 +3,10 @@
   <div class="wrap">
     <div class="cta up">
       <span class="eyebrow" style="justify-content:center">Let's talk</span>
-      <h2 style="margin-top:20px">Let's build something <span class="flame">matchless.</span></h2>
-      <p>Tell us where you want to be in twelve months. We'll show you the brand, the campaigns and the systems to get there.</p>
+      <h2 style="margin-top:20px">Let's make your business <span class="flame">matchless.</span></h2>
+      <p>Tell us what is slowing your business down and where you want to be in twelve months. We'll show you how to run leaner and grow faster.</p>
       <div class="cta-actions">
-        <a href="#book" class="btn btn-primary" id="ctaBook">Book a strategy call <span class="arw" aria-hidden="true">↗</span></a>
+        <a href="#book" class="btn btn-primary" id="ctaBook">Book a discovery call <span class="arw" aria-hidden="true">↗</span></a>
         <a href="#services" class="btn btn-ghost">See what we do</a>
       </div>
       <div class="email-row">
@@ -18,8 +18,8 @@
 
     <div class="lead up" id="book">
       <div class="lead-info">
-        <span class="eyebrow">Book a strategy call</span>
-        <h3>30 minutes. Zero commitment. Real ideas for your brand.</h3>
+        <span class="eyebrow">Book a discovery call</span>
+        <h3>30 minutes. Zero commitment. Tell us what is holding your business back.</h3>
         <p class="lede">Tell us about your business and we'll reply within 24 hours with honest thoughts — no sales pitch, no pressure.</p>
         <div class="lead-contacts">
           <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><span class="k">Email</span><span class="v"><?php echo esc_html(AMATCHLESS_EMAIL); ?></span></a>
@@ -54,15 +54,15 @@
               <label class="form-lbl" for="f-service">Service</label>
               <select class="form-ctrl" id="f-service" name="service">
                 <option value="">Select a service</option>
-                <option>Branding</option>
-                <option>Content Marketing</option>
-                <option>Social Media Marketing</option>
+                <option>Business discovery &amp; strategy</option>
+                <option>Custom software &amp; web</option>
+                <option>AI solutions</option>
+                <option>Process automation</option>
                 <option>SEO</option>
-                <option>Google &amp; Meta Ads</option>
-                <option>Web Development</option>
-                <option>Automations</option>
-                <option>Custom Software</option>
-                <option>Not sure yet</option>
+                <option>Digital marketing &amp; ads</option>
+                <option>Influencer marketing</option>
+                <option>Content, social &amp; branding</option>
+                <option>Not sure yet — help me decide</option>
               </select>
             </div>
             <div class="form-grp">

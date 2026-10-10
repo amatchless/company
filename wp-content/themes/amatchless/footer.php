@@ -9,14 +9,14 @@
           <img class="mark" src="<?php echo esc_url(amatchless_img('logo.png')); ?>" alt="" width="30" height="23">
           <span><b>Amatchless</b></span>
         </a>
-        <p>A digital marketing and AI automation studio. We help creators and businesses become unmistakable — and unstoppable.</p>
+        <p>Your one-stop partner for software, AI and marketing. We learn your business, then help it run more efficiently and grow.</p>
       </div>
       <div class="foot-col">
         <h5>Services</h5>
-        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Branding</a>
-        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Social &amp; Content</a>
-        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">SEO &amp; Ads</a>
-        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Web &amp; Software</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Business strategy</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Custom software</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">SEO &amp; digital marketing</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Influencer &amp; content</a>
         <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI Automation</a>
       </div>
       <div class="foot-col">

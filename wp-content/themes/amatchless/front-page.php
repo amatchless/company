@@ -6,17 +6,17 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-inner">
-        <span class="eyebrow reveal">Digital Marketing × AI Automation</span>
-        <h1 class="reveal d1">Make your brand<br><span class="flame">matchless.</span></h1>
-        <p class="lede reveal d2">Full-stack marketing and AI automation for creators and businesses — brand, content, ads and custom software built under one roof. Made in India, delivered worldwide.</p>
+        <span class="eyebrow reveal">Software × AI × Marketing</span>
+        <h1 class="reveal d1">Your business,<br><span class="flame">made matchless.</span></h1>
+        <p class="lede reveal d2">One team for the whole job. We start by understanding your business and its pain points, then show you how to run more efficiently — with custom software, AI and automation — and grow faster with SEO, digital, influencer and content marketing.</p>
         <div class="hero-cta reveal d3">
-          <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Book a strategy call <span class="arw">↗</span></a>
+          <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Book a discovery call <span class="arw">↗</span></a>
           <a href="<?php echo esc_url(amatchless_anchor('work')); ?>" class="btn btn-ghost">See our work</a>
         </div>
         <div class="hero-meta reveal d4">
-          <span><i class="dot"></i>Creators &amp; influencers</span>
-          <span><i class="dot"></i>Founders &amp; businesses</span>
-          <span><i class="dot"></i>India &amp; international</span>
+          <span><i class="dot"></i>Custom software</span>
+          <span><i class="dot"></i>AI &amp; automation</span>
+          <span><i class="dot"></i>Marketing &amp; growth</span>
         </div>
       </div>
       <div class="hero-art reveal d2" aria-hidden="true">
@@ -64,8 +64,8 @@
 <!-- ============ MANIFESTO ============ -->
 <section>
   <div class="wrap manifesto">
-    <p>Most agencies run campaigns. We build growth <span class="flame">engines.</span></p>
-    <p class="sub">Creative, media and code, working as one system — so your brand gets seen, your pipeline stays full, and the busywork runs itself. That's the difference between hiring an agency and having an unfair advantage.</p>
+    <p>Most agencies sell you a service. We start with your <span class="flame">business.</span></p>
+    <p class="sub">We dig into how you operate and where it hurts: slow processes, missed leads, manual work, a brand nobody notices. Then we recommend the fix and build it ourselves — software made for your business, AI and automation that cut the busywork, and marketing that fills your pipeline. One team, one plan, nothing lost between vendors.</p>
   </div>
 </section>
 

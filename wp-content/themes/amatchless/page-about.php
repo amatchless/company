@@ -3,8 +3,8 @@
 <section class="page-head page-head--section">
   <div class="wrap">
     <span class="eyebrow">About us</span>
-    <h1>One team for creative, media and <span class="flame">code.</span></h1>
-    <p class="lede">Peerless by name. Relentless by nature. Here's who we are and how we work.</p>
+    <h1>One partner for the whole <span class="flame">business.</span></h1>
+    <p class="lede">Peerless by name. Relentless by nature. We start with your business, then build what makes it efficient and market it to grow.</p>
   </div>
 </section>
 
