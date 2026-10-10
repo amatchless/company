@@ -1,45 +1,54 @@
 <?php get_header(); ?>
+<?php $thumbs = require get_template_directory() . '/inc/blog-thumbs.php'; ?>
 
-<main style="padding-block:140px 80px" class="container">
-  <div style="max-width:800px;margin:0 auto">
-    <span class="gold-line"></span>
-    <p class="eyebrow">Insights &amp; Resources</p>
-    <h1 class="section-title" style="margin-top:12px;margin-bottom:48px">The Amatchless<br><em>Growth Blog</em></h1>
-
-    <?php if (have_posts()) : ?>
-    <div style="display:flex;flex-direction:column;gap:32px">
-      <?php while (have_posts()) : the_post(); ?>
-      <article style="border-bottom:1px solid var(--border);padding-bottom:32px">
-        <?php
-        $cats = get_the_category();
-        $cat_name = $cats ? esc_html($cats[0]->name) : 'Insights';
-        ?>
-        <div class="blog-cat" style="margin-bottom:10px"><?php echo $cat_name; ?></div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;margin-bottom:12px">
-          <a href="<?php the_permalink(); ?>" style="transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''"><?php the_title(); ?></a>
-        </h2>
-        <p style="color:var(--t2);font-size:15px;line-height:1.7;margin-bottom:16px"><?php echo wp_trim_words(get_the_excerpt(), 30, '&hellip;'); ?></p>
-        <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--t3)">
-          <span><?php echo get_the_date(); ?></span>
-          <a href="<?php the_permalink(); ?>" class="btn btn-ghost" style="font-size:12px;padding:8px 16px">Read More &#8594;</a>
-        </div>
-      </article>
-      <?php endwhile; ?>
-    </div>
-
-    <div style="margin-top:48px;display:flex;justify-content:center;gap:12px">
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow"><?php echo is_search() ? 'Search' : (is_archive() ? 'Archive' : 'From the journal'); ?></span>
+    <h1>
       <?php
-      $prev_link = get_previous_posts_link('&larr; Newer Posts');
-      $next_link = get_next_posts_link('Older Posts &rarr;');
-      if ($prev_link) echo '<span class="btn btn-ghost" style="font-size:13px;padding:10px 20px">' . $prev_link . '</span>';
-      if ($next_link) echo '<span class="btn btn-ghost" style="font-size:13px;padding:10px 20px">' . $next_link . '</span>';
+      if (is_search())      printf('Results for “%s”', esc_html(get_search_query()));
+      elseif (is_archive()) echo esc_html(wp_strip_all_tags(get_the_archive_title()));
+      else                  echo 'Ideas on brand, growth and <span class="flame">automation.</span>';
       ?>
-    </div>
-
-    <?php else : ?>
-    <p style="color:var(--t2);text-align:center;padding:60px 0">No posts found. Check back soon.</p>
+    </h1>
+    <?php if (!is_search() && !is_archive()) : ?>
+    <p class="lede">Practical thinking for creators and founders — the same playbooks we use for clients.</p>
     <?php endif; ?>
   </div>
-</main>
+</section>
+
+<section class="post-list">
+  <div class="wrap">
+    <?php if (have_posts()) : ?>
+    <div class="posts">
+      <?php $n = 0; while (have_posts()) : the_post(); $t = $thumbs[$n++ % 3];
+        $cats  = get_the_category();
+        $words = str_word_count(wp_strip_all_tags(get_the_content()));
+      ?>
+      <a class="pcard" href="<?php the_permalink(); ?>">
+        <div class="media <?php echo esc_attr($t['class']); ?>">
+          <?php if (has_post_thumbnail()) : the_post_thumbnail('medium_large', ['alt' => '']); else : ?><span class="bthumb"><?php echo $t['svg']; ?></span><?php endif; ?>
+        </div>
+        <div class="pmeta"><span class="cat"><?php echo esc_html($cats ? $cats[0]->name : 'Journal'); ?></span><span>·</span><span><?php echo esc_html(get_the_date()); ?></span><span>·</span><span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span></div>
+        <h3><?php the_title(); ?></h3>
+        <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 22, '…')); ?></p>
+        <span class="rd">Read article →</span>
+      </a>
+      <?php endwhile; ?>
+    </div>
+    <?php
+    $prev = get_previous_posts_link('← Newer posts');
+    $next = get_next_posts_link('Older posts →');
+    if ($prev || $next) : ?>
+    <nav class="pager" aria-label="Posts">
+      <?php if ($prev) echo str_replace('<a ', '<a class="btn btn-ghost" ', $prev); ?>
+      <?php if ($next) echo str_replace('<a ', '<a class="btn btn-ghost" ', $next); ?>
+    </nav>
+    <?php endif; ?>
+    <?php else : ?>
+    <p class="lede">Nothing here yet. New articles are on the way.</p>
+    <?php endif; ?>
+  </div>
+</section>
 
 <?php get_footer(); ?>

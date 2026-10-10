@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -18,32 +18,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php wp_body_open(); ?>
+<a class="skip-link screen-reader-text" href="#top">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<?php $blog_url = amatchless_blog_url(); ?>
 
-<nav class="nav" id="mainNav" aria-label="Main navigation">
-  <div class="container nav-inner">
-    <a class="nav-logo" href="<?php echo esc_url(home_url('/')); ?>">A<em>M</em>ATCHLESS</a>
-    <ul class="nav-links">
-      <li><a href="<?php echo esc_url(home_url('/#services')); ?>">Services</a></li>
-      <li><a href="<?php echo esc_url(home_url('/#about')); ?>">About</a></li>
-      <li><a href="<?php echo esc_url(home_url('/#process')); ?>">Process</a></li>
-      <li><a href="<?php echo esc_url(home_url('/#results')); ?>">Results</a></li>
-      <li><a href="<?php echo esc_url(home_url('/blog/')); ?>">Insights</a></li>
-    </ul>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Amatchless home">
+      <img class="mark" src="<?php echo esc_url(amatchless_img('logo.png')); ?>" alt="" width="30" height="23">
+      <span><b>Amatchless</b></span>
+    </a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Services</a>
+      <a href="<?php echo esc_url(amatchless_anchor('work')); ?>">Work</a>
+      <a href="<?php echo esc_url(amatchless_anchor('about')); ?>">About</a>
+      <a href="<?php echo esc_url(amatchless_anchor('automation')); ?>">AI</a>
+      <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
+    </nav>
     <div class="nav-cta">
-      <a class="btn btn-outline" href="<?php echo esc_url(home_url('/#contact')); ?>">Get Free Audit</a>
+      <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Start a project <span class="arw" aria-hidden="true">↗</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
-    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-</nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Services</a>
+    <a href="<?php echo esc_url(amatchless_anchor('work')); ?>">Work</a>
+    <a href="<?php echo esc_url(amatchless_anchor('about')); ?>">About</a>
+    <a href="<?php echo esc_url(amatchless_anchor('automation')); ?>">AI Automation</a>
+    <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
+    <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Start a project ↗</a>
+  </div>
+</header>
 
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
-  <button class="mobile-close" id="mobileClose" aria-label="Close navigation">&#x2715;</button>
-  <a href="<?php echo esc_url(home_url('/#services')); ?>">Services</a>
-  <a href="<?php echo esc_url(home_url('/#about')); ?>">About</a>
-  <a href="<?php echo esc_url(home_url('/#process')); ?>">Process</a>
-  <a href="<?php echo esc_url(home_url('/#results')); ?>">Results</a>
-  <a href="<?php echo esc_url(home_url('/blog/')); ?>">Insights</a>
-  <a href="<?php echo esc_url(home_url('/#contact')); ?>" style="color:var(--gold)">Book a Call &#8594;</a>
-</div>
+<main id="top">

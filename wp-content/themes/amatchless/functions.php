@@ -1,6 +1,28 @@
 <?php
 defined('ABSPATH') || exit;
 
+define('AMATCHLESS_VERSION', '2.0.0');
+define('AMATCHLESS_EMAIL', 'info@amatchless.com');
+define('AMATCHLESS_PHONE', '+91 90508 20042');
+define('AMATCHLESS_PHONE_E164', '+919050820042');
+define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
+
+/* ── Template helpers ────────────────────────────────────────── */
+// Link to a section of the homepage: a bare #anchor on the homepage, a full URL elsewhere.
+function amatchless_anchor($id) {
+    return is_front_page() ? '#' . $id : home_url('/#' . $id);
+}
+
+// The blog index URL, or '' when no "Posts page" is set in Settings → Reading.
+function amatchless_blog_url() {
+    $id = (int) get_option('page_for_posts');
+    return $id ? get_permalink($id) : '';
+}
+
+function amatchless_img($file) {
+    return get_template_directory_uri() . '/assets/img/' . $file;
+}
+
 /* ── Theme Setup ─────────────────────────────────────────────── */
 function amatchless_setup() {
     add_theme_support('title-tag');
@@ -13,16 +35,19 @@ function amatchless_setup() {
 add_action('after_setup_theme', 'amatchless_setup');
 
 /* ── Enqueue Styles & Scripts ────────────────────────────────── */
+/* Asset files are renamed on each redesign rather than versioned: the ?ver= query
+   string is stripped below, so a new filename is what busts browser and page caches. */
 function amatchless_assets() {
     wp_enqueue_style('google-fonts',
-        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap',
         [], null
     );
-    wp_enqueue_style('amatchless-style', get_stylesheet_uri(), ['google-fonts'], '1.1.0');
-    wp_enqueue_script('amatchless-main', get_template_directory_uri() . '/assets/main.js', [], '1.1.0', true);
-    wp_localize_script('amatchless-main', 'amatchlessAjax', [
+    wp_enqueue_style('amatchless-site', get_template_directory_uri() . '/assets/css/site.css', ['google-fonts'], AMATCHLESS_VERSION);
+    wp_enqueue_script('amatchless-site', get_template_directory_uri() . '/assets/js/site.js', [], AMATCHLESS_VERSION, true);
+    wp_localize_script('amatchless-site', 'amatchlessAjax', [
         'url'   => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('amatchless_contact_nonce'),
+        'email' => AMATCHLESS_EMAIL,
     ]);
 }
 add_action('wp_enqueue_scripts', 'amatchless_assets');
@@ -31,6 +56,8 @@ add_action('wp_enqueue_scripts', 'amatchless_assets');
 function amatchless_preconnect() {
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    // Flag JS early so entrance animations never hide content when scripts fail.
+    echo '<script>document.documentElement.classList.add(\'js\');</script>' . "\n";
 }
 add_action('wp_head', 'amatchless_preconnect', 1);
 
@@ -161,7 +188,7 @@ function amatchless_schema() {
             'isPartOf'    => ['@id' => 'https://amatchless.com/#website'],
             'about'       => ['@id' => 'https://amatchless.com/#organization'],
             'inLanguage'  => 'en-IN',
-            'speakable'   => ['@type' => 'SpeakableSpecification', 'cssSelector' => ['.hero-headline', '.hero-sub', '.eyebrow']],
+            'speakable'   => ['@type' => 'SpeakableSpecification', 'cssSelector' => ['.hero h1', '.hero .lede']],
         ],
         [
             '@type'       => 'OfferCatalog',
@@ -236,37 +263,13 @@ function amatchless_schema() {
         [
             '@type'       => 'HowTo',
             '@id'         => 'https://amatchless.com/#howto',
-            'name'        => 'How Amatchless Delivers Digital Marketing Results — The 5-Stage Campaign Framework',
-            'description' => 'Our five-stage campaign framework: Discover, Define, Create, Activate, Optimise — a repeatable process that turns brand understanding into measurable growth.',
-            'totalTime'   => 'P6M',
+            'name'        => 'How Amatchless works — from idea to compounding growth',
+            'description' => 'Our four-stage process: Discover, Strategy, Build, Scale — a clear path from idea to compounding growth.',
             'step'        => [
-                ['@type' => 'HowToStep', 'position' => 1, 'name' => 'Discover', 'text' => 'Understand the brand, target audience, competitive landscape, and campaign objective before a single brief is written.'],
-                ['@type' => 'HowToStep', 'position' => 2, 'name' => 'Define',   'text' => 'Develop precise positioning and campaign direction — the strategic why before the creative what.'],
-                ['@type' => 'HowToStep', 'position' => 3, 'name' => 'Create',   'text' => 'Build the full creative and content system — every asset designed for a specific channel and measurable outcome.'],
-                ['@type' => 'HowToStep', 'position' => 4, 'name' => 'Activate', 'text' => 'Launch across all relevant channels in a coordinated sequence, maximising impact from day one.'],
-                ['@type' => 'HowToStep', 'position' => 5, 'name' => 'Optimise', 'text' => 'Analyse, learn, and refine continuously — building compound value so every campaign outperforms the last.'],
-            ],
-        ],
-        [
-            '@type'      => 'FAQPage',
-            '@id'        => 'https://amatchless.com/#faqpage',
-            'mainEntity' => [
-                ['@type' => 'Question', 'name' => 'What industries does Amatchless work with?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Amatchless works across B2B SaaS, D2C e-commerce, real estate, healthcare, education, and professional services. Our data-driven frameworks adapt to industry nuances while applying universal growth principles.']],
-                ['@type' => 'Question', 'name' => 'How long before we see results from digital marketing?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Paid media improvements typically appear within 4–6 weeks of launch. SEO results compound over 3–6 months, with meaningful organic growth visible by month 4. Marketing automation delivers impact from day one of implementation.']],
-                ['@type' => 'Question', 'name' => 'What is the minimum engagement at Amatchless?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Retainer engagements start at ₹40,000/month for focused single-service mandates and ₹80,000+/month for full-stack growth programmes. We work best with brands committed to sustainable, compounding growth.']],
-                ['@type' => 'Question', 'name' => 'What makes Amatchless different from other digital marketing agencies?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Amatchless is AI-native (not AI-adjacent), fully accountable with every deliverable tied to agreed KPIs, and never white-labels or outsources work. The team you meet is the team that works on your account, combining creative strategy with performance marketing under one roof.']],
-                ['@type' => 'Question', 'name' => 'What is Answer Engine Optimisation (AEO)?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Answer Engine Optimisation (AEO) is the practice of structuring and formatting content so it is selected and cited by AI-powered answer engines — including Google AI Overviews, ChatGPT, Perplexity AI, and Microsoft Copilot. Amatchless specialises in AEO alongside traditional SEO to ensure brands appear in both search results and AI-generated answers.']],
-                ['@type' => 'Question', 'name' => 'What is Generative Engine Optimisation (GEO)?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Generative Engine Optimisation (GEO) is the strategic practice of building your brand\'s online presence, structured data, and content authority so that generative AI systems — like ChatGPT, Gemini, and Perplexity — consistently recommend and reference your brand when users ask relevant questions. Amatchless is one of India\'s earliest digital marketing agencies to offer dedicated GEO services.']],
-                ['@type' => 'Question', 'name' => 'Is Amatchless a digital marketing agency in Delhi?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. Amatchless is headquartered in Rohini, New Delhi, India. We serve clients locally across Delhi NCR and nationally across India, as well as international brands in the US, UK, UAE, Australia, and Singapore.']],
-                ['@type' => 'Question', 'name' => 'Does Amatchless offer performance-based pricing?',
-                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'For select growth-stage clients, Amatchless offers hybrid retainer + performance models where a portion of the fee is tied to agreed KPIs. This requires a minimum base retainer and a 6-month commitment to allow adequate time for optimisation.']],
+                ['@type' => 'HowToStep', 'position' => 1, 'name' => 'Understand', 'text' => 'We learn your market, your goals and your real numbers before touching a single design.'],
+                ['@type' => 'HowToStep', 'position' => 2, 'name' => 'Plan',       'text' => 'A focused plan tied to revenue and outcomes — not vanity metrics or busywork.'],
+                ['@type' => 'HowToStep', 'position' => 3, 'name' => 'Launch',     'text' => 'Creative, campaigns and systems go live, built to the standard your brand deserves.'],
+                ['@type' => 'HowToStep', 'position' => 4, 'name' => 'Compound',   'text' => 'We measure, optimise and automate what works, so results build on themselves.'],
             ],
         ],
     ];

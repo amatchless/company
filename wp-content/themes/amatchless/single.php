@@ -1,41 +1,37 @@
 <?php get_header(); ?>
 
-<?php while (have_posts()) : the_post(); ?>
-
-<div class="post-hero">
-  <div class="container">
-    <?php
-    $cats = get_the_category();
-    if ($cats) echo '<div class="post-cat">' . esc_html($cats[0]->name) . '</div>';
-    ?>
-    <h1 class="post-h1"><?php the_title(); ?></h1>
-    <div class="post-meta">
-      <span><?php echo get_the_date(); ?></span>
-      <span>By <?php the_author(); ?></span>
-      <span><?php echo get_the_time('g:i A'); ?></span>
+<?php while (have_posts()) : the_post();
+  $cats     = get_the_category();
+  $words    = str_word_count(wp_strip_all_tags(get_the_content()));
+  $blog_url = amatchless_blog_url();
+?>
+<article>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow"><?php echo esc_html($cats ? $cats[0]->name : 'Journal'); ?></span>
+      <h1><?php the_title(); ?></h1>
+      <div class="pmeta">
+        <span><?php echo esc_html(get_the_date()); ?></span><span>·</span>
+        <span>By <?php the_author(); ?></span><span>·</span>
+        <span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span>
+      </div>
+      <?php if (has_post_thumbnail()) : ?>
+      <div class="post-thumb"><?php the_post_thumbnail('large'); ?></div>
+      <?php endif; ?>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="prose">
+      <?php the_content(); ?>
+      <nav class="post-nav" aria-label="Post">
+        <a class="btn btn-ghost" href="<?php echo esc_url($blog_url ?: home_url('/')); ?>">← <?php echo $blog_url ? 'All articles' : 'Home'; ?></a>
+        <?php $next = get_next_post(); $prev = get_previous_post(); $other = $next ?: $prev; if ($other) : ?>
+        <a class="btn btn-ghost" href="<?php echo esc_url(get_permalink($other)); ?>"><?php echo $next ? 'Next' : 'Previous'; ?> article →</a>
+        <?php endif; ?>
+      </nav>
     </div>
   </div>
-</div>
-
-<div class="post-body container">
-  <?php if (has_post_thumbnail()) : ?>
-  <div style="margin-bottom:40px;border-radius:12px;overflow:hidden"><?php the_post_thumbnail('large', ['style' => 'width:100%;height:auto']); ?></div>
-  <?php endif; ?>
-  <?php the_content(); ?>
-
-  <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
-    <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="btn btn-ghost" style="font-size:13px">&larr; All Insights</a>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <?php
-      $prev = get_previous_post();
-      $next = get_next_post();
-      if ($prev) echo '<a href="' . esc_url(get_permalink($prev)) . '" class="btn btn-ghost" style="font-size:13px">&larr; Previous</a>';
-      if ($next) echo '<a href="' . esc_url(get_permalink($next)) . '" class="btn btn-outline" style="font-size:13px">Next &rarr;</a>';
-      ?>
-    </div>
-  </div>
-</div>
-
+</article>
 <?php endwhile; ?>
 
 <?php get_footer(); ?>
