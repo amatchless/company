@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.8.0');
+define('AMATCHLESS_VERSION', '2.8.1');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -513,3 +513,10 @@ add_action('do_faviconico', function () {
     readfile($file);
     exit;
 });
+
+// Author name for article pages: a login-style display name (such as the default admin account) reads as "Amatchless".
+function amatchless_author_name() {
+    $name  = get_the_author();
+    $login = get_the_author_meta('user_login');
+    return (!$name || $name === $login) ? 'Amatchless' : $name;
+}

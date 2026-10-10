@@ -12,7 +12,7 @@
       <h1><?php the_title(); ?></h1>
       <div class="pmeta">
         <span><?php echo esc_html(get_the_date()); ?></span><span>·</span>
-        <span>By <?php the_author(); ?></span><span>·</span>
+        <span>By <?php echo esc_html(amatchless_author_name()); ?></span><span>·</span>
         <span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span>
       </div>
       <?php if (has_post_thumbnail()) : ?>
