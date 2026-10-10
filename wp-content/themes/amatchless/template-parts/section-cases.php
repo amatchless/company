@@ -8,11 +8,11 @@
     </div>
 
     <div class="case up" id="case-isola">
-      <div class="case-media media coast"><span class="lockup"><span class="wm">ISOLA</span><span class="tl">Somewhere, always.</span><span class="live">isolabysk.com ↗</span></span></div>
+      <div class="case-media media coast"><span class="badge-metric">575K creator</span><span class="lockup"><span class="wm">ISOLA</span><span class="tl">Somewhere, always.</span><span class="live">isolabysk.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Creator brand · E-commerce</span>
         <h3>Isola — a resort-wear label, built end to end</h3>
-        <p>For influencer Saanya Khatter, we designed and developed <strong>Isola</strong>, a luxury resort-wear and swimwear store — “cut for the water, worn to dinner” — and we run the brand's social media day to day. From storefront to feed, one team turned an engaged audience into a premium direct-to-consumer label.</p>
+        <p>For influencer Saanya Khatter, who has 575K followers on Instagram, we designed and developed <strong>Isola</strong>, a luxury resort-wear and swimwear store — “cut for the water, worn to dinner” — and we run the brand's social media day to day. From storefront to feed, one team turned a 575K-strong audience into a premium direct-to-consumer label.</p>
         <div class="case-metrics">
           <div class="metric"><div class="v">Web</div><div class="l">E-commerce store, designed &amp; built</div></div>
           <div class="metric"><div class="v">Social</div><div class="l">Ongoing social media management</div></div>
@@ -38,11 +38,11 @@
     </div>
 
     <div class="case up" id="case-baileys">
-      <div class="case-media media bloom"><span class="lockup"><span class="wm">BAILEY'S BLOSSOMS</span><span class="tl">Loved by 1M+ moms.</span><span class="live">baileysblossoms.com ↗</span></span></div>
+      <div class="case-media media bloom"><span class="badge-metric">★ Shark Tank</span><span class="lockup"><span class="wm">BAILEY'S BLOSSOMS</span><span class="tl">Loved by 1M+ moms.</span><span class="live">baileysblossoms.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">E-commerce · Kids &amp; family</span>
         <h3>Bailey's Blossoms — 4× return from Meta ads</h3>
-        <p><strong>Bailey's Blossoms</strong> is a much-loved boutique for girls' and “Mommy &amp; Me” clothing, trusted by over a million moms. We run their Meta (Facebook &amp; Instagram) advertising — building the creative and campaigns that turn ad spend into profitable, repeatable sales.</p>
+        <p><strong>Bailey's Blossoms</strong> is a much-loved boutique for girls' and “Mommy &amp; Me” clothing, trusted by over a million moms and featured on <em>Shark Tank</em>. We run their Meta (Facebook &amp; Instagram) advertising — building the creative and campaigns that turn ad spend into profitable, repeatable sales.</p>
         <div class="case-metrics">
           <div class="metric"><div class="v">4×</div><div class="l">Return on ad spend</div></div>
           <div class="metric"><div class="v">Meta</div><div class="l">Facebook &amp; Instagram ads</div></div>
@@ -56,7 +56,7 @@
       <div class="case-media media calm"><span class="badge-metric">★ Shark Tank</span><span class="lockup"><span class="wm">MOMENT</span><span class="tl">Drink your meditation.</span><span class="live">drinkmoment.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Wellness · Functional beverages</span>
-        <h3>Moment — growth for a Shark Tank wellness brand</h3>
+        <h3>Moment — growth for a Shark Tank–featured wellness brand</h3>
         <p><strong>Moment</strong> makes functional, meditation-inspired drinks and has been featured on <em>Shark Tank</em>. We support the brand across three fronts — sharpening the branding, growing organic visibility through SEO, and running paid ads — so a standout product reaches the people looking for it.</p>
         <div class="case-metrics">
           <div class="metric"><div class="v">SEO</div><div class="l">Organic search growth</div></div>
@@ -83,11 +83,11 @@
     </div>
 
     <div class="case up" id="case-mdbiocoals">
-      <div class="case-media media leaf"><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
+      <div class="case-media media leaf"><span class="badge-metric">Since 1999</span><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Agri-tech · Organic farming</span>
-        <h3>MD Biocoals — a 25-year agri brand, brought online</h3>
-        <p><strong>MD Biocoals</strong> makes organic fertilizers and biofertilizers for farmers across India — “for nature.” We developed their website and support the brand with identity work and visibility across search and AI answers (SEO, AEO &amp; GEO), so a trusted 25-year name is easy to find and easy to believe.</p>
+        <h3>MD Biocoals — a ₹100 Cr, 25-year agri brand, brought online</h3>
+        <p>Founded in 1999 and now a ₹100 Cr company, <strong>MD Biocoals</strong> makes organic fertilizers and biofertilizers for farmers across India — “for nature.” We developed their website and support the brand with identity work and visibility across search and AI answers (SEO, AEO &amp; GEO), so a 25-year-old name is easy to find and easy to believe.</p>
         <div class="case-metrics">
           <div class="metric"><div class="v">Web</div><div class="l">Website, designed &amp; built</div></div>
           <div class="metric"><div class="v">Brand</div><div class="l">Identity &amp; positioning</div></div>

@@ -17,7 +17,7 @@
           <button type="submit" class="btn btn-primary">Book a discovery call <span class="arw">↗</span></button>
         </form>
         <p class="hero-sub reveal d3"><a href="<?php echo esc_url(amatchless_anchor('work')); ?>">See our work →</a></p>
-        <p class="hero-proof reveal d4">Featured on Shark Tank (Moment) · 4× return on ad spend for Bailey's Blossoms · Booking system built for Haliburton Forest</p>
+        <p class="hero-proof reveal d4">Two Shark Tank–featured brands · a ₹100 Cr company · a creator with 575K followers · 4× return on ad spend</p>
         <div class="hero-meta reveal d4">
           <span><i class="dot"></i>Custom software</span>
           <span><i class="dot"></i>AI &amp; automation</span>
