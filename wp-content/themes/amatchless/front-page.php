@@ -7,12 +7,17 @@
     <div class="hero-grid">
       <div class="hero-inner">
         <span class="eyebrow reveal">Software × AI × Marketing</span>
-        <h1 class="reveal d1">Your business,<br><span class="flame">made matchless.</span></h1>
-        <p class="lede reveal d2">One team for the whole job. We start by understanding your business and its pain points, then show you how to run more efficiently — with custom software, AI and automation — and grow faster with SEO, digital, influencer and content marketing.</p>
-        <div class="hero-cta reveal d3">
-          <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Book a discovery call <span class="arw">↗</span></a>
-          <a href="<?php echo esc_url(amatchless_anchor('work')); ?>" class="btn btn-ghost">See our work</a>
-        </div>
+        <h1 class="reveal d1">Run leaner.<br><span class="flame">Grow faster.</span></h1>
+        <p class="lede reveal d2">One partner for software, AI and marketing. We start by understanding your business and its pain points, then build what makes it efficient and market it to grow.</p>
+        <form class="hero-capture reveal d3" id="heroCapture" novalidate>
+          <label class="screen-reader-text" for="hc-email">Your email</label>
+          <input class="form-ctrl" type="email" id="hc-email" placeholder="you@company.com" autocomplete="email">
+          <label class="screen-reader-text" for="hc-msg">What is slowing your business down?</label>
+          <input class="form-ctrl" type="text" id="hc-msg" placeholder="What's slowing your business down?">
+          <button type="submit" class="btn btn-primary">Book a discovery call <span class="arw">↗</span></button>
+        </form>
+        <p class="hero-sub reveal d3"><a href="<?php echo esc_url(amatchless_anchor('work')); ?>">See our work →</a></p>
+        <p class="hero-proof reveal d4">Featured on Shark Tank (Moment) · 4× return on ad spend for Bailey's Blossoms · Booking system built for Haliburton Forest</p>
         <div class="hero-meta reveal d4">
           <span><i class="dot"></i>Custom software</span>
           <span><i class="dot"></i>AI &amp; automation</span>
@@ -51,7 +56,7 @@
         <?php for ($set = 0; $set < 2; $set++) : ?>
         <div class="marquee-set"<?php echo $set ? ' aria-hidden="true"' : ''; ?>>
           <?php for ($rep = 0; $rep < 2; $rep++) : foreach ($clients as [$label, $url, $style]) : $copy = $set || $rep; ?>
-          <a class="logo-slot real<?php echo $rep ? ' dup' : ''; ?>" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"<?php echo $style ? ' style="' . esc_attr($style) . '"' : ''; ?><?php echo $copy ? ' tabindex="-1"' . ($set ? '' : ' aria-hidden="true"') : ''; ?>><?php echo wp_kses($label, ['br' => []]); ?></a>
+          <span class="logo-slot real<?php echo $rep ? ' dup' : ''; ?>"<?php echo $style ? ' style="' . esc_attr($style) . '"' : ''; ?><?php echo $copy && !$set ? ' aria-hidden="true"' : ''; ?>><?php echo wp_kses($label, ['br' => []]); ?></span>
           <?php endforeach; endfor; ?>
         </div>
         <?php endfor; ?>
@@ -85,13 +90,9 @@
 
 <?php get_template_part('template-parts/section', 'services'); ?>
 
-<?php get_template_part('template-parts/section', 'work'); ?>
-
-<?php get_template_part('template-parts/section', 'cases'); ?>
-
-<?php get_template_part('template-parts/section', 'automation'); ?>
-
 <?php get_template_part('template-parts/section', 'process'); ?>
+
+<?php get_template_part('template-parts/section', 'work'); ?>
 
 <?php get_template_part('template-parts/section', 'about'); ?>
 
@@ -101,8 +102,10 @@
 
 <?php get_template_part('template-parts/section', 'who'); ?>
 
-<?php get_template_part('template-parts/section', 'blog'); ?>
+<?php get_template_part('template-parts/section', 'faq'); ?>
 
 <?php get_template_part('template-parts/section', 'contact'); ?>
+
+<?php get_template_part('template-parts/section', 'blog'); ?>
 
 <?php get_footer(); ?>

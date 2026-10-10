@@ -36,8 +36,8 @@
               <input class="form-ctrl" type="text" id="f-name" name="name" placeholder="Full name" required autocomplete="name">
             </div>
             <div class="form-grp">
-              <label class="form-lbl" for="f-co">Business name *</label>
-              <input class="form-ctrl" type="text" id="f-co" name="company" placeholder="Company / brand" required autocomplete="organization">
+              <label class="form-lbl" for="f-co">Business name</label>
+              <input class="form-ctrl" type="text" id="f-co" name="company" placeholder="Company / brand" autocomplete="organization">
             </div>
           </div>
           <div class="form-row">
@@ -50,7 +50,7 @@
               <input class="form-ctrl" type="tel" id="f-phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
             </div>
           </div>
-          <div class="form-row">
+          <div class="form-row one">
             <div class="form-grp">
               <label class="form-lbl" for="f-service">Service</label>
               <select class="form-ctrl" id="f-service" name="service">
@@ -66,29 +66,23 @@
                 <option>Not sure yet — help me decide</option>
               </select>
             </div>
-            <div class="form-grp">
-              <label class="form-lbl" for="f-budget">Monthly budget</label>
-              <select class="form-ctrl" id="f-budget" name="budget">
-                <option value="">Select a range</option>
-                <option>Under ₹40,000/month</option>
-                <option>₹40,000 – ₹80,000/month</option>
-                <option>₹80,000 – ₹2,00,000/month</option>
-                <option>₹2,00,000+/month</option>
-                <option>Prefer to discuss</option>
-              </select>
-            </div>
           </div>
           <div class="form-grp">
-            <label class="form-lbl" for="f-msg">Your goals</label>
-            <textarea class="form-ctrl" id="f-msg" name="message" placeholder="Where do you want to be in twelve months? What's not working today?"></textarea>
+            <label class="form-lbl" for="f-msg">What's slowing your business down? *</label>
+            <textarea class="form-ctrl" id="f-msg" name="message" placeholder="What's not working today, and where do you want to be in twelve months?" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">Book my strategy call <span class="arw" aria-hidden="true">↗</span></button>
+          <button type="submit" class="btn btn-primary form-submit">Book a discovery call <span class="arw" aria-hidden="true">↗</span></button>
           <p class="form-note">Confidential. No spam. We reply within 24 hours.</p>
+          <ol class="next-steps" aria-label="What happens next">
+            <li><b>1</b> We reply within 24 hours</li>
+            <li><b>2</b> A 30-minute discovery call</li>
+            <li><b>3</b> You get a clear plan</li>
+          </ol>
         </form>
         <div class="form-success" id="formOk" tabindex="-1" hidden>
           <div class="tick" aria-hidden="true">✓</div>
           <h3>You're all set.</h3>
-          <p>We've got your details. Expect to hear from the Amatchless team within 24 hours.</p>
+          <p>We've got your details. Expect to hear from the Amatchless team within 24 hours. In a hurry? <a href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
         </div>
       </div>
     </div>

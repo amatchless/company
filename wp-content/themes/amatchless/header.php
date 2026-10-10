@@ -36,7 +36,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
     </nav>
     <div class="nav-cta">
-      <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Start a project <span class="arw" aria-hidden="true">↗</span></a>
+      <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Book a discovery call <span class="arw" aria-hidden="true">↗</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -48,7 +48,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About</a>
     <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI Automation</a>
     <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
-    <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Start a project ↗</a>
+    <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Book a discovery call ↗</a>
   </div>
 </header>
 

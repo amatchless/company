@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.6.2');
+define('AMATCHLESS_VERSION', '2.7.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -344,15 +344,15 @@ function amatchless_contact_submit() {
     $message = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
     $ip      = sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? '');
 
-    if (empty($name) || !is_email($email) || empty($company)) {
+    if (empty($name) || !is_email($email) || empty($message)) {
         wp_send_json_error(['message' => 'Please fill in all required fields correctly.']);
     }
 
     // Save first, so the lead is in wp-admin → Leads even if the email fails.
     $lead_id = amatchless_save_lead(compact('name', 'email', 'company', 'phone', 'service', 'budget', 'message', 'ip'));
 
-    $subject = "New Lead: {$name} from {$company}";
-    $body    = "New strategy call enquiry from amatchless.com\n\n"
+    $subject = $company !== '' ? "New Lead: {$name} from {$company}" : "New Lead: {$name}";
+    $body    = "New discovery call enquiry from amatchless.com\n\n"
              . "Name:    {$name}\n"
              . "Company: {$company}\n"
              . "Email:   {$email}\n"

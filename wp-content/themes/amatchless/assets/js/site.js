@@ -89,7 +89,7 @@
     leadForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var required = ['f-name', 'f-co', 'f-email'].map(function(id) { return document.getElementById(id); });
+      var required = ['f-name', 'f-email', 'f-msg'].map(function(id) { return document.getElementById(id); });
       var firstBad = null;
       required.forEach(function(el) {
         var bad = !el.value.trim() || (el.type === 'email' && !el.checkValidity());
@@ -117,7 +117,6 @@
       fd.append('company', val('f-co'));
       fd.append('phone',   val('f-phone'));
       fd.append('service', val('f-service'));
-      fd.append('budget',  val('f-budget'));
       fd.append('message', val('f-msg'));
 
       fetch(amatchlessAjax.url, { method: 'POST', body: fd, credentials: 'same-origin' })
@@ -130,8 +129,7 @@
             dataLayer.push({
               event: 'form_submit_success',
               form_name: 'contact_lead_form',
-              service_interest: val('f-service') || 'not_specified',
-              budget_range: val('f-budget') || 'not_specified'
+              service_interest: val('f-service') || 'not_specified'
             });
             dataLayer.push({ event: 'generate_lead', currency: 'INR', value: 1 });
           } else {
@@ -147,6 +145,38 @@
         });
     });
   }
+
+
+  /* ── Hero capture: carry the email and one-liner into the full form ── */
+  var heroForm = document.getElementById('heroCapture');
+  if (heroForm && leadForm) {
+    heroForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var he = document.getElementById('hc-email'), hm = document.getElementById('hc-msg');
+      var fe = document.getElementById('f-email'), fm = document.getElementById('f-msg');
+      if (he && fe && he.value.trim()) fe.value = he.value.trim();
+      if (hm && fm && hm.value.trim()) fm.value = hm.value.trim();
+      dataLayer.push({ event: 'hero_capture_submit', has_email: !!(he && he.value.trim()), has_message: !!(hm && hm.value.trim()) });
+      var book = document.getElementById('book');
+      if (book) book.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      var nm = document.getElementById('f-name');
+      if (nm) setTimeout(function() { nm.focus({ preventScroll: true }); }, 500);
+    });
+  }
+
+  /* ── Mobile action bar: hide while the contact form is on screen ── */
+  var actionBar = document.getElementById('actionBar');
+  var contactSec = document.getElementById('contact');
+  if (actionBar && contactSec && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) { actionBar.classList.toggle('is-hidden', en.isIntersecting); });
+    }, { threshold: 0.12 }).observe(contactSec);
+  }
+  document.querySelectorAll('.action-bar a').forEach(function(el) {
+    el.addEventListener('click', function() {
+      dataLayer.push({ event: 'action_bar_click', action: el.getAttribute('data-action') || 'unknown' });
+    });
+  });
 
   /* ── CTA click tracking ───────────────────────────────────── */
   document.querySelectorAll('a.btn, button.btn').forEach(function(el) {

@@ -3,8 +3,11 @@
   <div class="wrap">
     <div class="about-grid">
       <div class="about-art up">
-        <div class="media"><span class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5S20 17 20 21"/></svg><span>Team / founder photo</span></span></div>
-        <div class="stamp"><div class="q">“Peerless by name. Relentless by nature.”</div></div>
+        <figure class="about-quote">
+          <img class="mark" src="<?php echo esc_url(amatchless_img('logo.png')); ?>" alt="" width="62" height="48" loading="lazy">
+          <blockquote>Peerless by name.<br><span class="flame">Relentless by nature.</span></blockquote>
+          <figcaption>One partner for the whole business</figcaption>
+        </figure>
       </div>
       <div class="about-body up">
         <span class="eyebrow">About us</span>

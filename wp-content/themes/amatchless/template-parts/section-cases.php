@@ -7,7 +7,7 @@
       <p class="lede">Deep-dives into how we solve real problems for real brands — from building a store to being found across search and AI.</p>
     </div>
 
-    <div class="case up">
+    <div class="case up" id="case-isola">
       <div class="case-media media coast"><span class="lockup"><span class="wm">ISOLA</span><span class="tl">Somewhere, always.</span><span class="live">isolabysk.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Creator brand · E-commerce</span>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="case up">
+    <div class="case up" id="case-aleuco">
       <div class="case-media media blush"><span class="lockup"><span class="wm">ALEUCO</span><span class="tl">Beauty on demand.</span><span class="live">aleuco.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Beauty · US market</span>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="case up">
+    <div class="case up" id="case-baileys">
       <div class="case-media media bloom"><span class="lockup"><span class="wm">BAILEY'S BLOSSOMS</span><span class="tl">Loved by 1M+ moms.</span><span class="live">baileysblossoms.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">E-commerce · Kids &amp; family</span>
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <div class="case up">
+    <div class="case up" id="case-moment">
       <div class="case-media media calm"><span class="badge-metric">★ Shark Tank</span><span class="lockup"><span class="wm">MOMENT</span><span class="tl">Drink your meditation.</span><span class="live">drinkmoment.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Wellness · Functional beverages</span>
@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <div class="case up">
+    <div class="case up" id="case-haliburton">
       <div class="case-media media forest"><span class="lockup"><span class="wm">HALIBURTON FOREST</span><span class="tl">Ontario's outdoor paradise.</span><span class="live">haliburtonforest.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Tourism · Web &amp; booking</span>
@@ -82,7 +82,7 @@
       </div>
     </div>
 
-    <div class="case up">
+    <div class="case up" id="case-mdbiocoals">
       <div class="case-media media leaf"><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
       <div class="case-body">
         <span class="eyebrow">Agri-tech · Organic farming</span>
