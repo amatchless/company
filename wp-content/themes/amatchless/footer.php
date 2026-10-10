@@ -29,7 +29,7 @@
       </div>
       <div class="foot-col">
         <h5>Connect</h5>
-        <a href="https://www.instagram.com/amatchless" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
+        <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
         <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn</a>
         <a href="https://www.youtube.com/@amatchless" target="_blank" rel="noopener" data-social="YouTube">YouTube</a>
         <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>

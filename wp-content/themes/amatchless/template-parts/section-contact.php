@@ -25,6 +25,7 @@
           <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><span class="k">Email</span><span class="v"><?php echo esc_html(AMATCHLESS_EMAIL); ?></span></a>
           <a href="tel:<?php echo esc_attr(AMATCHLESS_PHONE_E164); ?>"><span class="k">Call</span><span class="v"><?php echo esc_html(AMATCHLESS_PHONE); ?></span></a>
           <a href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">Chat with the team ↗</span></a>
+          <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram"><span class="k">Instagram</span><span class="v">@amatchless_ ↗</span></a>
         </div>
       </div>
       <div class="lead-form">

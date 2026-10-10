@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.6.1');
+define('AMATCHLESS_VERSION', '2.6.2');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -177,7 +177,7 @@ function amatchless_schema() {
             ],
             'sameAs'        => [
                 'https://www.linkedin.com/company/amatchless',
-                'https://www.instagram.com/amatchless',
+                'https://www.instagram.com/amatchless_/',
                 'https://twitter.com/amatchless',
                 'https://www.youtube.com/@amatchless',
             ],
