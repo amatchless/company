@@ -33,13 +33,29 @@
 <section class="logos" id="clients">
   <div class="wrap">
     <p class="cap">The brands and creators we work with</p>
-    <div class="logo-row">
-      <a class="logo-slot real" href="https://isolabysk.com" target="_blank" rel="noopener">ISOLA</a>
-      <a class="logo-slot real" href="https://aleuco.com" target="_blank" rel="noopener">ALEUCO</a>
-      <a class="logo-slot real" href="https://www.baileysblossoms.com" target="_blank" rel="noopener" style="font-size:14px;line-height:1.1;letter-spacing:.1em;padding-left:.1em">BAILEY'S<br>BLOSSOMS</a>
-      <a class="logo-slot real" href="https://drinkmoment.com" target="_blank" rel="noopener">MOMENT</a>
-      <a class="logo-slot real" href="https://www.haliburtonforest.com" target="_blank" rel="noopener" style="font-size:13px;line-height:1.1;letter-spacing:.08em;padding-left:.08em">HALIBURTON<br>FOREST</a>
-      <a class="logo-slot real" href="https://www.mdbiocoals.com" target="_blank" rel="noopener" style="font-size:15px;letter-spacing:.12em;padding-left:.12em">MD BIOCOALS</a>
+    <?php
+    $clients = [
+        ['ISOLA',                 'https://isolabysk.com',           ''],
+        ['ALEUCO',                'https://aleuco.com',              ''],
+        ['BAILEY\'S<br>BLOSSOMS',   'https://www.baileysblossoms.com', 'font-size:14px;line-height:1.1;letter-spacing:.1em;padding-left:.1em'],
+        ['MOMENT',                'https://drinkmoment.com',         ''],
+        ['HALIBURTON<br>FOREST',  'https://www.haliburtonforest.com','font-size:13px;line-height:1.1;letter-spacing:.08em;padding-left:.08em'],
+        ['MD BIOCOALS',           'https://www.mdbiocoals.com',      'font-size:15px;letter-spacing:.12em;padding-left:.12em'],
+    ];
+    // Scrolling strip: each set repeats the logos so it is wider than any screen; the
+    // track holds two identical sets and slides by exactly one. Copies are hidden from
+    // screen readers and keyboard focus, and reduced-motion visitors get one static row.
+    ?>
+    <div class="marquee">
+      <div class="marquee-track">
+        <?php for ($set = 0; $set < 2; $set++) : ?>
+        <div class="marquee-set"<?php echo $set ? ' aria-hidden="true"' : ''; ?>>
+          <?php for ($rep = 0; $rep < 2; $rep++) : foreach ($clients as [$label, $url, $style]) : $copy = $set || $rep; ?>
+          <a class="logo-slot real<?php echo $rep ? ' dup' : ''; ?>" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"<?php echo $style ? ' style="' . esc_attr($style) . '"' : ''; ?><?php echo $copy ? ' tabindex="-1"' . ($set ? '' : ' aria-hidden="true"') : ''; ?>><?php echo wp_kses($label, ['br' => []]); ?></a>
+          <?php endforeach; endfor; ?>
+        </div>
+        <?php endfor; ?>
+      </div>
     </div>
     <p class="note">A growing roster across India, the US and Canada — fashion, beauty, wellness and tourism.</p>
   </div>

@@ -256,6 +256,21 @@ section{position:relative;z-index:2}
 .logo-slot:hover{border-color:var(--gold-line);color:var(--muted)}
 .logo-slot.real{border-style:solid;border-color:var(--line-2);color:var(--bone-dim);letter-spacing:.24em;padding-left:.24em}
 .logo-slot.real:hover{border-color:var(--gold);color:var(--gold)}
+/* scrolling client strip */
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+.marquee-set{display:flex;gap:16px;padding-right:16px}
+.marquee .logo-slot{flex:0 0 auto;width:210px;max-width:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (max-width:680px){.marquee .logo-slot{width:170px}.marquee-track{animation-duration:30s}}
+@media (prefers-reduced-motion:reduce){
+  .marquee{-webkit-mask-image:none;mask-image:none}
+  .marquee-track{width:auto}
+  .marquee-set{flex-wrap:wrap;justify-content:center;width:100%;padding-right:0}
+  .marquee-set[aria-hidden],.marquee .logo-slot.dup{display:none}
+  .marquee .logo-slot{flex:1 1 150px;width:auto}
+}
 .logos .note{text-align:center;margin-top:22px;font-size:13px;color:var(--muted-2)}
 
 /* ---- manifesto ---- */
