@@ -10,14 +10,7 @@
 .marquee-set .logo-slot:nth-child(6n+5){background:var(--c-orange)}
 .marquee-set .logo-slot:nth-child(6n){background:var(--c-violet)}
 .marquee .logo-slot.real:hover{border-color:transparent;color:#15120D}
-/* buttons */
-.nav-cta .btn-primary{background:var(--c-pink);color:#15120D;box-shadow:0 8px 30px -12px var(--c-pink)}
-.nav-cta .btn-primary:hover{background:#ff7ab3}
-.hero-capture .btn-primary{background:var(--c-pink);color:#15120D;box-shadow:0 8px 30px -12px var(--c-pink)}
-.hero-capture .btn-primary:hover{background:#ff7ab3}
-.form-submit.btn-primary{background:var(--c-blue);color:#07142b;box-shadow:0 8px 30px -12px var(--c-blue)}
-.form-submit.btn-primary:hover{background:#6aa6ff}
-.action-bar .btn-primary{background:var(--c-pink);color:#15120D}
+/* buttons: "Book a discovery call" stays gold; only outline buttons pick up colour on hover */
 .btn-ghost{border-width:1.5px}
 .btn-ghost:nth-of-type(odd):hover{border-color:var(--c-blue);color:var(--c-blue)}
 .btn-ghost:nth-of-type(even):hover{border-color:var(--c-mint);color:var(--c-mint)}
