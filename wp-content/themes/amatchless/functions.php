@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.0.0');
+define('AMATCHLESS_VERSION', '2.1.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -35,8 +35,6 @@ function amatchless_setup() {
 add_action('after_setup_theme', 'amatchless_setup');
 
 /* ── Enqueue Styles & Scripts ────────────────────────────────── */
-/* Asset files are renamed on each redesign rather than versioned: the ?ver= query
-   string is stripped below, so a new filename is what busts browser and page caches. */
 function amatchless_assets() {
     wp_enqueue_style('google-fonts',
         'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap',
@@ -381,8 +379,9 @@ add_filter('wp_xmlrpc_server_class', '__return_false');
 remove_action('wp_head', 'wp_generator');
 
 /* ── Security: Hide WP version from scripts/styles ──────────── */
+// Strip only the WordPress core version; theme assets keep their own ?ver= so caches refresh on update.
 function amatchless_remove_version($src) {
-    if (strpos($src, 'ver=')) {
+    if (strpos($src, 'ver=' . get_bloginfo('version')) !== false) {
         $src = remove_query_arg('ver', $src);
     }
     return $src;

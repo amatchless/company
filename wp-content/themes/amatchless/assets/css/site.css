@@ -20,8 +20,8 @@
   --gold-glow:rgba(235,164,60,.14);
   --gold-line:rgba(235,164,60,.28);
 
-  --maxw:1180px;
-  --gutter:clamp(20px, 5vw, 64px);
+  --maxw:1760px; /* wide: content spans the screen up to ultra-wide monitors */
+  --gutter:clamp(20px, 4.5vw, 88px);
   --r:14px;
 
   --f-display:"Fraunces","Georgia",serif;
@@ -238,7 +238,7 @@ a.work-card{color:inherit}
 section{position:relative;z-index:2}
 .band{padding-block:clamp(68px,10vh,120px)}
 .band-line{border-top:1px solid var(--line)}
-.sec-head{max-width:660px;margin-bottom:50px}
+.sec-head{max-width:760px;margin-bottom:50px}
 .sec-head.center{margin-inline:auto;text-align:center}
 .sec-head.center .eyebrow{justify-content:center}
 .sec-head h2{font-size:clamp(32px,4.6vw,52px);margin-top:20px;font-weight:360}
@@ -249,7 +249,7 @@ section{position:relative;z-index:2}
 .logos{border-block:1px solid var(--line);padding-block:34px;background:var(--ink-2)}
 .logos .cap{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2);text-align:center;margin-bottom:26px}
 .logo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px}
-.logo-slot{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;min-width:150px;flex:1 1 150px;max-width:190px;
+.logo-slot{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;min-width:150px;flex:1 1 150px;
   border:1px dashed var(--line-2);border-radius:12px;color:var(--muted-2);
   font-family:var(--f-display);font-size:17px;letter-spacing:.01em;transition:border-color .3s ease,color .3s ease}
 .logo-slot svg{width:18px;height:18px;opacity:.6}
