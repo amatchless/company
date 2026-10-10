@@ -507,6 +507,7 @@ textarea.form-ctrl{min-height:120px;resize:vertical}
 .page-head .lede{margin-top:20px}
 .page-head .pmeta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
 .page-head .pmeta .cat{color:var(--gold)}
+.page-head--section{padding-bottom:clamp(44px,7vh,72px)}
 .post-list{padding-block:50px clamp(68px,10vh,120px)}
 .pager{display:flex;justify-content:center;gap:14px;margin-top:50px}
 .prose{max-width:720px;padding-block:44px clamp(68px,10vh,120px);color:var(--bone-dim);font-size:17.5px;line-height:1.75}

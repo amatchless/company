@@ -13,17 +13,17 @@
       </div>
       <div class="foot-col">
         <h5>Services</h5>
-        <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Branding</a>
-        <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Social &amp; Content</a>
-        <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">SEO &amp; Ads</a>
-        <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Web &amp; Software</a>
-        <a href="<?php echo esc_url(amatchless_anchor('automation')); ?>">AI Automation</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Branding</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Social &amp; Content</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">SEO &amp; Ads</a>
+        <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Web &amp; Software</a>
+        <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI Automation</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
-        <a href="<?php echo esc_url(amatchless_anchor('about')); ?>">About us</a>
-        <a href="<?php echo esc_url(amatchless_anchor('work')); ?>">Our work</a>
-        <a href="<?php echo esc_url(amatchless_anchor('cases')); ?>">Case studies</a>
+        <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About us</a>
+        <a href="<?php echo esc_url(amatchless_page_url('work')); ?>">Our work</a>
+        <a href="<?php echo esc_url(amatchless_page_url('work')); ?>">Case studies</a>
         <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
         <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>">Contact</a>
       </div>

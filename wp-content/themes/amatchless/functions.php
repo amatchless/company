@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.3.0');
+define('AMATCHLESS_VERSION', '2.4.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -10,8 +10,58 @@ define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%2
 /* ── Template helpers ────────────────────────────────────────── */
 // Link to a section of the homepage: a bare #anchor on the homepage, a full URL elsewhere.
 function amatchless_anchor($id) {
-    return is_front_page() ? '#' . $id : home_url('/#' . $id);
+    return (is_front_page() || amatchless_is_section_page()) ? '#' . $id : home_url('/#' . $id);
 }
+
+// Menu items that have their own page: slug => [title, anchor on the home page].
+function amatchless_section_pages() {
+    return [
+        'services'      => ['Services',      'services'],
+        'work'          => ['Work',          'work'],
+        'about'         => ['About',         'about'],
+        'ai-automation' => ['AI Automation', 'automation'],
+    ];
+}
+
+// True on the individual section pages (they all end with the contact form).
+function amatchless_is_section_page() {
+    return is_page(array_keys(amatchless_section_pages()));
+}
+
+// URL of a section's own page, falling back to its home-page anchor if the page is missing.
+function amatchless_page_url($slug) {
+    $pages = amatchless_section_pages();
+    static $urls = [];
+    if (!isset($urls[$slug])) {
+        $page = get_page_by_path($slug);
+        $urls[$slug] = ($page && $page->post_status === 'publish') ? get_permalink($page) : '';
+    }
+    if ($urls[$slug]) return $urls[$slug];
+    return home_url('/#' . ($pages[$slug][1] ?? $slug));
+}
+
+// Create the section pages once (only the ones that don't exist yet).
+function amatchless_create_section_pages() {
+    if (get_option('amatchless_pages_created') === '1') return;
+    $excerpts = [
+        'services'      => 'Branding, content, social, SEO, Google and Meta ads, web development, automations and custom software from one accountable team.',
+        'work'          => 'Selected projects and case studies for Isola, AleuCo, Bailey\'s Blossoms, Moment, Haliburton Forest and MD Biocoals.',
+        'about'         => 'Amatchless is one team for creative, media and code, built to close the gap between good marketing and real growth.',
+        'ai-automation' => 'AI and automation wired into the work itself: leads on autopilot, content and reporting pipelines, and custom AI assistants.',
+    ];
+    foreach (amatchless_section_pages() as $slug => $info) {
+        if (get_page_by_path($slug)) continue;
+        wp_insert_post([
+            'post_type'    => 'page',
+            'post_status'  => 'publish',
+            'post_name'    => $slug,
+            'post_title'   => $info[0],
+            'post_excerpt' => $excerpts[$slug],
+        ]);
+    }
+    update_option('amatchless_pages_created', '1');
+}
+add_action('init', 'amatchless_create_section_pages', 20);
 
 // The blog index URL, or '' when no "Posts page" is set in Settings → Reading.
 function amatchless_blog_url() {

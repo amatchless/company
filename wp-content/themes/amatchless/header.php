@@ -29,10 +29,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span><b>Amatchless</b></span>
     </a>
     <nav class="navlinks" aria-label="Primary">
-      <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Services</a>
-      <a href="<?php echo esc_url(amatchless_anchor('work')); ?>">Work</a>
-      <a href="<?php echo esc_url(amatchless_anchor('about')); ?>">About</a>
-      <a href="<?php echo esc_url(amatchless_anchor('automation')); ?>">AI</a>
+      <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Services</a>
+      <a href="<?php echo esc_url(amatchless_page_url('work')); ?>">Work</a>
+      <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About</a>
+      <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI</a>
       <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
     </nav>
     <div class="nav-cta">
@@ -43,10 +43,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="<?php echo esc_url(amatchless_anchor('services')); ?>">Services</a>
-    <a href="<?php echo esc_url(amatchless_anchor('work')); ?>">Work</a>
-    <a href="<?php echo esc_url(amatchless_anchor('about')); ?>">About</a>
-    <a href="<?php echo esc_url(amatchless_anchor('automation')); ?>">AI Automation</a>
+    <a href="<?php echo esc_url(amatchless_page_url('services')); ?>">Services</a>
+    <a href="<?php echo esc_url(amatchless_page_url('work')); ?>">Work</a>
+    <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About</a>
+    <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI Automation</a>
     <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
     <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Start a project ↗</a>
   </div>
