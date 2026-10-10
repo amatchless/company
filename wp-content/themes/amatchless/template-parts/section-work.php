@@ -34,7 +34,7 @@
     </div>
     <div class="work-more">
       <?php if (!is_page('work')) : ?><a href="<?php echo esc_url(amatchless_page_url('work')); ?>" class="btn btn-ghost">See all case studies →</a><?php endif; ?>
-      <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>" class="btn btn-primary">Book a discovery call <span class="arw" aria-hidden="true">↗</span></a>
+      <a href="<?php echo esc_url(amatchless_anchor('book')); ?>" class="btn btn-primary">Book a discovery call <span class="arw" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>

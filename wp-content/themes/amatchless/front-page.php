@@ -83,7 +83,7 @@
         <li><span class="pain">Ad spend that doesn't pay back</span><span class="fix">Performance campaigns built for ROAS</span></li>
         <li><span class="pain">Our brand has no reach</span><span class="fix">Influencer and social marketing</span></li>
       </ul>
-      <a class="pain-cta" href="<?php echo esc_url(amatchless_anchor('contact')); ?>">Tell us what's slowing you down <span aria-hidden="true">↗</span></a>
+      <a class="pain-cta" href="<?php echo esc_url(amatchless_anchor('book')); ?>">Tell us what's slowing you down <span aria-hidden="true">↗</span></a>
     </aside>
   </div>
 </section>

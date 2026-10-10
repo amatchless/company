@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.10.0');
+define('AMATCHLESS_VERSION', '2.10.1');
 define('AMATCHLESS_COLOUR_TEST', true); // multicolour accents test; false = back to gold only
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
