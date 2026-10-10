@@ -10,6 +10,8 @@
 
 <?php get_template_part('template-parts/section', 'automation'); ?>
 
+<?php get_template_part('template-parts/section', 'build-story'); ?>
+
 <?php get_template_part('template-parts/section', 'process'); ?>
 
 <?php get_template_part('template-parts/section', 'contact'); ?>

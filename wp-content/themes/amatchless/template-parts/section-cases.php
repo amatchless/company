@@ -7,6 +7,21 @@
       <p class="lede">Deep-dives into how we solve real problems for real brands — from building a store to being found across search and AI.</p>
     </div>
 
+    <div class="case up" id="case-mdbiocoals">
+      <div class="case-media media leaf"><span class="badge-metric">Since 1999</span><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
+      <div class="case-body">
+        <span class="eyebrow">Agri-tech · Software, automation &amp; marketing</span>
+        <h3>MD Biocoals — streamlining sales, HR and distributor onboarding</h3>
+        <p>Founded in 1999 and now a ₹100 Cr company, <strong>MD Biocoals</strong> makes organic fertilizers and biofertilizers for farmers across India — “for nature.” We are their technology and marketing partner. We provide devops support for their website, build solutions to streamline their sales, HR and distributor onboarding processes, and are developing a custom CRM around the way their teams work. We also help with their marketing, including visibility across search and AI answers (SEO, AEO &amp; GEO).</p>
+        <div class="case-metrics">
+          <div class="metric"><div class="v">CRM</div><div class="l">Custom, built around their workflow</div></div>
+          <div class="metric"><div class="v">Process</div><div class="l">Sales, HR &amp; distributor onboarding</div></div>
+          <div class="metric"><div class="v">DevOps</div><div class="l">Ongoing website support</div></div>
+        </div>
+        <a href="https://www.mdbiocoals.com" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:26px">Visit mdbiocoals.com ↗</a>
+      </div>
+    </div>
+
     <div class="case up" id="case-isola">
       <div class="case-media media coast"><span class="badge-metric">575K creator</span><span class="lockup"><span class="wm">ISOLA</span><span class="tl">Somewhere, always.</span><span class="live">isolabysk.com ↗</span></span></div>
       <div class="case-body">
@@ -82,19 +97,5 @@
       </div>
     </div>
 
-    <div class="case up" id="case-mdbiocoals">
-      <div class="case-media media leaf"><span class="badge-metric">Since 1999</span><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
-      <div class="case-body">
-        <span class="eyebrow">Agri-tech · Organic farming</span>
-        <h3>MD Biocoals — a ₹100 Cr, 25-year agri brand, brought online</h3>
-        <p>Founded in 1999 and now a ₹100 Cr company, <strong>MD Biocoals</strong> makes organic fertilizers and biofertilizers for farmers across India — “for nature.” We developed their website and support the brand with identity work and visibility across search and AI answers (SEO, AEO &amp; GEO), so a 25-year-old name is easy to find and easy to believe.</p>
-        <div class="case-metrics">
-          <div class="metric"><div class="v">Web</div><div class="l">Website, designed &amp; built</div></div>
-          <div class="metric"><div class="v">Brand</div><div class="l">Identity &amp; positioning</div></div>
-          <div class="metric"><div class="v">AEO<span style="opacity:.5">/</span>GEO</div><div class="l">Found in search &amp; AI</div></div>
-        </div>
-        <a href="https://www.mdbiocoals.com" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:26px">Visit mdbiocoals.com ↗</a>
-      </div>
-    </div>
   </div>
 </section>

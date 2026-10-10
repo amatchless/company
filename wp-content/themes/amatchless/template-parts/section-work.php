@@ -7,6 +7,10 @@
       <p class="lede">Live work across fashion, beauty, wellness, tourism and agri-tech — for <strong>Isola</strong>, <strong>AleuCo</strong>, the Shark Tank–featured <strong>Moment</strong> and <strong>Bailey's Blossoms</strong>, <strong>Haliburton Forest</strong> and <strong>MD Biocoals</strong>.</p>
     </div>
     <div class="work-grid up">
+      <a class="work-card" href="<?php echo esc_url(amatchless_page_url('work') . '#case-mdbiocoals'); ?>">
+        <div class="media leaf"><span class="badge-live">Live project</span><span class="badge-metric">₹100 Cr · since 1999</span><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
+        <div class="info"><div><h3>MD Biocoals</h3><div class="cat">Custom CRM · Automation · Marketing</div></div><span class="go" aria-hidden="true">↗</span></div>
+      </a>
       <a class="work-card" href="<?php echo esc_url(amatchless_page_url('work') . '#case-isola'); ?>">
         <div class="media coast"><span class="badge-live">Live project</span><span class="badge-metric">575K creator</span><span class="lockup"><span class="wm">ISOLA</span><span class="tl">Somewhere, always.</span><span class="live">isolabysk.com ↗</span></span></div>
         <div class="info"><div><h3>Isola by SK</h3><div class="cat">Web Development · Social Media</div></div><span class="go" aria-hidden="true">↗</span></div>
@@ -22,10 +26,6 @@
       <a class="work-card" href="<?php echo esc_url(amatchless_page_url('work') . '#case-moment'); ?>">
         <div class="media calm"><span class="badge-live">Live project</span><span class="badge-metric">★ Shark Tank</span><span class="lockup"><span class="wm">MOMENT</span><span class="tl">Drink your meditation.</span><span class="live">drinkmoment.com ↗</span></span></div>
         <div class="info"><div><h3>Moment</h3><div class="cat">SEO · Branding · Ads</div></div><span class="go" aria-hidden="true">↗</span></div>
-      </a>
-      <a class="work-card" href="<?php echo esc_url(amatchless_page_url('work') . '#case-mdbiocoals'); ?>">
-        <div class="media leaf"><span class="badge-live">Live project</span><span class="badge-metric">₹100 Cr · since 1999</span><span class="lockup"><span class="wm">MD BIOCOALS</span><span class="tl">For nature.</span><span class="live">mdbiocoals.com ↗</span></span></div>
-        <div class="info"><div><h3>MD Biocoals</h3><div class="cat">Web · Branding · SEO/AEO/GEO</div></div><span class="go" aria-hidden="true">↗</span></div>
       </a>
       <a class="work-card" href="<?php echo esc_url(amatchless_page_url('work') . '#case-haliburton'); ?>">
         <div class="media forest"><span class="badge-live">Live project</span><span class="lockup"><span class="wm">HALIBURTON FOREST</span><span class="tl">Ontario's outdoor paradise.</span><span class="live">haliburtonforest.com ↗</span></span></div>
