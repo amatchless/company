@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.10.1');
+define('AMATCHLESS_VERSION', '2.11.0');
 define('AMATCHLESS_COLOUR_TEST', true); // multicolour accents test; false = back to gold only
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
@@ -104,6 +104,13 @@ function amatchless_assets() {
 }
 add_action('wp_enqueue_scripts', 'amatchless_assets');
 
+/* ── Load the Google Fonts stylesheet without blocking the first paint ── */
+add_filter('style_loader_tag', function ($tag, $handle) {
+    if ($handle !== 'google-fonts') return $tag;
+    $async = str_replace("media='all'", "media='print' onload=\"this.media='all'\"", $tag);
+    return $async . '<noscript>' . $tag . '</noscript>' . "\n";
+}, 10, 2);
+
 /* ── Preconnect Hints ────────────────────────────────────────── */
 function amatchless_preconnect() {
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
@@ -152,186 +159,8 @@ function amatchless_og_meta() {
 }
 add_action('wp_head', 'amatchless_og_meta', 5);
 
-/* ── Schema JSON-LD ──────────────────────────────────────────── */
-function amatchless_schema() {
-    if (!is_front_page()) return;
-
-    $graph = [
-        [
-            '@type'         => 'Organization',
-            '@id'           => 'https://amatchless.com/#organization',
-            'name'          => 'Amatchless',
-            'alternateName' => 'AMATCHLESS',
-            'url'           => 'https://amatchless.com',
-            'logo'          => [
-                '@type' => 'ImageObject',
-                'url'   => 'https://amatchless.com/wp-content/themes/amatchless/assets/og-image.jpg',
-                'width' => 1200, 'height' => 630,
-            ],
-            'description'   => 'Amatchless is a creative and digital growth agency based in Rohini, New Delhi, India. We specialise in SEO, Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), performance advertising, content marketing, social media marketing, and AI-powered marketing automation.',
-            'email'         => 'info@amatchless.com',
-            'telephone'     => '+91-90508-20042',
-            'address'       => [
-                '@type'           => 'PostalAddress',
-                'streetAddress'   => 'Rohini',
-                'addressLocality' => 'New Delhi',
-                'addressRegion'   => 'Delhi',
-                'postalCode'      => '110085',
-                'addressCountry'  => 'IN',
-            ],
-            'sameAs'        => [
-                'https://www.linkedin.com/company/amatchless',
-                'https://www.instagram.com/amatchless_/',
-                'https://twitter.com/amatchless',
-                'https://www.youtube.com/@amatchless',
-            ],
-            'foundingDate'  => '2020',
-            'numberOfEmployees' => ['@type' => 'QuantitativeValue', 'minValue' => 5, 'maxValue' => 25],
-            'areaServed'    => ['IN', 'US', 'GB', 'AU', 'AE', 'SG'],
-            'knowsAbout'    => ['SEO', 'AEO', 'GEO', 'Performance Marketing', 'Content Marketing', 'Marketing Automation', 'Digital Marketing', 'AI Marketing'],
-        ],
-        [
-            '@type'         => ['LocalBusiness', 'ProfessionalService'],
-            '@id'           => 'https://amatchless.com/#localbusiness',
-            'name'          => 'Amatchless',
-            'description'   => 'Digital marketing agency in New Delhi offering SEO, AEO, GEO, performance advertising, content marketing, and marketing automation for brands across India and worldwide.',
-            'email'         => 'info@amatchless.com',
-            'telephone'     => '+91-90508-20042',
-            'url'           => 'https://amatchless.com',
-            'address'       => [
-                '@type'           => 'PostalAddress',
-                'streetAddress'   => 'Rohini',
-                'addressLocality' => 'New Delhi',
-                'addressRegion'   => 'Delhi',
-                'postalCode'      => '110085',
-                'addressCountry'  => 'IN',
-            ],
-            'geo'           => ['@type' => 'GeoCoordinates', 'latitude' => '28.7041', 'longitude' => '77.1025'],
-            'openingHoursSpecification' => [[
-                '@type'     => 'OpeningHoursSpecification',
-                'dayOfWeek' => ['Monday','Tuesday','Wednesday','Thursday','Friday'],
-                'opens'     => '09:00',
-                'closes'    => '19:00',
-            ]],
-            'priceRange'    => '₹₹₹',
-            'currenciesAccepted' => 'INR, USD',
-            'areaServed'    => 'Worldwide',
-            'hasOfferCatalog' => ['@id' => 'https://amatchless.com/#offers'],
-        ],
-        [
-            '@type'     => 'WebSite',
-            '@id'       => 'https://amatchless.com/#website',
-            'name'      => 'Amatchless',
-            'url'       => 'https://amatchless.com',
-            'inLanguage' => 'en-IN',
-            'publisher'  => ['@id' => 'https://amatchless.com/#organization'],
-            'potentialAction' => [
-                '@type'       => 'SearchAction',
-                'target'      => ['@type' => 'EntryPoint', 'urlTemplate' => 'https://amatchless.com/?s={search_term_string}'],
-                'query-input' => 'required name=search_term_string',
-            ],
-        ],
-        [
-            '@type'       => 'WebPage',
-            '@id'         => 'https://amatchless.com/#webpage',
-            'url'         => 'https://amatchless.com/',
-            'name'        => 'Amatchless — Digital Marketing Agency in New Delhi | SEO, AEO, GEO & Performance Ads',
-            'description' => 'Amatchless is New Delhi\'s premier digital marketing agency delivering SEO, AEO, GEO, performance advertising, content marketing, and AI-powered marketing automation.',
-            'isPartOf'    => ['@id' => 'https://amatchless.com/#website'],
-            'about'       => ['@id' => 'https://amatchless.com/#organization'],
-            'inLanguage'  => 'en-IN',
-            'speakable'   => ['@type' => 'SpeakableSpecification', 'cssSelector' => ['.hero h1', '.hero .lede']],
-        ],
-        [
-            '@type'       => 'OfferCatalog',
-            '@id'         => 'https://amatchless.com/#offers',
-            'name'        => 'Digital Marketing Services by Amatchless',
-            'itemListElement' => [
-                ['@type' => 'Offer', 'itemOffered' => ['@id' => 'https://amatchless.com/#service-seo']],
-                ['@type' => 'Offer', 'itemOffered' => ['@id' => 'https://amatchless.com/#service-ads']],
-                ['@type' => 'Offer', 'itemOffered' => ['@id' => 'https://amatchless.com/#service-social']],
-                ['@type' => 'Offer', 'itemOffered' => ['@id' => 'https://amatchless.com/#service-content']],
-                ['@type' => 'Offer', 'itemOffered' => ['@id' => 'https://amatchless.com/#service-automation']],
-                ['@type' => 'Offer', 'itemOffered' => ['@id' => 'https://amatchless.com/#service-cro']],
-            ],
-        ],
-        [
-            '@type'       => 'Service',
-            '@id'         => 'https://amatchless.com/#service-seo',
-            'name'        => 'SEO, AEO & GEO Services',
-            'description' => 'Comprehensive SEO, Answer Engine Optimisation (AEO), and Generative Engine Optimisation (GEO) services. We help brands rank on Google and get cited by AI platforms like ChatGPT, Perplexity, and Google AI Overviews.',
-            'serviceType' => 'Search Engine Optimisation',
-            'provider'    => ['@id' => 'https://amatchless.com/#organization'],
-            'areaServed'  => 'Worldwide',
-            'url'         => 'https://amatchless.com/#services',
-            'offers'      => ['@type' => 'Offer', 'priceSpecification' => ['@type' => 'PriceSpecification', 'priceCurrency' => 'INR', 'minPrice' => 40000]],
-        ],
-        [
-            '@type'       => 'Service',
-            '@id'         => 'https://amatchless.com/#service-ads',
-            'name'        => 'Performance Advertising',
-            'description' => 'Data-driven performance advertising on Google Ads, Meta Ads, and YouTube. We design precision-targeted funnels that convert clicks into revenue.',
-            'serviceType' => 'Digital Advertising',
-            'provider'    => ['@id' => 'https://amatchless.com/#organization'],
-            'areaServed'  => 'Worldwide',
-            'url'         => 'https://amatchless.com/#services',
-        ],
-        [
-            '@type'       => 'Service',
-            '@id'         => 'https://amatchless.com/#service-social',
-            'name'        => 'Social Media Marketing',
-            'description' => 'Strategic social media marketing including content creation, Reels, Shorts, and community management across Instagram, LinkedIn, YouTube, and Facebook.',
-            'serviceType' => 'Social Media Marketing',
-            'provider'    => ['@id' => 'https://amatchless.com/#organization'],
-            'areaServed'  => 'Worldwide',
-        ],
-        [
-            '@type'       => 'Service',
-            '@id'         => 'https://amatchless.com/#service-content',
-            'name'        => 'Content Marketing',
-            'description' => 'Authority content marketing including long-form SEO articles, thought leadership, copywriting, and AI-ready content that ranks on Google and gets cited by AI assistants.',
-            'serviceType' => 'Content Marketing',
-            'provider'    => ['@id' => 'https://amatchless.com/#organization'],
-            'areaServed'  => 'Worldwide',
-        ],
-        [
-            '@type'       => 'Service',
-            '@id'         => 'https://amatchless.com/#service-automation',
-            'name'        => 'Marketing Automation',
-            'description' => 'AI-powered marketing automation including CRM integrations, lead nurturing workflows, email sequences, and intelligent sales automation.',
-            'serviceType' => 'Marketing Automation',
-            'provider'    => ['@id' => 'https://amatchless.com/#organization'],
-            'areaServed'  => 'Worldwide',
-        ],
-        [
-            '@type'       => 'Service',
-            '@id'         => 'https://amatchless.com/#service-cro',
-            'name'        => 'Analytics & Conversion Rate Optimisation (CRO)',
-            'description' => 'Data-led conversion rate optimisation using GA4, GTM, A/B testing, and funnel analysis. We find hidden leaks in your funnel and systematically seal them for compounding revenue gains.',
-            'serviceType' => 'Conversion Rate Optimisation',
-            'provider'    => ['@id' => 'https://amatchless.com/#organization'],
-            'areaServed'  => 'Worldwide',
-        ],
-        [
-            '@type'       => 'HowTo',
-            '@id'         => 'https://amatchless.com/#howto',
-            'name'        => 'How Amatchless works — from idea to compounding growth',
-            'description' => 'Our four-stage process: Discover, Strategy, Build, Scale — a clear path from idea to compounding growth.',
-            'step'        => [
-                ['@type' => 'HowToStep', 'position' => 1, 'name' => 'Understand', 'text' => 'We learn your market, your goals and your real numbers before touching a single design.'],
-                ['@type' => 'HowToStep', 'position' => 2, 'name' => 'Plan',       'text' => 'A focused plan tied to revenue and outcomes — not vanity metrics or busywork.'],
-                ['@type' => 'HowToStep', 'position' => 3, 'name' => 'Launch',     'text' => 'Creative, campaigns and systems go live, built to the standard your brand deserves.'],
-                ['@type' => 'HowToStep', 'position' => 4, 'name' => 'Compound',   'text' => 'We measure, optimise and automate what works, so results build on themselves.'],
-            ],
-        ],
-    ];
-
-    echo '<script type="application/ld+json">' . wp_json_encode(
-        ['@context' => 'https://schema.org', '@graph' => $graph],
-        JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
-    ) . '</script>' . "\n";
-}
-add_action('wp_head', 'amatchless_schema');
+/* ── SEO titles, descriptions, share image and schema live in inc/seo.php ── */
+require_once get_template_directory() . '/inc/seo.php';
 
 /* ── Contact Form AJAX ───────────────────────────────────────── */
 require_once get_template_directory() . '/inc/leads.php';
@@ -473,7 +302,7 @@ function amatchless_security_headers() {
         header('X-XSS-Protection: 1; mode=block');
         header('Referrer-Policy: strict-origin-when-cross-origin');
         header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
-        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.googleanalytics.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com");
+        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com");
     }
 }
 add_action('send_headers', 'amatchless_security_headers');

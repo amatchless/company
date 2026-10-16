@@ -40,7 +40,7 @@
       <?php $privacy = get_privacy_policy_url(); if ($privacy) : ?>
       <span class="foot-legal"><a href="<?php echo esc_url($privacy); ?>">Privacy Policy</a></span>
       <?php endif; ?>
-      <span>Gurugram, India — working worldwide</span>
+      <span>Rohini, New Delhi — working worldwide</span>
     </div>
   </div>
 </footer>

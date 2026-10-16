@@ -4,11 +4,13 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N5F7RG6V');</script>
+<script>window.dataLayer=window.dataLayer||[];
+// Load Tag Manager on first interaction (or after 3.5s) so it doesn't compete with the first paint.
+(function(w,d,s,l,i){var go=false;function load(){if(go)return;go=true;w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}
+['scroll','click','touchstart','keydown','mousemove'].forEach(function(e){w.addEventListener(e,load,{once:true,passive:true});});
+setTimeout(load,3500);})(window,document,'script','dataLayer','GTM-N5F7RG6V');</script>
 <!-- End Google Tag Manager -->
 <?php wp_head(); ?>
 </head>
