@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.11.0');
+define('AMATCHLESS_VERSION', '2.12.0');
 define('AMATCHLESS_COLOUR_TEST', true); // multicolour accents test; false = back to gold only
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
@@ -87,11 +87,7 @@ add_action('after_setup_theme', 'amatchless_setup');
 
 /* ── Enqueue Styles & Scripts ────────────────────────────────── */
 function amatchless_assets() {
-    wp_enqueue_style('google-fonts',
-        'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap',
-        [], null
-    );
-    wp_enqueue_style('amatchless-site', get_template_directory_uri() . '/assets/css/site.css', ['google-fonts'], AMATCHLESS_VERSION);
+    wp_enqueue_style('amatchless-site', get_template_directory_uri() . '/assets/css/site.css', [], AMATCHLESS_VERSION);
     if (AMATCHLESS_COLOUR_TEST) {
         wp_enqueue_style('amatchless-colour-test', get_template_directory_uri() . '/assets/css/colour-test.css', ['amatchless-site'], AMATCHLESS_VERSION);
     }
@@ -104,17 +100,22 @@ function amatchless_assets() {
 }
 add_action('wp_enqueue_scripts', 'amatchless_assets');
 
-/* ── Load the Google Fonts stylesheet without blocking the first paint ── */
-add_filter('style_loader_tag', function ($tag, $handle) {
-    if ($handle !== 'google-fonts') return $tag;
-    $async = str_replace("media='all'", "media='print' onload=\"this.media='all'\"", $tag);
-    return $async . '<noscript>' . $tag . '</noscript>' . "\n";
-}, 10, 2);
+/* ── Fonts: self-hosted and inlined (no Google Fonts request chain) ── */
+function amatchless_fonts() {
+    $dir = get_template_directory();
+    $uri = get_template_directory_uri();
+    foreach (['HankenGrotesk-normal-latin', 'Fraunces-normal-latin'] as $f) {
+        echo '<link rel="preload" href="' . esc_url($uri . '/assets/fonts/' . $f . '.woff2') . '" as="font" type="font/woff2" crossorigin>' . "\n";
+    }
+    $css = @file_get_contents($dir . '/assets/css/fonts.css');
+    if ($css) {
+        echo '<style id="amatchless-fonts">' . str_replace('../fonts/', $uri . '/assets/fonts/', $css) . '</style>' . "\n";
+    }
+}
+add_action('wp_head', 'amatchless_fonts', 2);
 
 /* ── Preconnect Hints ────────────────────────────────────────── */
 function amatchless_preconnect() {
-    echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
-    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
     // Flag JS early so entrance animations never hide content when scripts fail.
     echo '<script>document.documentElement.classList.add(\'js\');</script>' . "\n";
 }

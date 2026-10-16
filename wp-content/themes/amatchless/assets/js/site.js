@@ -222,12 +222,18 @@
 
   /* ── Scroll depth (25 / 50 / 75 / 90%) ────────────────────── */
   var milestones = [25, 50, 75, 90], fired = {};
+  var scrollQueued = false;
   window.addEventListener('scroll', function() {
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    if (max <= 0) return;
-    var pct = Math.round(window.scrollY / max * 100);
-    milestones.forEach(function(m) {
-      if (!fired[m] && pct >= m) { fired[m] = true; dataLayer.push({ event: 'scroll_depth', scroll_percentage: m }); }
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(function() {
+      scrollQueued = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      var pct = Math.round(window.scrollY / max * 100);
+      milestones.forEach(function(m) {
+        if (!fired[m] && pct >= m) { fired[m] = true; dataLayer.push({ event: 'scroll_depth', scroll_percentage: m }); }
+      });
     });
   }, { passive: true });
 

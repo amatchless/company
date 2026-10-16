@@ -25,9 +25,9 @@
         </div>
       </div>
       <div class="hero-art reveal d2" aria-hidden="true">
-        <div class="media tint-c m1"><span class="badge-metric" style="left:14px;right:auto">★ Moment</span><img src="<?php echo esc_url(amatchless_img('hero-moment.jpg')); ?>" width="780" height="986" fetchpriority="high" decoding="async" alt="Moment × Barbie strawberry rose campaign" style="object-position:center"></div>
-        <div class="media tint-b m2"><span class="badge-metric" style="left:14px;right:auto">★ Bailey's</span><img src="<?php echo esc_url(amatchless_img('hero-baileys.jpg')); ?>" width="620" height="1092" loading="lazy" decoding="async" alt="Bailey's Blossoms reel" style="object-position:center"></div>
-        <div class="media m3"><img src="<?php echo esc_url(amatchless_img('hero-haliburton.jpg')); ?>" width="900" height="419" loading="lazy" decoding="async" alt="Haliburton Forest website" style="object-position:top"></div>
+        <div class="media tint-c m1"><span class="badge-metric" style="left:14px;right:auto">★ Moment</span><img src="<?php echo esc_url(amatchless_img('hero-moment-780.webp')); ?>" srcset="<?php echo esc_url(amatchless_img('hero-moment-400.webp')); ?> 400w, <?php echo esc_url(amatchless_img('hero-moment-780.webp')); ?> 780w" sizes="(max-width:960px) 76vw, 400px" width="780" height="986" fetchpriority="high" decoding="async" alt="Moment × Barbie strawberry rose campaign" style="object-position:center"></div>
+        <div class="media tint-b m2"><span class="badge-metric" style="left:14px;right:auto">★ Bailey's</span><img src="<?php echo esc_url(amatchless_img('hero-baileys-480.webp')); ?>" srcset="<?php echo esc_url(amatchless_img('hero-baileys-320.webp')); ?> 320w, <?php echo esc_url(amatchless_img('hero-baileys-480.webp')); ?> 480w" sizes="(max-width:960px) 46vw, 260px" width="620" height="1092" loading="lazy" decoding="async" alt="Bailey's Blossoms reel" style="object-position:center"></div>
+        <div class="media m3"><img src="<?php echo esc_url(amatchless_img('hero-haliburton-720.webp')); ?>" srcset="<?php echo esc_url(amatchless_img('hero-haliburton-360.webp')); ?> 360w, <?php echo esc_url(amatchless_img('hero-haliburton-720.webp')); ?> 720w" sizes="(max-width:960px) 42vw, 220px" width="900" height="419" loading="lazy" decoding="async" alt="Haliburton Forest website" style="object-position:top"></div>
         <div class="hero-badge"><div class="v">↗ ROI</div><div class="l">Built to perform</div></div>
       </div>
     </div>
