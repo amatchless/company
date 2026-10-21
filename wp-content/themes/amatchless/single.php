@@ -32,6 +32,7 @@
         <?php foreach ($tags as $tag) : ?><a class="chip" href="<?php echo esc_url(get_tag_link($tag)); ?>">#<?php echo esc_html($tag->name); ?></a><?php endforeach; ?>
       </nav>
       <?php endif; ?>
+      <?php get_template_part('template-parts/post-author'); ?>
       <nav class="post-nav" aria-label="Post">
         <a class="btn btn-white" href="<?php echo esc_url($blog_url ?: home_url('/')); ?>">← <?php echo $blog_url ? 'All articles' : 'Home'; ?></a>
         <?php $next = get_next_post(); $prev = get_previous_post(); $other = $next ?: $prev; if ($other) : ?>
@@ -42,5 +43,9 @@
   </div>
 </article>
 <?php endwhile; ?>
+
+<?php get_template_part('template-parts/blog-trust'); ?>
+
+<?php get_template_part('template-parts/section', 'contact'); ?>
 
 <?php get_footer(); ?>

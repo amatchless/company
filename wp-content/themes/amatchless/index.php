@@ -18,6 +18,7 @@
     <?php elseif (!is_search() && !is_archive()) : ?>
     <p class="hero-lede">Practical thinking for creators and founders — the same playbooks we use for clients. New articles every week.</p>
     <?php endif; ?>
+    <?php if (is_home()) get_template_part('template-parts/blog-trustline'); ?>
     <?php if (is_home() || is_category()) amatchless_category_chips(); ?>
   </div>
 </section>
@@ -43,5 +44,9 @@
     <?php endif; ?>
   </div>
 </section>
+
+<?php get_template_part('template-parts/blog-trust'); ?>
+
+<?php get_template_part('template-parts/section', 'contact'); ?>
 
 <?php get_footer(); ?>
