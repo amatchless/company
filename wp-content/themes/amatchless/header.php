@@ -6,6 +6,12 @@
 <meta name="theme-color" content="#FBFAFF">
 <!-- Google Tag Manager -->
 <script>window.dataLayer=window.dataLayer||[];
+// Consent mode: analytics and ad cookies stay off until the visitor accepts the cookie banner (choice kept in localStorage 'amx-consent').
+function gtag(){dataLayer.push(arguments);}
+(function(){var c=null;try{c=localStorage.getItem('amx-consent');}catch(e){}
+var v=c==='granted'?'granted':'denied';
+gtag('consent','default',{analytics_storage:v,ad_storage:v,ad_user_data:v,ad_personalization:v,functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+if(c)dataLayer.push({event:'consent_ready',consent_choice:c});})();
 // Load Tag Manager on first interaction (or after 3.5s) so it doesn't compete with the first paint.
 (function(w,d,s,l,i){var go=false;function load(){if(go)return;go=true;w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;

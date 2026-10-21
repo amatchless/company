@@ -141,3 +141,21 @@ function amatchless_schema() {
     echo '<script type="application/ld+json">' . wp_json_encode(['@context' => 'https://schema.org', '@graph' => $graph], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
 }
 add_action('wp_head', 'amatchless_schema');
+
+/* ── FAQ structured data: the services page is the one marked up, since contact shows the same questions ── */
+function amatchless_faq_schema() {
+    if (amatchless_seo_key() !== 'services') return;
+    $url = amatchless_page_url('services');
+    $faq = [
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        '@id'        => $url . '#faq',
+        'url'        => $url,
+        'inLanguage' => 'en-IN',
+        'mainEntity' => array_map(function ($qa) {
+            return ['@type' => 'Question', 'name' => $qa[0], 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $qa[1]]];
+        }, amatchless_faqs()),
+    ];
+    echo '<script type="application/ld+json">' . wp_json_encode($faq, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+add_action('wp_head', 'amatchless_faq_schema');
