@@ -30,6 +30,10 @@ function amatchless_seo_map() {
             'title' => 'AI & Automation for Business | Amatchless',
             'desc'  => 'Practical AI and automation that cut manual work in sales, HR and onboarding, plus custom software built around how your business runs.',
         ],
+        'contact' => [
+            'title' => 'Contact Amatchless | Book a Discovery Call',
+            'desc'  => 'Book a free 30-minute discovery call, email info@amatchless.com or message us on WhatsApp. One team for software, AI and marketing replies within 24 hours.',
+        ],
         'blog' => [
             'title' => 'Blog: Ideas on Brand, Growth & Automation | Amatchless',
             'desc'  => 'Practical articles on branding, paid ads and marketing automation for businesses and creators.',

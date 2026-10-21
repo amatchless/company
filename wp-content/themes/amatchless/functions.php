@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.6.0');
+define('AMATCHLESS_VERSION', '3.7.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
 
@@ -18,6 +18,7 @@ function amatchless_section_pages() {
         'work'          => ['Work',          'work'],
         'about'         => ['About',         'about'],
         'ai-automation' => ['AI Automation', 'automation'],
+        'contact'       => ['Contact',       'contact'],
     ];
 }
 
@@ -38,14 +39,15 @@ function amatchless_page_url($slug) {
     return home_url('/#' . ($pages[$slug][1] ?? $slug));
 }
 
-// Create the section pages once (only the ones that don't exist yet).
+// Create the section pages once per set (only the ones that don't exist yet). Bump the number when a page is added.
 function amatchless_create_section_pages() {
-    if (get_option('amatchless_pages_created') === '1') return;
+    if (get_option('amatchless_pages_created') === '2') return;
     $excerpts = [
         'services'      => 'Business discovery, custom software, AI, automation and marketing — SEO, digital, influencer and content — from one accountable team.',
         'work'          => 'Selected projects and case studies for Isola, AleuCo, Bailey\'s Blossoms, Moment, and Haliburton Forest.',
         'about'         => 'Amatchless is one partner for the whole business: we understand it first, then build what makes it efficient and market it to grow.',
         'ai-automation' => 'Custom software, AI and automation built around your business so processes run on their own.',
+        'contact'       => 'Book a discovery call, email or WhatsApp the Amatchless team. We reply within 24 hours.',
     ];
     foreach (amatchless_section_pages() as $slug => $info) {
         if (get_page_by_path($slug)) continue;
@@ -57,7 +59,7 @@ function amatchless_create_section_pages() {
             'post_excerpt' => $excerpts[$slug],
         ]);
     }
-    update_option('amatchless_pages_created', '1');
+    update_option('amatchless_pages_created', '2');
 }
 add_action('init', 'amatchless_create_section_pages', 20);
 

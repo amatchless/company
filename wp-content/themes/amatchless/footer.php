@@ -10,7 +10,7 @@
       <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About</a>
       <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI Automation</a>
       <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
-      <a href="<?php echo esc_url(amatchless_anchor('contact')); ?>">Contact</a>
+      <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
     </nav>
     <div class="foot-bot">
       <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>

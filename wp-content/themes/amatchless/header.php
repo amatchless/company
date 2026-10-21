@@ -36,6 +36,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="<?php echo esc_url(amatchless_page_url('work')); ?>">Work</a>
       <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About</a>
       <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
+      <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
     </div>
     <div class="nav-cta">
       <a href="<?php echo esc_url(amatchless_anchor('book')); ?>" class="btn btn-ink">Book a call <span aria-hidden="true">↗</span></a>
@@ -51,6 +52,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="<?php echo esc_url(amatchless_page_url('about')); ?>">About</a>
     <a href="<?php echo esc_url(amatchless_page_url('ai-automation')); ?>">AI Automation</a>
     <a href="<?php echo esc_url($blog_url ?: amatchless_anchor('blog')); ?>">Blog</a>
+    <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
   </div>
 </header>
 
