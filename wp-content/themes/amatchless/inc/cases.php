@@ -61,7 +61,7 @@ function amatchless_cases() {
                     ],
                 ],
                 [
-                    'title'   => 'Meanwhile, in Dexter\'s lab…',
+                    'title'   => 'Meanwhile, in the lab…',
                     'caption' => 'Experiment no. 14',
                     'sfx'     => 'ZAP!',
                     'text'    => 'Saanya told Dexter how she pictured Isola: calm, sunlit and expensive-looking, with nothing between a shopper and checkout. Dexter disappeared into his lab. Many prototypes and checkout trials later, he came out with a store built for people arriving from Instagram on their phones. Next door, Blossom shaped the look so the brand felt the same on the feed as on the site.',
@@ -305,7 +305,7 @@ function amatchless_cases() {
                     'say'     => [
                         ['bravo',  'Your visitors ask four questions. The website should answer them in order, and end at "Book now".'],
                         ['client', 'And the bookings themselves?'],
-                        ['bravo',  'That\'s a job for Dexter\'s lab.'],
+                        ['bravo',  'That\'s a job for the lab.'],
                     ],
                 ],
                 [

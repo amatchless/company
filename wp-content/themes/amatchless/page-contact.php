@@ -40,9 +40,9 @@ $steps = [
 
     <figure class="ct-hotline pop d4">
       <figcaption class="ch-caption">Client Head, on duty</figcaption>
-      <svg class="ch-sfx" viewBox="0 0 120 120" aria-hidden="true"><polygon points="60,4 71,32 101,19 88,48 116,60 88,72 101,101 71,88 60,116 49,88 19,101 32,72 4,60 32,48 19,19 49,32" fill="#FFE14D" stroke="#0E0B1F" stroke-width="3" stroke-linejoin="round"/><text x="60" y="66" text-anchor="middle">BEEP!</text></svg>
+      <svg class="ch-sfx" viewBox="0 0 120 120" aria-hidden="true"><polygon points="60,4 71,32 101,19 88,48 116,60 88,72 101,101 71,88 60,116 49,88 19,101 32,72 4,60 32,48 19,19 49,32" fill="#FFE14D" stroke="#0E0B1F" stroke-width="3" stroke-linejoin="round"/><text x="60" y="66" text-anchor="middle">RING!</text></svg>
       <img class="ct-kim" src="<?php echo esc_url($team . 'kim.svg' . $ver); ?>" width="320" height="300" decoding="async" alt="Cartoon of Kim, our Client Head, holding a phone">
-      <p class="bubble bubble-solo has-tail"><b class="bubble-who" style="background:#3DEBB0">Kim</b>Call me, beep me… or just fill in the form. I'm on it either way.</p>
+      <p class="bubble bubble-solo has-tail"><b class="bubble-who" style="background:#3DEBB0">Kim</b>Ring me, message me… or just fill in the form. I'm on it either way.</p>
     </figure>
 
     <div class="hero-seal ct-seal pop d6" aria-hidden="true">

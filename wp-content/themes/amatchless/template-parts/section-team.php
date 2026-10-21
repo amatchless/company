@@ -1,10 +1,10 @@
-<!-- ============ TEAM (cartoon alter egos) ============ -->
+<!-- ============ TEAM (cartoon crew) ============ -->
 <?php
 $team = [
-  ['name' => 'Bravo',   'role' => 'Sales Director',         'img' => 'bravo',   'bg' => '#FFE14D', 'r' => '-1.5deg', 'from' => 'Johnny Bravo',            'line' => 'Never met a handshake he couldn\'t turn into a plan. Smooth talker, straight shooter.'],
-  ['name' => 'Blossom', 'role' => 'Creative Head',          'img' => 'blossom', 'bg' => '#FF4F9A', 'r' => '1deg',    'from' => 'The Powerpuff Girls',     'line' => 'Turns a blank page into a brand people remember. Sugar, spice and a lot of colour.'],
-  ['name' => 'Dexter',  'role' => 'Director of Technology', 'img' => 'dexter',  'bg' => '#5B2EFF', 'r' => '-1deg',   'from' => 'Dexter\'s Laboratory',    'line' => 'Runs the secret lab where the software, AI and automations get built. Keep out of the lab.'],
-  ['name' => 'Kim',     'role' => 'Client Head',            'img' => 'kim',     'bg' => '#3DEBB0', 'r' => '1.5deg',  'from' => 'Kim Possible',            'line' => 'Call her, beep her, she\'s already on it. Nothing your project needs is impossible.'],
+  ['name' => 'Bravo',   'role' => 'Sales Director',         'img' => 'bravo',   'bg' => '#FFE14D', 'r' => '-1.5deg', 'line' => 'Never met a handshake he couldn\'t turn into a plan. Smooth talker, straight shooter.'],
+  ['name' => 'Blossom', 'role' => 'Creative Head',          'img' => 'blossom', 'bg' => '#FF4F9A', 'r' => '1deg',    'line' => 'Turns a blank page into a brand people remember. Big ideas, sharp edges and a lot of colour.'],
+  ['name' => 'Dexter',  'role' => 'Director of Technology', 'img' => 'dexter',  'bg' => '#5B2EFF', 'r' => '-1deg',   'line' => 'Runs the secret lab where the software, AI and automations get built. Every experiment ships.'],
+  ['name' => 'Kim',     'role' => 'Client Head',            'img' => 'kim',     'bg' => '#3DEBB0', 'r' => '1.5deg',  'line' => 'Your first call and your fastest reply. If your project needs it, she\'s already on it.'],
 ];
 $img_base = get_template_directory_uri() . '/assets/img/team/';
 ?>
@@ -15,7 +15,7 @@ $img_base = get_template_directory_uri() . '/assets/img/team/';
         <span class="label" style="color:#5B2EFF">THE CREW</span>
         <h2 class="h2">Meet the <span class="hl-purple">matchless</span> four.</h2>
       </div>
-      <p class="sec-aside">Four leads, one team. We'd rather you meet our cartoon alter egos first. The real faces come with the discovery call.</p>
+      <p class="sec-aside">Four leads, one team. We'd rather you meet our cartoon selves first. The real faces come with the discovery call.</p>
     </div>
     <div class="team-grid reveal">
       <?php foreach ($team as $i => $m) : ?>
@@ -27,7 +27,6 @@ $img_base = get_template_directory_uri() . '/assets/img/team/';
           <span class="label member-role"><?php echo esc_html($m['role']); ?></span>
           <h3><?php echo esc_html($m['name']); ?></h3>
           <p><?php echo esc_html($m['line']); ?></p>
-          <span class="member-from">Alter ego inspired by <?php echo esc_html($m['from']); ?></span>
         </div>
       </article>
       <?php endforeach; ?>
