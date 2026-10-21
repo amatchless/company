@@ -2,11 +2,6 @@
 <?php
 // [anchor, panel colour, word colour, wordmark, badge HTML, label, title, story HTML, metrics, site]
 $cases = [
-    ['mdbiocoals', '#0F5A3A', '#3DEBB0', 'MD<br>Biocoals', '<span class="wbadge tilt" style="background:#FFE14D">SINCE 1999</span>',
-        'AGRI-TECH · SOFTWARE, AUTOMATION &amp; MARKETING', 'MD Biocoals — streamlining sales, HR and distributor onboarding',
-        'Founded in 1999 and now a ₹100 Cr company, <strong>MD Biocoals</strong> makes organic fertilizers and biofertilizers for farmers across India — “for nature.” We are their technology and marketing partner. We provide devops support for their website, build solutions to streamline their sales, HR and distributor onboarding processes, and are developing a custom CRM around the way their teams work. We also help with their marketing, including visibility across search and AI answers (SEO, AEO &amp; GEO).',
-        [['CRM', 'Custom, built around their workflow'], ['Process', 'Sales, HR &amp; distributor onboarding'], ['DevOps', 'Ongoing website support']],
-        'https://www.mdbiocoals.com'],
     ['isola', '#FF7A1A', '#0E0B1F', '<i>Isola</i>', '<span class="wbadge tilt" style="background:#FFFFFF">575K CREATOR</span>',
         'CREATOR BRAND · E-COMMERCE', 'Isola — a resort-wear label, built end to end',
         "For influencer Saanya Khatter, who has 575K followers on Instagram, we designed and developed <strong>Isola</strong>, a luxury resort-wear and swimwear store — “cut for the water, worn to dinner” — and we run the brand's social media day to day. From storefront to feed, one team turned a 575K-strong audience into a premium direct-to-consumer label.",

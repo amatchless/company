@@ -16,7 +16,7 @@ function amatchless_seo_map() {
         ],
         'work' => [
             'title' => 'Our Work: Brands, Creators & Businesses We Help | Amatchless',
-            'desc'  => "Case studies from MD Biocoals, Isola, AleuCo, Bailey's Blossoms, Moment and Haliburton Forest: software, automation and marketing in practice.",
+            'desc'  => "Case studies from Isola, AleuCo, Bailey's Blossoms, Moment and Haliburton Forest: software, automation and marketing in practice.",
         ],
         'about' => [
             'title' => 'About Amatchless | One Partner for the Whole Business',
@@ -93,7 +93,6 @@ function amatchless_schema() {
         'image'       => amatchless_seo_image(),
         'description' => 'Amatchless is a one-stop partner for custom software, AI and automation, and marketing. We learn your business and its pain points, then build what makes it efficient and market it to grow.',
         'email'       => AMATCHLESS_EMAIL,
-        'telephone'   => '+91-90508-20042',
         'address'     => [
             '@type'           => 'PostalAddress',
             'addressLocality' => 'Rohini, New Delhi',

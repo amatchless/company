@@ -2,8 +2,6 @@
 <?php
 // [name, site, services, panel colour, word colour, wordmark HTML, word size, extra classes, badges HTML]
 $work = [
-    ['MD Biocoals', 'https://www.mdbiocoals.com', 'CUSTOM CRM · AUTOMATION · MARKETING', '#0F5A3A', '#3DEBB0', 'MD<br>Biocoals', 46, '',
-        '<span class="wbadge tilt" style="background:#FFE14D">₹100 CR · SINCE 1999</span>'],
     ['Isola by SK', 'https://isolabysk.com', 'WEB DEVELOPMENT · SOCIAL MEDIA', '#FF7A1A', '#0E0B1F', 'Isola', 68, ' italic',
         '<span class="wbadge tilt" style="background:#FFFFFF">575K CREATOR</span>'],
     ['AleuCo Beauty Studio', 'https://aleuco.com', 'SEO · AEO/GEO · BRANDING', '#FFC2DD', '#B0125B', 'AleuCo', 62, '',

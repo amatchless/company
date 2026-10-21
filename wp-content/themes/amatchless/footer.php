@@ -16,7 +16,6 @@
       <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
       <div class="foot-contact">
         <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>
-        <a href="tel:<?php echo esc_attr(AMATCHLESS_PHONE_E164); ?>"><?php echo esc_html(AMATCHLESS_PHONE); ?></a>
         <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
         <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn</a>
         <?php $privacy = get_privacy_policy_url(); if ($privacy) : ?>

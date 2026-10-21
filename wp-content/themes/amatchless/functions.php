@@ -1,10 +1,8 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.0.0');
+define('AMATCHLESS_VERSION', '3.0.1');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
-define('AMATCHLESS_PHONE', '+91 90508 20042');
-define('AMATCHLESS_PHONE_E164', '+919050820042');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
 
 /* ── Template helpers ────────────────────────────────────────── */
@@ -45,7 +43,7 @@ function amatchless_create_section_pages() {
     if (get_option('amatchless_pages_created') === '1') return;
     $excerpts = [
         'services'      => 'Business discovery, custom software, AI, automation and marketing — SEO, digital, influencer and content — from one accountable team.',
-        'work'          => 'Selected projects and case studies for Isola, AleuCo, Bailey\'s Blossoms, Moment, Haliburton Forest and MD Biocoals.',
+        'work'          => 'Selected projects and case studies for Isola, AleuCo, Bailey\'s Blossoms, Moment, and Haliburton Forest.',
         'about'         => 'Amatchless is one partner for the whole business: we understand it first, then build what makes it efficient and market it to grow.',
         'ai-automation' => 'Custom software, AI and automation built around your business so processes run on their own.',
     ];

@@ -42,7 +42,7 @@
 
 <!-- ============ MARQUEE ============ -->
 <?php
-$clients  = ['ISOLA', 'ALEUCO', "BAILEY'S BLOSSOMS", 'MOMENT', 'HALIBURTON FOREST', 'MD BIOCOALS'];
+$clients  = ['ISOLA', 'ALEUCO', "BAILEY'S BLOSSOMS", 'MOMENT', 'HALIBURTON FOREST'];
 $sparks   = ['#FFE14D', '#FF4F9A', '#3DEBB0'];
 $services = ['CUSTOM SOFTWARE', 'AI & AUTOMATION', 'SEO', 'META & GOOGLE ADS', 'INFLUENCER MARKETING', 'BRANDING'];
 // Each track holds two identical runs and slides by exactly one; the second run is hidden from screen readers.
