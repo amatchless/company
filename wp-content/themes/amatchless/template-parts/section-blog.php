@@ -3,13 +3,12 @@
 $thumbs   = require get_template_directory() . '/inc/blog-thumbs.php';
 $blog_url = amatchless_blog_url();
 // Real posts once there are any (the default "Hello world!" post doesn't count).
-$hello    = get_page_by_path('hello-world', OBJECT, 'post');
 $posts_q  = new WP_Query([
     'posts_per_page'      => 3,
     'post_status'         => 'publish',
     'ignore_sticky_posts' => true,
     'no_found_rows'       => true,
-    'post__not_in'        => $hello ? [$hello->ID] : [],
+    'post__not_in'        => amatchless_hidden_post_ids(),
 ]);
 // Shown until the first real articles are published.
 $fallback = [
@@ -22,11 +21,11 @@ $fallback = [
   <div class="sec-in">
     <div class="sec-split reveal">
       <div class="sec-head">
-        <span class="label" style="color:#FF4F9A">FROM THE JOURNAL</span>
+        <span class="label" style="color:#FF4F9A">FROM THE BLOG</span>
         <h2 class="h2">Ideas on brand, growth and automation.</h2>
       </div>
       <?php if ($blog_url && $posts_q->post_count) : ?>
-      <a href="<?php echo esc_url($blog_url); ?>" class="btn btn-white btn-lg">Visit the journal →</a>
+      <a href="<?php echo esc_url($blog_url); ?>" class="btn btn-white btn-lg">Visit the blog →</a>
       <?php endif; ?>
     </div>
     <div class="posts">
@@ -39,7 +38,7 @@ $fallback = [
           <?php if (has_post_thumbnail()) : the_post_thumbnail('medium_large', ['alt' => '']); else : ?><span class="bthumb"><?php echo $t['svg']; ?></span><?php endif; ?>
         </div>
         <div class="pcard-body">
-          <div class="pmeta"><span class="cat"><?php echo esc_html($cats ? $cats[0]->name : 'Journal'); ?></span><span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span></div>
+          <div class="pmeta"><span class="cat"><?php echo esc_html($cats ? $cats[0]->name : 'Blog'); ?></span><span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span></div>
           <h3><?php the_title(); ?></h3>
           <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 18, '…')); ?></p>
           <span class="rd">Read article →</span>

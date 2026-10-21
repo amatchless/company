@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.0.1');
+define('AMATCHLESS_VERSION', '3.1.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
 
@@ -154,6 +154,9 @@ function amatchless_og_meta() {
 }
 add_action('wp_head', 'amatchless_og_meta', 5);
 
+/* ── Blog page, categories and the post editor live in inc/blog.php ── */
+require_once get_template_directory() . '/inc/blog.php';
+
 /* ── SEO titles, descriptions, share image and schema live in inc/seo.php ── */
 require_once get_template_directory() . '/inc/seo.php';
 
@@ -258,8 +261,8 @@ add_filter('login_errors', 'amatchless_login_error');
 
 /* ── Security: Disable user enumeration via REST API ────────── */
 function amatchless_disable_rest_user_enum($endpoints) {
-    // Staff who can list users (admins) keep the endpoints: the block editor's author picker needs them.
-    if (current_user_can('list_users')) {
+    // Signed-in writers keep the endpoints: the block editor loads the current user and the author picker from them.
+    if (current_user_can('edit_posts')) {
         return $endpoints;
     }
     if (isset($endpoints['/wp/v2/users'])) {
@@ -297,7 +300,7 @@ function amatchless_security_headers() {
         header('X-XSS-Protection: 1; mode=block');
         header('Referrer-Policy: strict-origin-when-cross-origin');
         header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
-        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com");
+        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com");
     }
 }
 add_action('send_headers', 'amatchless_security_headers');
