@@ -661,6 +661,21 @@ textarea.form-ctrl{min-height:120px;resize:vertical}
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--mint);color:var(--ink);border:var(--line);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink);transition:transform .2s,box-shadow .2s}
 .wa-float:hover{color:var(--ink);transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
 
+/* ---- cookie banner ---- */
+.cookie{position:fixed;left:20px;bottom:20px;z-index:70;width:min(420px, calc(100vw - 40px));background:#fff;border:var(--line);border-radius:24px;padding:30px 22px 20px;overflow:hidden;box-shadow:8px 8px 0 var(--ink);animation:amx-rise .4s ease-out both}
+.cookie[hidden]{display:none}
+.cookie::before{content:"";position:absolute;inset:0 0 auto;height:10px;border-bottom:var(--line);background:linear-gradient(90deg, var(--yellow) 0 33.3%, var(--mint) 33.3% 66.6%, var(--pink) 66.6%)}
+.cookie-title{margin:0 0 8px;font-family:var(--f-display);font-weight:800;font-size:21px;line-height:1.15;letter-spacing:-.02em}
+.cookie-text{margin:0 0 18px;font-size:15px;line-height:1.5;color:var(--muted)}
+.cookie-text a{color:var(--ink);font-weight:700}
+.cookie-btns{display:flex;flex-wrap:wrap;gap:10px}
+.cookie-btns .btn{flex:1 1 auto;min-height:46px;padding:0 18px;font-size:15px}
+.foot-cookie{background:none;border:0;padding:0;font:inherit;color:var(--ink);text-decoration:underline;cursor:pointer}
+.foot-cookie:hover{color:var(--purple)}
+@media (max-width:560px){
+  .cookie{left:12px;right:12px;bottom:12px;width:auto;padding:26px 16px 16px;box-shadow:5px 5px 0 var(--ink)}
+}
+
 /* ---- responsive ---- */
 @media (max-width:1060px){
   .team-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}

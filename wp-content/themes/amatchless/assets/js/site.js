@@ -196,4 +196,30 @@
   [30, 60, 180].forEach(function(s) {
     setTimeout(function() { dataLayer.push({ event: 'time_on_page', seconds_on_page: s }); }, s * 1000);
   });
+
+  /* ── Cookie consent (consent mode defaults are set in header.php) ── */
+  var cookie = document.getElementById('cookieBanner');
+  if (cookie) {
+    var choice = null;
+    try { choice = localStorage.getItem('amx-consent'); } catch (e) {}
+    if (!choice) cookie.hidden = false;
+    cookie.querySelectorAll('[data-cookie]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var v = btn.getAttribute('data-cookie');
+        try { localStorage.setItem('amx-consent', v); } catch (e) {}
+        if (typeof window.gtag === 'function') {
+          window.gtag('consent', 'update', { analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v });
+        }
+        dataLayer.push({ event: 'consent_update', consent_choice: v });
+        cookie.hidden = true;
+      });
+    });
+    document.querySelectorAll('[data-cookie-open]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        cookie.hidden = false;
+        var first = cookie.querySelector('[data-cookie]');
+        if (first) first.focus();
+      });
+    });
+  }
 })();

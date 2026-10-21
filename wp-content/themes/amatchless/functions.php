@@ -1,9 +1,9 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.8.0');
+define('AMATCHLESS_VERSION', '3.9.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
-define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
+define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
 
 /* ── Template helpers ────────────────────────────────────────── */
 // Link to a section of the homepage: a bare #anchor on the homepage, a full URL elsewhere.
@@ -67,6 +67,18 @@ add_action('init', 'amatchless_create_section_pages', 20);
 function amatchless_blog_url() {
     $id = (int) get_option('page_for_posts');
     return $id ? get_permalink($id) : '';
+}
+
+// The FAQ questions and answers: shown by template-parts/section-faq.php and marked up as FAQPage schema in inc/seo.php.
+function amatchless_faqs() {
+    return [
+        ['What does it cost?', 'We scope every engagement after the discovery call, so you see the plan and the price before you commit to anything.'],
+        ['Do you build software, or only do marketing?', 'Both. We build custom software, AI tools and automations around how your business works, and we run SEO, digital, influencer and content marketing to bring in customers. One team plans and delivers all of it.'],
+        ['Can you work with the tools we already use?', 'Where it makes sense, yes. We start from how you work today and connect, replace or build only what will save time or win business.'],
+        ['How soon will we see results?', "It depends on the work. On the discovery call we'll tell you what to expect for your plan and how we'll measure it."],
+        ['Who owns the software and the data?', 'We agree ownership, access and data handling in writing before any work starts.'],
+        ['What happens after I send the form?', 'We reply within 24 hours, set up a 30-minute discovery call, and then send you a clear plan: what to build, automate and market, in order of impact.'],
+    ];
 }
 
 function amatchless_img($file) {
