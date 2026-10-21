@@ -1,4 +1,4 @@
-/* Amatchless theme JS — interactions from design/reference.html, lead form and GTM dataLayer tracking */
+/* Amatchless theme JS — header, mobile menu, lead form and GTM dataLayer tracking */
 (function() {
   'use strict';
 
@@ -27,41 +27,7 @@
     mb.addEventListener('click', function() { setMenu(!open); });
     mm.addEventListener('click', function(e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function(e) { if (open && e.key === 'Escape') { setMenu(false); mb.focus(); } });
-    window.addEventListener('resize', function() { if (open && window.innerWidth > 680) setMenu(false); });
-  }
-
-  /* ── Scroll reveal ────────────────────────────────────────── */
-  var ups = document.querySelectorAll('.up');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-    ups.forEach(function(el) { io.observe(el); });
-  } else {
-    ups.forEach(function(el) { el.classList.add('in'); });
-  }
-
-  /* ── Copy email ───────────────────────────────────────────── */
-  var emailEl = document.getElementById('email');
-  var cbtn = document.getElementById('copyEmail');
-  if (emailEl && cbtn) {
-    var email = emailEl.textContent.trim();
-    var selectEmail = function() {
-      var r = document.createRange(); r.selectNode(emailEl);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    };
-    cbtn.addEventListener('click', function() {
-      var done = function() {
-        var t = cbtn.textContent; cbtn.textContent = 'Copied ✓';
-        setTimeout(function() { cbtn.textContent = t; }, 1600);
-        dataLayer.push({ event: 'email_copy' });
-      };
-      try {
-        navigator.clipboard.writeText(email).then(done).catch(function() { selectEmail(); done(); });
-      } catch (e) { selectEmail(); done(); }
-    });
+    window.addEventListener('resize', function() { if (open && window.innerWidth > 860) setMenu(false); });
   }
 
   /* ── Lead form — AJAX submission ──────────────────────────── */
@@ -146,37 +112,6 @@
     });
   }
 
-
-  /* ── Hero capture: carry the email and one-liner into the full form ── */
-  var heroForm = document.getElementById('heroCapture');
-  if (heroForm && leadForm) {
-    heroForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var he = document.getElementById('hc-email'), hm = document.getElementById('hc-msg');
-      var fe = document.getElementById('f-email'), fm = document.getElementById('f-msg');
-      if (he && fe && he.value.trim()) fe.value = he.value.trim();
-      if (hm && fm && hm.value.trim()) fm.value = hm.value.trim();
-      dataLayer.push({ event: 'hero_capture_submit', has_email: !!(he && he.value.trim()), has_message: !!(hm && hm.value.trim()) });
-      var book = document.getElementById('book');
-      if (book) book.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-      var nm = document.getElementById('f-name');
-      if (nm) setTimeout(function() { nm.focus({ preventScroll: true }); }, 500);
-    });
-  }
-
-  /* ── Mobile action bar: hide while the contact form is on screen ── */
-  var actionBar = document.getElementById('actionBar');
-  var contactSec = document.getElementById('contact');
-  if (actionBar && contactSec && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function(entries) {
-      entries.forEach(function(en) { actionBar.classList.toggle('is-hidden', en.isIntersecting); });
-    }, { threshold: 0.12 }).observe(contactSec);
-  }
-  document.querySelectorAll('.action-bar a').forEach(function(el) {
-    el.addEventListener('click', function() {
-      dataLayer.push({ event: 'action_bar_click', action: el.getAttribute('data-action') || 'unknown' });
-    });
-  });
 
   /* ── CTA click tracking ───────────────────────────────────── */
   document.querySelectorAll('a.btn, button.btn').forEach(function(el) {

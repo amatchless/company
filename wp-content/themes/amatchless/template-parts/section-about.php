@@ -1,26 +1,21 @@
-<!-- ============ ABOUT ============ -->
-<section class="band band-line" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-art up">
-        <figure class="about-quote">
-          <img class="mark" src="<?php echo esc_url(amatchless_img('logo.png')); ?>" alt="" width="62" height="48" loading="lazy">
-          <blockquote>Peerless by name.<br><span class="flame">Relentless by nature.</span></blockquote>
-          <figcaption>One partner for the whole business</figcaption>
-        </figure>
-      </div>
-      <div class="about-body up">
-        <span class="eyebrow">About us</span>
-        <h2>We started Amatchless to be the one partner a business needs to run better and grow faster.</h2>
-        <p class="lede">Most businesses juggle a developer here, a marketing freelancer there and a stack of tools that don't talk to each other. We built one team that understands your business first, then suggests how to make it more efficient — and builds and runs it with you.</p>
-        <p class="lede">That means custom software and AI where they save you time, automation for the repetitive work, and marketing — SEO, digital, influencer and content — to bring in the right customers. Based in India, working with clients around the world.</p>
-        <div class="values">
-          <div class="value"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 13.8 2 9.4h7.6z"/></svg>Understand first</h4><p>Every plan starts with your business and its real pain points, not a template.</p></div>
-          <div class="value"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/></svg>One accountable team</h4><p>Strategy, software, AI and marketing in one room — one point of contact.</p></div>
-          <div class="value"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Systems that scale</h4><p>We automate the repeatable so your growth doesn't depend on hustle.</p></div>
-          <div class="value"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3C7 3 3 6.5 3 11c0 2.4 1.3 4.5 3.3 6L6 21l4-2.2c.6.1 1.3.2 2 .2 5 0 9-3.5 9-8s-4-8-9-8z"/></svg>Honest partnership</h4><p>Clear reporting, straight talk, and no jargon to hide behind.</p></div>
-        </div>
+<!-- ============ ABOUT STORY ============ -->
+<section class="sec" id="about-story">
+  <div class="sec-in">
+    <div class="sec-split reveal">
+      <div class="sec-head">
+        <span class="label" style="color:#5B2EFF">ABOUT US</span>
+        <h2 class="h2">We started Amatchless to be the one partner a business needs to run better and grow faster.</h2>
       </div>
     </div>
+    <div class="about-copy reveal">
+      <p>Most businesses juggle a developer here, a marketing freelancer there and a stack of tools that don't talk to each other. We built one team that understands your business first, then suggests how to make it more efficient — and builds and runs it with you.</p>
+      <p>That means custom software and AI where they save you time, automation for the repetitive work, and marketing — SEO, digital, influencer and content — to bring in the right customers. Based in India, working with clients around the world.</p>
     </div>
+    <div class="value-grid">
+      <div class="value reveal" style="background:#FFE14D"><h3>Understand first</h3><p>Every plan starts with your business and its real pain points, not a template.</p></div>
+      <div class="value reveal" style="background:#3DEBB0"><h3>One accountable team</h3><p>Strategy, software, AI and marketing in one room — one point of contact.</p></div>
+      <div class="value reveal" style="background:#FF4F9A"><h3>Systems that scale</h3><p>We automate the repeatable so your growth doesn't depend on hustle.</p></div>
+      <div class="value reveal" style="background:#FFFFFF"><h3>Honest partnership</h3><p>Clear reporting, straight talk, and no jargon to hide behind.</p></div>
+    </div>
+  </div>
 </section>

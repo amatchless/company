@@ -1,10 +1,11 @@
 <?php get_header(); ?>
 
-<section class="page-head page-head--section">
-  <div class="wrap">
-    <span class="eyebrow">About us</span>
-    <h1>One partner for the whole <span class="flame">business.</span></h1>
-    <p class="lede">Peerless by name. Relentless by nature. We start with your business, then build what makes it efficient and market it to grow.</p>
+<section class="page-head">
+  <div class="blob page-blob" aria-hidden="true"></div>
+  <div class="sec-in">
+    <span class="pill-dark pop"><span class="pulse-dot" aria-hidden="true"></span>ABOUT US</span>
+    <h1 class="h1 rise d1">One partner for the whole <span class="hl-purple">business.</span></h1>
+    <p class="hero-lede rise d2">Peerless by name. Relentless by nature. We start with your business, then build what makes it efficient and market it to grow.</p>
   </div>
 </section>
 
