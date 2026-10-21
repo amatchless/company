@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: paint splats -->
+  <path d="M44 64 q10 -18 24 -6 q16 -6 16 10 q14 8 0 18 q2 16 -16 12 q-12 12 -22 -2 q-16 -4 -8 -18 q-8 -12 6 -14z" fill="#FFE14D" stroke-width="4"/>
+  <path d="M262 56 q8 -12 18 -4 q12 -2 10 10 q8 8 -2 14 q0 12 -12 8 q-10 8 -16 -2 q-12 -4 -4 -14 q-4 -10 6 -12z" fill="#3DEBB0" stroke-width="4"/>
+  <circle cx="290" cy="110" r="6" fill="#FFFFFF" stroke-width="3"/>
+  <!-- hair back -->
+  <path d="M96 128 C84 180 82 230 92 262 L228 262 C238 230 236 180 224 128 Z" fill="#3B1F17"/>
+  <!-- top: yellow -->
+  <path d="M60 302 C62 250 98 220 160 220 C222 220 258 250 260 302 Z" fill="#FFE14D"/>
+  <path d="M136 222 q24 22 48 0" fill="#D9A07A"/>
+  <!-- neck -->
+  <path d="M142 192 v28 q18 10 36 0 v-28" fill="#D9A07A"/>
+  <!-- head -->
+  <ellipse cx="160" cy="138" rx="58" ry="62" fill="#D9A07A"/>
+  <!-- bangs -->
+  <path d="M100 140 C94 92 120 72 160 72 C200 72 226 92 220 140 C212 118 200 108 186 104 C176 116 150 116 136 104 C120 110 106 122 100 140 Z" fill="#3B1F17"/>
+  <!-- big bow -->
+  <path d="M160 78 L116 50 Q106 70 116 96 Z" fill="#5B2EFF"/>
+  <path d="M160 78 L204 50 Q214 70 204 96 Z" fill="#5B2EFF"/>
+  <rect x="148" y="66" width="24" height="24" rx="8" fill="#FF4F9A"/>
+  <!-- eyes -->
+  <ellipse cx="138" cy="142" rx="11" ry="14" fill="#FFFFFF"/>
+  <ellipse cx="182" cy="142" rx="11" ry="14" fill="#FFFFFF"/>
+  <circle cx="140" cy="145" r="6" fill="#0E0B1F" stroke="none"/>
+  <circle cx="184" cy="145" r="6" fill="#0E0B1F" stroke="none"/>
+  <circle cx="142" cy="142" r="2" fill="#FFFFFF" stroke="none"/>
+  <circle cx="186" cy="142" r="2" fill="#FFFFFF" stroke="none"/>
+  <path d="M128 134 l-7 -4 M192 134 l7 -4" stroke-width="3"/>
+  <path d="M128 120 q10 -7 20 -2 M172 118 q10 -5 20 2" fill="none" stroke-width="4"/>
+  <!-- blush, smile -->
+  <circle cx="122" cy="166" r="8" fill="#FF4F9A" stroke="none" opacity=".55"/>
+  <circle cx="198" cy="166" r="8" fill="#FF4F9A" stroke="none" opacity=".55"/>
+  <path d="M146 170 q14 14 28 0" fill="#FFFFFF"/>
+  <!-- palette -->
+  <path d="M30 262 q-4 -34 34 -38 q40 -2 42 26 q2 16 -14 14 q-12 -2 -10 12 q2 14 -20 12 q-28 -2 -32 -26z" fill="#FFFFFF"/>
+  <circle cx="52" cy="244" r="6" fill="#FF4F9A" stroke-width="3"/>
+  <circle cx="72" cy="238" r="6" fill="#3DEBB0" stroke-width="3"/>
+  <circle cx="90" cy="246" r="6" fill="#5B2EFF" stroke-width="3"/>
+  <circle cx="48" cy="264" r="6" fill="#FFE14D" stroke-width="3"/>
+  <!-- brush -->
+  <path d="M232 296 L272 190" fill="none" stroke-width="12"/>
+  <path d="M232 296 L272 190" fill="none" stroke="#FF7A1A" stroke-width="5"/>
+  <path d="M266 194 q2 -24 20 -34 q4 20 -8 38 z" fill="#3DEBB0"/>
+  <path d="M262 192 l18 7" fill="none" stroke-width="6"/>
+</g>
+</svg>

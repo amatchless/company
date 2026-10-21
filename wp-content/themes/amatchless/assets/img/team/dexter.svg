@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: atom + sparkles -->
+  <g fill="none" stroke="#FFE14D" stroke-width="4" opacity=".9">
+    <ellipse cx="52" cy="62" rx="34" ry="12" transform="rotate(30 52 62)"/>
+    <ellipse cx="52" cy="62" rx="34" ry="12" transform="rotate(-30 52 62)"/>
+    <ellipse cx="52" cy="62" rx="34" ry="12" transform="rotate(90 52 62)"/>
+  </g>
+  <circle cx="52" cy="62" r="6" fill="#FFE14D" stroke="none"/>
+  <path d="M274 40 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5z" fill="#3DEBB0" stroke-width="3"/>
+  <path d="M40 160 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#FF4F9A" stroke-width="3"/>
+  <!-- coat -->
+  <path d="M56 302 C58 248 96 214 160 214 C224 214 262 248 264 302 Z" fill="#FFFFFF"/>
+  <path d="M138 214 L160 258 L182 214" fill="#5B2EFF"/>
+  <path d="M120 218 L150 300 M200 218 L170 300" fill="none"/>
+  <path d="M118 262 h-30 v28" fill="none"/>
+  <path d="M98 262 v-14 M108 262 v-10" stroke="#FF4F9A" stroke-width="6"/>
+  <!-- neck -->
+  <path d="M140 196 v22 q20 12 40 0 v-22" fill="#E3AE86"/>
+  <!-- ears -->
+  <circle cx="90" cy="138" r="14" fill="#E3AE86"/>
+  <circle cx="230" cy="138" r="14" fill="#E3AE86"/>
+  <!-- head (wide, Dexter-style) -->
+  <ellipse cx="160" cy="138" rx="70" ry="62" fill="#E3AE86"/>
+  <!-- hair: orange flat-top with a side part -->
+  <path d="M92 126 C84 78 116 56 160 56 C206 56 238 78 228 126 C222 108 210 98 196 96 L188 84 L182 98 C150 92 112 100 92 126 Z" fill="#FF7A1A"/>
+  <!-- glasses -->
+  <path d="M100 130 L92 132 M220 130 L228 132" fill="none"/>
+  <circle cx="132" cy="134" r="25" fill="#E9F1FF"/>
+  <circle cx="188" cy="134" r="25" fill="#E9F1FF"/>
+  <path d="M157 134 h6" fill="none"/>
+  <path d="M118 124 q6 -9 16 -9 M174 124 q6 -9 16 -9" stroke="#FFFFFF" stroke-width="4" fill="none"/>
+  <path d="M120 126 q6 -8 14 -8 M176 126 q6 -8 14 -8" stroke="#9DB7FF" stroke-width="3" fill="none"/>
+  <!-- nose + smug smile -->
+  <path d="M158 156 q4 6 -2 9" fill="none" stroke-width="4"/>
+  <path d="M140 176 q22 14 42 -4" fill="none"/>
+  <!-- purple glove + flask -->
+  <path d="M250 190 L262 190 L262 214 L284 262 Q288 274 276 274 L236 274 Q224 274 228 262 L250 214 Z" fill="#FFFFFF"/>
+  <path d="M238 244 L274 244 L284 262 Q288 274 276 274 L236 274 Q224 274 228 262 Z" fill="#3DEBB0"/>
+  <circle cx="252" cy="178" r="6" fill="#3DEBB0" stroke-width="3"/>
+  <circle cx="266" cy="160" r="8" fill="#3DEBB0" stroke-width="3"/>
+  <circle cx="248" cy="142" r="5" fill="#3DEBB0" stroke-width="3"/>
+  <path d="M218 262 q-6 -22 14 -26 q18 -2 18 14 v20 q-2 10 -14 10 h-10 q-8 -4 -8 -18z" fill="#5B2EFF"/>
+</g>
+</svg>

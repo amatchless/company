@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: rising chart + stars -->
+  <path d="M22 150 L46 128 L64 138 L88 110" fill="none" stroke="#5B2EFF" stroke-width="7"/>
+  <path d="M72 108 L90 108 L90 126" fill="none" stroke="#5B2EFF" stroke-width="7"/>
+  <path d="M272 70 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5z" fill="#FF4F9A" stroke-width="3"/>
+  <path d="M42 190 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#FFFFFF" stroke-width="3"/>
+  <!-- body: black tee with broad shoulders -->
+  <path d="M46 302 C46 246 92 214 160 214 C228 214 274 246 274 302 Z" fill="#0E0B1F"/>
+  <path d="M120 222 q40 26 80 0" fill="none" stroke="#FFE14D" stroke-width="4"/>
+  <!-- neck -->
+  <path d="M134 190 v28 q26 14 52 0 v-28" fill="#B87A52"/>
+  <!-- ears -->
+  <circle cx="102" cy="146" r="13" fill="#B87A52"/>
+  <circle cx="218" cy="146" r="13" fill="#B87A52"/>
+  <!-- head: square jaw -->
+  <path d="M104 110 Q102 186 128 200 Q160 214 192 200 Q218 186 216 110 Q160 92 104 110 Z" fill="#B87A52"/>
+  <path d="M156 206 q4 -6 8 0" fill="none" stroke-width="3"/>
+  <!-- pompadour -->
+  <path d="M98 140 C88 96 96 66 120 50 C140 22 196 14 236 34 C214 34 206 40 212 50 C230 64 226 104 222 140 C214 116 196 104 160 104 C126 104 106 116 98 140 Z" fill="#0E0B1F"/>
+  <path d="M136 40 q34 -14 70 -4 M126 56 q30 -12 64 -4" fill="none" stroke="#FFFFFF" stroke-width="3" opacity=".7"/>
+  <!-- shades -->
+  <path d="M110 132 H210" fill="none"/>
+  <rect x="112" y="130" width="42" height="26" rx="10" fill="#0E0B1F"/>
+  <rect x="166" y="130" width="42" height="26" rx="10" fill="#0E0B1F"/>
+  <path d="M120 138 l10 0 M174 138 l10 0" stroke="#FFFFFF" stroke-width="4"/>
+  <!-- grin -->
+  <path d="M132 172 Q160 200 188 172 Z" fill="#FFFFFF"/>
+  <path d="M140 178 h40" fill="none" stroke-width="3"/>
+  <path d="M196 168 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#FFFFFF" stroke-width="2.5"/>
+  <!-- thumbs up -->
+  <path d="M232 296 v-44 q0 -10 10 -12 l8 -22 q4 -10 12 -6 q6 4 2 16 l-4 12 h18 q12 0 10 12 l-6 36 q-2 8 -10 8 z" fill="#B87A52"/>
+  <path d="M232 252 h-14 v44 h14" fill="#FFE14D"/>
+</g>
+</svg>

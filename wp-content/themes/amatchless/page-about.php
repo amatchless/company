@@ -11,6 +11,8 @@
 
 <?php get_template_part('template-parts/section', 'about'); ?>
 
+<?php get_template_part('template-parts/section', 'team'); ?>
+
 <?php get_template_part('template-parts/section', 'stats'); ?>
 
 <?php get_template_part('template-parts/section', 'testimonials'); ?>

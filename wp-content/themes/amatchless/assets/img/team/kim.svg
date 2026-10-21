@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: speech bubbles + signal -->
+  <path d="M30 50 h64 q12 0 12 12 v26 q0 12 -12 12 h-36 l-14 14 v-14 h-14 q-12 0 -12 -12 v-26 q0 -12 12 -12z" fill="#FFFFFF" stroke-width="4"/>
+  <path d="M62 86 q-14 -10 -10 -18 q4 -6 10 0 q6 -6 10 0 q4 8 -10 18z" fill="#FF4F9A" stroke-width="3"/>
+  <path d="M258 52 q14 12 0 28 M270 42 q26 22 0 48" fill="none" stroke="#5B2EFF" stroke-width="5"/>
+  <path d="M284 140 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#FFE14D" stroke-width="3"/>
+  <!-- hair back -->
+  <path d="M94 124 C82 170 82 220 96 252 L224 252 C238 220 238 170 226 124 Z" fill="#8E2F17"/>
+  <!-- top: purple -->
+  <path d="M60 302 C62 250 98 220 160 220 C222 220 258 250 260 302 Z" fill="#5B2EFF"/>
+  <path d="M134 220 q26 18 52 0" fill="#C98E66"/>
+  <!-- neck -->
+  <path d="M142 192 v28 q18 10 36 0 v-28" fill="#C98E66"/>
+  <!-- head -->
+  <ellipse cx="160" cy="138" rx="58" ry="62" fill="#C98E66"/>
+  <!-- side-swept hair -->
+  <path d="M100 150 C90 96 118 74 160 74 C204 74 230 98 220 150 C214 120 196 100 168 98 C148 112 120 120 100 150 Z" fill="#8E2F17"/>
+  <!-- headset -->
+  <path d="M96 140 C92 70 228 70 224 140" fill="none" stroke-width="8"/>
+  <path d="M96 140 C92 70 228 70 224 140" fill="none" stroke="#FF4F9A" stroke-width="3"/>
+  <rect x="84" y="126" width="22" height="36" rx="10" fill="#FF4F9A"/>
+  <path d="M96 162 q4 26 40 22" fill="none" stroke-width="5"/>
+  <circle cx="140" cy="184" r="6" fill="#0E0B1F"/>
+  <!-- eyes: friendly, confident -->
+  <path d="M128 140 q10 -10 20 0" fill="none"/>
+  <path d="M172 140 q10 -10 20 0" fill="none"/>
+  <path d="M126 134 l-5 -4 M194 134 l5 -4" stroke-width="3"/>
+  <path d="M126 122 q10 -6 20 -2 M174 120 q10 -4 20 2" fill="none" stroke-width="4"/>
+  <!-- blush, smile -->
+  <circle cx="122" cy="160" r="8" fill="#FF4F9A" stroke="none" opacity=".5"/>
+  <circle cx="198" cy="160" r="8" fill="#FF4F9A" stroke="none" opacity=".5"/>
+  <path d="M150 166 q16 16 32 0 z" fill="#FFFFFF"/>
+  <!-- gadget with a check -->
+  <rect x="226" y="196" width="50" height="78" rx="10" fill="#0E0B1F" transform="rotate(10 251 235)"/>
+  <rect x="234" y="208" width="34" height="44" rx="5" fill="#3DEBB0" stroke-width="3" transform="rotate(10 251 230)"/>
+  <path d="M240 228 l9 9 l15 -16" fill="none" stroke-width="5" transform="rotate(10 251 230)"/>
+  <path d="M212 282 q-6 -26 14 -30 q22 -2 22 18 v18 z" fill="#C98E66"/>
+</g>
+</svg>
