@@ -5,7 +5,11 @@
  */
 
 function amatchless_seo_map() {
-    return [
+    $cases = [];
+    foreach (amatchless_cases() as $slug => $c) {
+        $cases['case-' . $slug] = ['title' => $c['seo_title'], 'desc' => $c['seo_desc']];
+    }
+    return $cases + [
         'home' => [
             'title' => 'Custom Software, AI & Marketing Partner | Amatchless',
             'desc'  => 'We learn your business and its pain points, then build custom software, AI and automation, and grow it with SEO and marketing. Book a discovery call.',
@@ -36,6 +40,7 @@ function amatchless_seo_map() {
 function amatchless_seo_key() {
     if (is_front_page()) return 'home';
     if (is_home()) return 'blog';
+    if ($case = amatchless_current_case()) return 'case-' . $case['slug'];
     if (is_page()) {
         $slug = get_post_field('post_name', get_queried_object_id());
         if (isset(amatchless_seo_map()[$slug])) return $slug;

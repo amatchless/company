@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.3.0');
+define('AMATCHLESS_VERSION', '3.4.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
 
@@ -23,7 +23,7 @@ function amatchless_section_pages() {
 
 // True on the individual section pages and the blog (they all end with the contact form).
 function amatchless_is_section_page() {
-    return is_page(array_keys(amatchless_section_pages())) || is_home() || is_archive() || is_search() || is_singular('post');
+    return is_page(array_keys(amatchless_section_pages())) || is_home() || is_archive() || is_search() || is_singular('post') || amatchless_current_case();
 }
 
 // URL of a section's own page, falling back to its home-page anchor if the page is missing.
@@ -156,6 +156,9 @@ add_action('wp_head', 'amatchless_og_meta', 5);
 
 /* ── Blog page, categories and the post editor live in inc/blog.php ── */
 require_once get_template_directory() . '/inc/blog.php';
+
+/* ── Case study story pages (/work/{project}/) live in inc/cases.php ── */
+require_once get_template_directory() . '/inc/cases.php';
 
 /* ── SEO titles, descriptions, share image and schema live in inc/seo.php ── */
 require_once get_template_directory() . '/inc/seo.php';

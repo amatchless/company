@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: sun + waves -->
+  <circle cx="54" cy="58" r="22" fill="#FFE14D"/>
+  <path d="M54 22 v-10 M54 104 v-10 M18 58 h-10 M100 58 h-10 M28 32 l-7 -7 M87 91 l-7 -7 M80 32 l7 -7" fill="none" stroke-width="4"/>
+  <path d="M14 190 q14 -12 28 0 t28 0 M22 214 q14 -12 28 0 t28 0" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+  <path d="M276 140 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#FF4F9A" stroke-width="3"/>
+  <!-- long wavy hair (back) -->
+  <path d="M98 120 C78 170 86 214 76 256 C110 262 130 250 136 236 L184 236 C190 250 210 262 244 256 C234 214 242 170 222 120 Z" fill="#2B1A12"/>
+  <!-- kaftan: white with a wave stripe -->
+  <path d="M60 302 C62 250 98 220 160 220 C222 220 258 250 260 302 Z" fill="#FFFFFF"/>
+  <path d="M74 270 q22 -14 44 0 t44 0 t44 0 t44 0" fill="none" stroke="#5B2EFF" stroke-width="5"/>
+  <path d="M136 220 L160 252 L184 220" fill="#D49A72"/>
+  <!-- neck -->
+  <path d="M142 192 v28 q18 10 36 0 v-28" fill="#D49A72"/>
+  <!-- head -->
+  <ellipse cx="160" cy="140" rx="56" ry="60" fill="#D49A72"/>
+  <!-- hair front: middle part -->
+  <path d="M104 150 C98 108 124 88 160 88 C196 88 222 108 216 150 C210 124 196 108 162 104 C136 106 112 122 104 150 Z" fill="#2B1A12"/>
+  <!-- sun hat -->
+  <ellipse cx="160" cy="96" rx="112" ry="22" fill="#F6DDA8"/>
+  <path d="M110 94 C110 48 210 48 210 94 Z" fill="#F6DDA8"/>
+  <path d="M112 82 q48 14 96 0" fill="none" stroke="#FF7A1A" stroke-width="9"/>
+  <path d="M112 82 q48 14 96 0" fill="none" stroke-width="2"/>
+  <!-- eyes with lashes -->
+  <path d="M130 142 q10 -10 20 0" fill="none"/>
+  <path d="M170 142 q10 -10 20 0" fill="none"/>
+  <path d="M128 136 l-6 -4 M192 136 l6 -4" stroke-width="3"/>
+  <path d="M128 124 q10 -5 20 -1 M172 123 q10 -4 20 1" fill="none" stroke-width="4"/>
+  <!-- blush, smile, earrings -->
+  <circle cx="124" cy="162" r="8" fill="#FF4F9A" stroke="none" opacity=".5"/>
+  <circle cx="196" cy="162" r="8" fill="#FF4F9A" stroke="none" opacity=".5"/>
+  <path d="M146 168 q14 16 28 0 z" fill="#FFFFFF"/>
+  <circle cx="104" cy="170" r="7" fill="#FFE14D" stroke-width="3"/>
+  <circle cx="216" cy="170" r="7" fill="#FFE14D" stroke-width="3"/>
+  <!-- phone with a heart (creator) -->
+  <rect x="226" y="188" width="48" height="80" rx="10" fill="#0E0B1F" transform="rotate(-10 250 228)"/>
+  <rect x="233" y="198" width="34" height="52" rx="5" fill="#FF4F9A" stroke-width="3" transform="rotate(-10 250 224)"/>
+  <path d="M250 236 q-12 -8 -8 -15 q4 -5 8 0 q4 -5 8 0 q4 7 -8 15z" fill="#FFFFFF" stroke-width="2.5" transform="rotate(-10 250 228)"/>
+  <path d="M214 286 q-6 -26 14 -30 q22 -2 22 18 v18 z" fill="#D49A72"/>
+</g>
+</svg>

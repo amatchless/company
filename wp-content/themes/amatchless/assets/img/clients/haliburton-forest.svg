@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: pines + moon -->
+  <path d="M44 210 L20 210 L44 174 L28 174 L52 136 L40 136 L58 104 L76 136 L64 136 L88 174 L72 174 L96 210 L72 210 Z" fill="#1F7A54" stroke-width="4"/>
+  <path d="M58 210 v22" stroke-width="6"/>
+  <path d="M272 40 a22 22 0 1 0 22 30 a17 17 0 1 1 -22 -30z" fill="#FFE14D" stroke-width="4"/>
+  <path d="M280 120 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#FFFFFF" stroke-width="3"/>
+  <!-- flannel shirt -->
+  <path d="M60 302 C62 250 98 220 160 220 C222 220 258 250 260 302 Z" fill="#E8412C"/>
+  <path d="M96 240 v62 M130 224 v78 M190 224 v78 M224 240 v62 M70 268 h180" fill="none" stroke-width="4" opacity=".5"/>
+  <path d="M136 220 L160 250 L184 220" fill="#FFFFFF"/>
+  <!-- binoculars on a strap -->
+  <path d="M136 222 L148 262 M184 222 L172 262" fill="none" stroke-width="3"/>
+  <rect x="134" y="256" width="24" height="34" rx="8" fill="#0E0B1F"/>
+  <rect x="162" y="256" width="24" height="34" rx="8" fill="#0E0B1F"/>
+  <path d="M158 270 h4" stroke-width="5"/>
+  <!-- neck -->
+  <path d="M142 192 v28 q18 10 36 0 v-28" fill="#E3AE86"/>
+  <!-- ears -->
+  <circle cx="104" cy="146" r="12" fill="#E3AE86"/>
+  <circle cx="216" cy="146" r="12" fill="#E3AE86"/>
+  <!-- head -->
+  <ellipse cx="160" cy="142" rx="56" ry="58" fill="#E3AE86"/>
+  <!-- beard -->
+  <path d="M106 150 C110 196 132 210 160 210 C188 210 210 196 214 150 C206 168 190 176 160 176 C130 176 114 168 106 150 Z" fill="#7A4A26"/>
+  <path d="M144 180 q16 12 32 0" fill="#FFFFFF" stroke-width="4"/>
+  <!-- ranger hat -->
+  <ellipse cx="160" cy="102" rx="98" ry="18" fill="#B07A3E"/>
+  <path d="M112 100 L122 52 Q160 34 198 52 L208 100 Z" fill="#B07A3E"/>
+  <path d="M146 44 l14 14 l14 -14" fill="none" stroke-width="4"/>
+  <path d="M116 88 h88" fill="none" stroke="#1F7A54" stroke-width="10"/>
+  <path d="M116 88 h88" fill="none" stroke-width="2"/>
+  <!-- eyes -->
+  <circle cx="140" cy="138" r="5" fill="#0E0B1F" stroke="none"/>
+  <circle cx="180" cy="138" r="5" fill="#0E0B1F" stroke="none"/>
+  <path d="M130 124 q10 -5 20 0 M170 124 q10 -5 20 0" fill="none" stroke-width="4"/>
+  <circle cx="124" cy="156" r="8" fill="#FF4F9A" stroke="none" opacity=".45"/>
+  <circle cx="196" cy="156" r="8" fill="#FF4F9A" stroke="none" opacity=".45"/>
+  <!-- waving hand -->
+  <path d="M246 236 v-34 q0 -8 6 -8 q6 0 6 8 v-14 q0 -8 6 -8 q6 0 6 8 v10 q0 -6 6 -6 q6 0 6 8 v26 q0 24 -20 30 l-24 10 z" fill="#E3AE86"/>
+  <path d="M234 300 l16 -48" fill="none" stroke="#E8412C" stroke-width="18"/>
+  <path d="M226 302 l12 -48 h24 l-8 48" fill="#E8412C"/>
+</g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300">
+<g stroke="#0E0B1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- decor: calm ripples + sparkles -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="4" opacity=".9">
+    <circle cx="56" cy="64" r="14"/><circle cx="56" cy="64" r="28"/><circle cx="56" cy="64" r="42" opacity=".6"/>
+  </g>
+  <path d="M274 52 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5z" fill="#FFE14D" stroke-width="3"/>
+  <path d="M40 180 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#3DEBB0" stroke-width="3"/>
+  <!-- tee: mint -->
+  <path d="M60 302 C62 250 98 220 160 220 C222 220 258 250 260 302 Z" fill="#3DEBB0"/>
+  <path d="M136 222 q24 18 48 0" fill="#A86F4C"/>
+  <!-- neck -->
+  <path d="M142 192 v28 q18 10 36 0 v-28" fill="#A86F4C"/>
+  <!-- ears -->
+  <circle cx="104" cy="144" r="12" fill="#A86F4C"/>
+  <circle cx="216" cy="144" r="12" fill="#A86F4C"/>
+  <!-- head -->
+  <ellipse cx="160" cy="140" rx="56" ry="60" fill="#A86F4C"/>
+  <!-- hair: short with a top knot -->
+  <circle cx="160" cy="70" r="18" fill="#0E0B1F"/>
+  <path d="M104 132 C98 96 124 82 160 82 C196 82 222 96 216 132 C206 112 188 104 160 104 C132 104 114 112 104 132 Z" fill="#0E0B1F"/>
+  <!-- eyes closed, blissful -->
+  <path d="M128 140 q10 9 20 0" fill="none"/>
+  <path d="M172 140 q10 9 20 0" fill="none"/>
+  <path d="M130 124 q9 -4 18 0 M172 124 q9 -4 18 0" fill="none" stroke-width="4"/>
+  <circle cx="124" cy="160" r="8" fill="#FF4F9A" stroke="none" opacity=".45"/>
+  <circle cx="196" cy="160" r="8" fill="#FF4F9A" stroke="none" opacity=".45"/>
+  <path d="M146 168 q14 10 28 0" fill="none"/>
+  <!-- can of Moment -->
+  <rect x="226" y="176" width="48" height="84" rx="10" fill="#FFFFFF"/>
+  <path d="M226 196 h48 M226 240 h48" fill="none" stroke-width="4"/>
+  <rect x="228" y="198" width="44" height="40" fill="#FF4F9A" stroke="none"/>
+  <path d="M238 228 v-14 q0 -6 6 -6 q6 0 6 6 v14 M250 214 q0 -6 6 -6 q6 0 6 6 v14" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+  <ellipse cx="250" cy="176" rx="24" ry="5" fill="#E9E2FF" stroke-width="4"/>
+  <path d="M212 286 q-6 -26 14 -30 q22 -2 22 18 v18 z" fill="#A86F4C"/>
+</g>
+</svg>
