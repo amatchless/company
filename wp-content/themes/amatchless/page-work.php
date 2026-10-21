@@ -1,10 +1,11 @@
 <?php get_header(); ?>
 
-<section class="page-head page-head--section">
-  <div class="wrap">
-    <span class="eyebrow">Work</span>
-    <h1>Real brands. Real <span class="flame">results.</span></h1>
-    <p class="lede">Live work and the numbers behind it, across fashion, beauty, wellness, tourism and agri-tech.</p>
+<section class="page-head">
+  <div class="blob page-blob" aria-hidden="true"></div>
+  <div class="sec-in">
+    <span class="pill-dark pop"><span class="pulse-dot" aria-hidden="true"></span>WORK</span>
+    <h1 class="h1 rise d1">Real brands. Real <span class="hl-purple">results.</span></h1>
+    <p class="hero-lede rise d2">Live work and the numbers behind it, across fashion, beauty, wellness, tourism and agri-tech.</p>
   </div>
 </section>
 

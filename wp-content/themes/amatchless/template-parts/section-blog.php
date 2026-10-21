@@ -18,39 +18,44 @@ $fallback = [
     ['cat' => 'Paid Ads',   'read' => '7 min read', 'title' => 'The creator\'s guide to your first profitable ad',      'text' => 'From offer to targeting to creative — a beginner-friendly walkthrough.'],
 ];
 ?>
-<section class="band band-line" id="blog">
-  <div class="wrap">
-    <div class="sec-head up">
-      <span class="eyebrow">From the journal</span>
-      <h2>Ideas on brand, growth and automation.</h2>
-      <p class="lede">Practical thinking for creators and founders — the same playbooks we use for clients.</p>
+<section class="sec sec-tight" id="blog">
+  <div class="sec-in">
+    <div class="sec-split reveal">
+      <div class="sec-head">
+        <span class="label" style="color:#FF4F9A">FROM THE JOURNAL</span>
+        <h2 class="h2">Ideas on brand, growth and automation.</h2>
+      </div>
+      <?php if ($blog_url && $posts_q->post_count) : ?>
+      <a href="<?php echo esc_url($blog_url); ?>" class="btn btn-white btn-lg">Visit the journal →</a>
+      <?php endif; ?>
     </div>
-    <div class="posts up">
+    <div class="posts">
       <?php if ($posts_q->have_posts()) : $n = 0; while ($posts_q->have_posts()) : $posts_q->the_post(); $t = $thumbs[$n++ % 3];
         $cats  = get_the_category();
         $words = str_word_count(wp_strip_all_tags(get_the_content()));
       ?>
-      <a class="pcard" href="<?php the_permalink(); ?>">
-        <div class="media <?php echo esc_attr($t['class']); ?>">
+      <a class="pcard reveal" href="<?php the_permalink(); ?>">
+        <div class="pcard-media <?php echo esc_attr($t['class']); ?>">
           <?php if (has_post_thumbnail()) : the_post_thumbnail('medium_large', ['alt' => '']); else : ?><span class="bthumb"><?php echo $t['svg']; ?></span><?php endif; ?>
         </div>
-        <div class="pmeta"><span class="cat"><?php echo esc_html($cats ? $cats[0]->name : 'Journal'); ?></span><span>·</span><span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span></div>
-        <h3><?php the_title(); ?></h3>
-        <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 18, '…')); ?></p>
-        <span class="rd">Read article →</span>
+        <div class="pcard-body">
+          <div class="pmeta"><span class="cat"><?php echo esc_html($cats ? $cats[0]->name : 'Journal'); ?></span><span><?php echo esc_html(max(1, (int) ceil($words / 220))); ?> min read</span></div>
+          <h3><?php the_title(); ?></h3>
+          <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 18, '…')); ?></p>
+          <span class="rd">Read article →</span>
+        </div>
       </a>
       <?php endwhile; wp_reset_postdata(); else : foreach ($fallback as $i => $p) : $t = $thumbs[$i]; ?>
-      <div class="pcard">
-        <div class="media <?php echo esc_attr($t['class']); ?>"><span class="bthumb"><?php echo $t['svg']; ?></span></div>
-        <div class="pmeta"><span class="cat"><?php echo esc_html($p['cat']); ?></span><span>·</span><span><?php echo esc_html($p['read']); ?></span></div>
-        <h3><?php echo esc_html($p['title']); ?></h3>
-        <p><?php echo esc_html($p['text']); ?></p>
-        <span class="rd">Coming soon</span>
+      <div class="pcard reveal">
+        <div class="pcard-media <?php echo esc_attr($t['class']); ?>"><span class="bthumb"><?php echo $t['svg']; ?></span></div>
+        <div class="pcard-body">
+          <div class="pmeta"><span class="cat"><?php echo esc_html($p['cat']); ?></span><span><?php echo esc_html($p['read']); ?></span></div>
+          <h3><?php echo esc_html($p['title']); ?></h3>
+          <p><?php echo esc_html($p['text']); ?></p>
+          <span class="rd">Coming soon</span>
+        </div>
       </div>
       <?php endforeach; endif; ?>
     </div>
-    <?php if ($blog_url && $posts_q->post_count) : ?>
-    <div class="work-more"><a href="<?php echo esc_url($blog_url); ?>" class="btn btn-ghost">Visit the blog ↗</a></div>
-    <?php endif; ?>
   </div>
 </section>

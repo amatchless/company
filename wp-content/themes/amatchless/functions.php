@@ -1,8 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '2.12.0');
-define('AMATCHLESS_COLOUR_TEST', true); // multicolour accents test; false = back to gold only
+define('AMATCHLESS_VERSION', '3.0.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_PHONE', '+91 90508 20042');
 define('AMATCHLESS_PHONE_E164', '+919050820042');
@@ -88,9 +87,6 @@ add_action('after_setup_theme', 'amatchless_setup');
 /* ── Enqueue Styles & Scripts ────────────────────────────────── */
 function amatchless_assets() {
     wp_enqueue_style('amatchless-site', get_template_directory_uri() . '/assets/css/site.css', [], AMATCHLESS_VERSION);
-    if (AMATCHLESS_COLOUR_TEST) {
-        wp_enqueue_style('amatchless-colour-test', get_template_directory_uri() . '/assets/css/colour-test.css', ['amatchless-site'], AMATCHLESS_VERSION);
-    }
     wp_enqueue_script('amatchless-site', get_template_directory_uri() . '/assets/js/site.js', [], AMATCHLESS_VERSION, true);
     wp_localize_script('amatchless-site', 'amatchlessAjax', [
         'url'   => admin_url('admin-ajax.php'),
@@ -104,7 +100,7 @@ add_action('wp_enqueue_scripts', 'amatchless_assets');
 function amatchless_fonts() {
     $dir = get_template_directory();
     $uri = get_template_directory_uri();
-    foreach (['HankenGrotesk-normal-latin', 'Fraunces-normal-latin'] as $f) {
+    foreach (['BricolageGrotesque-latin', 'DMSans-latin'] as $f) {
         echo '<link rel="preload" href="' . esc_url($uri . '/assets/fonts/' . $f . '.woff2') . '" as="font" type="font/woff2" crossorigin>' . "\n";
     }
     $css = @file_get_contents($dir . '/assets/css/fonts.css');

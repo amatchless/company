@@ -2,89 +2,101 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-inner">
-        <span class="eyebrow reveal">Software × AI × Marketing</span>
-        <h1 class="reveal d1">Run leaner.<br><span class="flame">Grow faster.</span></h1>
-        <p class="lede reveal d2">One partner for software, AI and marketing. We start by understanding your business and its pain points, then build what makes it efficient and market it to grow.</p>
-        <form class="hero-capture reveal d3" id="heroCapture" novalidate>
-          <label class="screen-reader-text" for="hc-email">Your email</label>
-          <input class="form-ctrl" type="email" id="hc-email" placeholder="you@company.com" autocomplete="email">
-          <label class="screen-reader-text" for="hc-msg">What is slowing your business down?</label>
-          <input class="form-ctrl" type="text" id="hc-msg" placeholder="What's slowing your business down?">
-          <button type="submit" class="btn btn-primary">Book a discovery call <span class="arw">↗</span></button>
-        </form>
-        <p class="hero-sub reveal d3"><a href="<?php echo esc_url(amatchless_anchor('work')); ?>">See our work →</a></p>
-        <p class="hero-proof reveal d4">Two Shark Tank–featured brands · a ₹100 Cr company · a creator with 575K followers · 4× return on ad spend</p>
-        <div class="hero-meta reveal d4">
-          <span><i class="dot"></i>Custom software</span>
-          <span><i class="dot"></i>AI &amp; automation</span>
-          <span><i class="dot"></i>Marketing &amp; growth</span>
+  <div class="blob hero-blob-a" aria-hidden="true"></div>
+  <div class="blob hero-blob-b hide-sm" aria-hidden="true"></div>
+  <svg class="float hide-sm hero-star" aria-hidden="true" width="90" height="90" viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z" fill="#FF4F9A"/></svg>
+  <svg class="float2 hide-sm hero-wave" aria-hidden="true" width="120" height="60" viewBox="0 0 120 60"><path d="M4 40 Q 20 4 36 30 T 68 30 T 100 30 T 116 20" fill="none" stroke="#5B2EFF" stroke-width="8" stroke-linecap="round"/></svg>
+
+  <div class="hero-in">
+    <div class="pill-dark pop"><span class="pulse-dot" aria-hidden="true"></span>SOFTWARE × AI × MARKETING</div>
+
+    <h1 class="hero-title">
+      <span class="rise d1">Run</span>
+      <span class="rise d2 hero-leaner">leaner.</span><br>
+      <span class="rise d3">Grow</span>
+      <span class="rise d4 hero-faster">faster.<svg aria-hidden="true" viewBox="0 0 400 40" preserveAspectRatio="none"><path class="draw" d="M4 30 C 80 6, 160 6, 220 22 S 340 36, 396 10" fill="none" stroke="#0E0B1F" stroke-width="7" stroke-linecap="round"/></svg></span>
+    </h1>
+
+    <div class="hero-row">
+      <div class="hero-copy rise d5">
+        <p class="hero-lede">One partner for software, AI and marketing. We start by understanding your business and its pain points, then build what makes it efficient — and market it to grow.</p>
+        <div class="btn-row">
+          <a class="btn btn-pink" href="<?php echo esc_url(amatchless_anchor('book')); ?>">Book a discovery call <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-white" href="#work">See our work →</a>
         </div>
       </div>
-      <div class="hero-art reveal d2" aria-hidden="true">
-        <div class="media tint-c m1"><span class="badge-metric" style="left:14px;right:auto">★ Moment</span><img src="<?php echo esc_url(amatchless_img('hero-moment-780.webp')); ?>" srcset="<?php echo esc_url(amatchless_img('hero-moment-400.webp')); ?> 400w, <?php echo esc_url(amatchless_img('hero-moment-780.webp')); ?> 780w" sizes="(max-width:960px) 76vw, 400px" width="780" height="986" fetchpriority="high" decoding="async" alt="Moment × Barbie strawberry rose campaign" style="object-position:center"></div>
-        <div class="media tint-b m2"><span class="badge-metric" style="left:14px;right:auto">★ Bailey's</span><img src="<?php echo esc_url(amatchless_img('hero-baileys-480.webp')); ?>" srcset="<?php echo esc_url(amatchless_img('hero-baileys-320.webp')); ?> 320w, <?php echo esc_url(amatchless_img('hero-baileys-480.webp')); ?> 480w" sizes="(max-width:960px) 46vw, 260px" width="620" height="1092" loading="lazy" decoding="async" alt="Bailey's Blossoms reel" style="object-position:center"></div>
-        <div class="media m3"><img src="<?php echo esc_url(amatchless_img('hero-haliburton-720.webp')); ?>" srcset="<?php echo esc_url(amatchless_img('hero-haliburton-360.webp')); ?> 360w, <?php echo esc_url(amatchless_img('hero-haliburton-720.webp')); ?> 720w" sizes="(max-width:960px) 42vw, 220px" width="900" height="419" loading="lazy" decoding="async" alt="Haliburton Forest website" style="object-position:top"></div>
-        <div class="hero-badge"><div class="v">↗ ROI</div><div class="l">Built to perform</div></div>
+
+      <div class="hero-seal pop d6" aria-hidden="true">
+        <svg class="spin" viewBox="0 0 200 200" width="150" height="150">
+          <defs><path id="amxCircle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+          <circle cx="100" cy="100" r="99" fill="#0E0B1F"/>
+          <text font-family="DM Sans, sans-serif" font-weight="700" font-size="15" letter-spacing="3.4" fill="#FFFFFF"><textPath href="#amxCircle">BUILT TO PERFORM ✦ 4× ROAS ✦ SHARK TANK BRANDS ✦</textPath></text>
+        </svg>
+        <span class="hero-seal-core">4×</span>
       </div>
+    </div>
+
+    <p class="hero-proof rise d6">Two Shark Tank–featured brands · a ₹100 Cr company · a creator with 575K followers · 4× return on ad spend</p>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<?php
+$clients  = ['ISOLA', 'ALEUCO', "BAILEY'S BLOSSOMS", 'MOMENT', 'HALIBURTON FOREST', 'MD BIOCOALS'];
+$sparks   = ['#FFE14D', '#FF4F9A', '#3DEBB0'];
+$services = ['CUSTOM SOFTWARE', 'AI & AUTOMATION', 'SEO', 'META & GOOGLE ADS', 'INFLUENCER MARKETING', 'BRANDING'];
+// Each track holds two identical runs and slides by exactly one; the second run is hidden from screen readers.
+?>
+<section class="ticker" id="clients" aria-label="Clients and services">
+  <div class="ticker-dark">
+    <div class="track">
+      <?php for ($run = 0; $run < 2; $run++) : ?>
+      <div class="track-run"<?php echo $run ? ' aria-hidden="true"' : ''; ?>>
+        <?php foreach ($clients as $i => $c) : ?>
+        <span><?php echo esc_html($c); ?></span><span aria-hidden="true" style="color:<?php echo esc_attr($sparks[$i % 3]); ?>">✦</span>
+        <?php endforeach; ?>
+      </div>
+      <?php endfor; ?>
+    </div>
+  </div>
+  <div class="ticker-pink">
+    <div class="track rev">
+      <?php for ($run = 0; $run < 2; $run++) : ?>
+      <div class="track-run"<?php echo $run ? ' aria-hidden="true"' : ''; ?>>
+        <?php foreach ($services as $s) : ?>
+        <span><?php echo esc_html($s); ?></span><span aria-hidden="true">●</span>
+        <?php endforeach; ?>
+      </div>
+      <?php endfor; ?>
     </div>
   </div>
 </section>
 
-<!-- ============ CLIENT LOGOS ============ -->
-<section class="logos" id="clients">
-  <div class="wrap">
-    <p class="cap">The brands and creators we work with</p>
-    <?php
-    $clients = [
-        ['ISOLA',                 'https://isolabysk.com',           ''],
-        ['ALEUCO',                'https://aleuco.com',              ''],
-        ['BAILEY\'S<br>BLOSSOMS',   'https://www.baileysblossoms.com', 'font-size:14px;line-height:1.1;letter-spacing:.1em;padding-left:.1em'],
-        ['MOMENT',                'https://drinkmoment.com',         ''],
-        ['HALIBURTON<br>FOREST',  'https://www.haliburtonforest.com','font-size:13px;line-height:1.1;letter-spacing:.08em;padding-left:.08em'],
-        ['MD BIOCOALS',           'https://www.mdbiocoals.com',      'font-size:15px;letter-spacing:.12em;padding-left:.12em'],
-    ];
-    // Scrolling strip: each set repeats the logos so it is wider than any screen; the
-    // track holds two identical sets and slides by exactly one. Copies are hidden from
-    // screen readers and keyboard focus, and reduced-motion visitors get one static row.
-    ?>
-    <div class="marquee">
-      <div class="marquee-track">
-        <?php for ($set = 0; $set < 2; $set++) : ?>
-        <div class="marquee-set"<?php echo $set ? ' aria-hidden="true"' : ''; ?>>
-          <?php for ($rep = 0; $rep < 2; $rep++) : foreach ($clients as [$label, $url, $style]) : $copy = $set || $rep; ?>
-          <span class="logo-slot real<?php echo $rep ? ' dup' : ''; ?>"<?php echo $style ? ' style="' . esc_attr($style) . '"' : ''; ?><?php echo $copy && !$set ? ' aria-hidden="true"' : ''; ?>><?php echo wp_kses($label, ['br' => []]); ?></span>
-          <?php endforeach; endfor; ?>
-        </div>
-        <?php endfor; ?>
+<!-- ============ PROBLEM → FIX ============ -->
+<section class="sec" id="pain">
+  <div class="sec-in">
+    <div class="sec-split reveal">
+      <h2 class="h2">Most agencies sell you a service. We start with <span class="mark-yellow">your business.</span></h2>
+      <p class="sec-aside">We dig into how you operate and where it hurts — then recommend the fix and build it ourselves. One team, one plan, nothing lost between vendors.</p>
+    </div>
+    <div class="pain-grid">
+      <?php
+      $pains = [
+          ['Leads slip through the cracks',        'Automated capture and follow-up'],
+          ['Too much manual, repetitive work',     'Process automation and AI'],
+          ["Tools that don't talk to each other",  'Custom software that joins them up'],
+          ["Customers can't find us online",       'SEO and content marketing'],
+          ["Ad spend that doesn't pay back",       'Performance campaigns built for ROAS'],
+          ['Our brand has no reach',               'Influencer and social marketing'],
+      ];
+      foreach ($pains as [$pain, $fix]) : ?>
+      <div class="pain reveal">
+        <span class="pain-label">PAIN</span>
+        <p class="pain-text"><?php echo esc_html($pain); ?></p>
+        <p class="pain-fix">→ <?php echo esc_html($fix); ?></p>
       </div>
+      <?php endforeach; ?>
     </div>
-    <p class="note">A growing roster across India, the US and Canada — fashion, beauty, wellness and tourism.</p>
-  </div>
-</section>
-
-<!-- ============ MANIFESTO ============ -->
-<section>
-  <div class="wrap manifesto manifesto-grid">
-    <div class="manifesto-copy up">
-      <p>Most agencies sell you a service. We start with your <span class="flame">business.</span></p>
-      <p class="sub">We dig into how you operate and where it hurts: slow processes, missed leads, manual work, a brand nobody notices. Then we recommend the fix and build it ourselves — software made for your business, AI and automation that cut the busywork, and marketing that fills your pipeline. One team, one plan, nothing lost between vendors.</p>
-    </div>
-    <aside class="pain-card up" aria-label="Common business problems and how we fix them">
-      <div class="pain-head"><span>What we hear</span><span>What we do</span></div>
-      <ul class="pain-list">
-        <li><span class="pain">Leads slip through the cracks</span><span class="fix">Automated capture and follow-up</span></li>
-        <li><span class="pain">Too much manual, repetitive work</span><span class="fix">Process automation and AI</span></li>
-        <li><span class="pain">Tools that don't talk to each other</span><span class="fix">Custom software that joins them up</span></li>
-        <li><span class="pain">Customers can't find us online</span><span class="fix">SEO and content marketing</span></li>
-        <li><span class="pain">Ad spend that doesn't pay back</span><span class="fix">Performance campaigns built for ROAS</span></li>
-        <li><span class="pain">Our brand has no reach</span><span class="fix">Influencer and social marketing</span></li>
-      </ul>
-      <a class="pain-cta" href="<?php echo esc_url(amatchless_anchor('book')); ?>">Tell us what's slowing you down <span aria-hidden="true">↗</span></a>
-    </aside>
   </div>
 </section>
 
@@ -94,18 +106,12 @@
 
 <?php get_template_part('template-parts/section', 'work'); ?>
 
-<?php get_template_part('template-parts/section', 'about'); ?>
-
 <?php get_template_part('template-parts/section', 'stats'); ?>
 
 <?php get_template_part('template-parts/section', 'testimonials'); ?>
 
-<?php get_template_part('template-parts/section', 'who'); ?>
-
-<?php get_template_part('template-parts/section', 'faq'); ?>
+<?php get_template_part('template-parts/section', 'blog'); ?>
 
 <?php get_template_part('template-parts/section', 'contact'); ?>
-
-<?php get_template_part('template-parts/section', 'blog'); ?>
 
 <?php get_footer(); ?>
