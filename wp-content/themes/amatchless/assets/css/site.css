@@ -370,13 +370,45 @@ header.nav.scrolled .nav-pill{box-shadow:5px 5px 0 var(--ink)}
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item p{padding:0 24px 22px;font-size:17px;line-height:1.55}
 
-/* ---- testimonial ---- */
-.quote{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:32px;align-items:center;text-align:center}
-.quote blockquote{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(26px, 3vw, 42px);line-height:1.05;letter-spacing:-.03em}
-.quote-who{display:flex;align-items:center;gap:14px;text-align:left}
-.quote-av{width:56px;height:56px;border-radius:50%;background:var(--pink);border:var(--line);flex-shrink:0}
-.quote-who b{display:block;font-size:17px}
-.quote-who b + span{display:block;font-size:15px;color:var(--muted)}
+/* ---- testimonials ---- */
+.sec-tm{overflow:hidden}
+.tm-spark{position:absolute;right:6%;top:64px;z-index:1}
+.tm-notice{border:2px dashed var(--ink);border-radius:20px;background:#fff;padding:14px 18px;font-size:15px}
+.tm-notice code{font-size:13px;background:var(--yellow);padding:1px 6px;border-radius:6px}
+.tm-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:22px;align-items:stretch}
+.tm-card{
+  position:relative;margin:0;border:var(--line);border-radius:32px;background:#fff;color:var(--ink);
+  padding:28px;display:flex;flex-direction:column;gap:20px;
+  box-shadow:0 0 0 var(--ink);
+  transition:translate .35s cubic-bezier(.3,1.4,.5,1),rotate .35s cubic-bezier(.3,1.4,.5,1),box-shadow .35s;
+}
+.tm-card:hover{translate:-6px -6px;rotate:-1deg;box-shadow:8px 8px 0 var(--ink)}
+.tm-card:nth-child(even):hover{rotate:1deg}
+.tm-feature{grid-column:span 2;background:var(--ink);color:#fff;padding:clamp(28px, 4vw, 48px)}
+.tm-feature:hover{box-shadow:8px 8px 0 var(--pink)}
+.tm-top{display:flex;justify-content:space-between;align-items:flex-start}
+.tm-stars{display:inline-flex;gap:3px}
+.tm-stars svg{fill:var(--yellow);stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.tm-feature .tm-stars svg{stroke:var(--yellow)}
+.tm-mark{font-family:var(--f-display);font-weight:800;font-size:96px;line-height:.6;height:44px;color:var(--c)}
+.tm-quote{margin:0;flex:1}
+.tm-quote p{font-size:18px;line-height:1.5}
+.tm-feature .tm-quote p{font-family:var(--f-display);font-weight:700;font-size:clamp(24px, 2.6vw, 36px);line-height:1.12;letter-spacing:-.025em}
+.tm-feature .mark-mint{color:var(--ink)}
+.tm-who{display:flex;align-items:center;gap:14px;padding-top:18px;border-top:2px dashed currentColor}
+.tm-av{width:60px;height:60px;border-radius:50%;background:var(--c);border:var(--line);overflow:hidden;flex-shrink:0;display:flex;align-items:flex-end;justify-content:center}
+.tm-av img{width:84px;max-width:none;height:auto;margin-bottom:-6px}
+.tm-feature .tm-av{border-color:#fff}
+.tm-id{flex:1;min-width:0}
+.tm-id b{display:block;font-size:17px;line-height:1.25}
+.tm-id span{display:block;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tm-feature .tm-id span{color:rgba(255,255,255,.7)}
+.tm-link{flex-shrink:0;width:44px;height:44px;border:var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--c);color:var(--ink);text-decoration:none;font-weight:800;font-size:20px;transition:rotate .3s}
+.tm-link:hover{rotate:-45deg;color:var(--ink)}
+.tm-card[style*="#5B2EFF"] .tm-link{color:#fff}
+.tm-feature .tm-link{border-color:#fff}
+.tm-draft{outline:3px dashed var(--pink);outline-offset:6px}
+.tm-draft-tag{position:absolute;top:-14px;left:24px;background:var(--pink);color:var(--ink);border:var(--line);border-radius:999px;padding:3px 12px;font-size:12px;font-weight:800;letter-spacing:.08em}
 
 /* ---- journal ---- */
 .posts{display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 320px), 1fr));gap:24px}
@@ -594,6 +626,7 @@ textarea.form-ctrl{min-height:120px;resize:vertical}
 }
 @media (max-width:960px){
   .cta-grid,.faq-grid{grid-template-columns:1fr}
+  .tm-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .cs-head-in,.chapter,.cs-end-in{grid-template-columns:1fr}
   .chapter:nth-child(even) .ch-copy{order:0}
   .cs-cover{width:100%;max-width:460px}
@@ -609,6 +642,9 @@ textarea.form-ctrl{min-height:120px;resize:vertical}
 }
 @media (max-width:560px){
   .team-grid{grid-template-columns:1fr;gap:24px}
+  .tm-grid{grid-template-columns:1fr}
+  .tm-feature{grid-column:auto}
+  .tm-card{padding:24px}
   .sx-grid{grid-template-columns:1fr}
   .sx-feature,.sx-wide,.sx-cta{grid-column:auto}
   .sx-wide{flex-direction:column}

@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.5.0');
+define('AMATCHLESS_VERSION', '3.6.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=Hi%20Amatchless%20Team%2C%20I%20want%20to%20discuss%20my%20digital%20marketing%20needs.');
 
@@ -159,6 +159,9 @@ require_once get_template_directory() . '/inc/blog.php';
 
 /* ── Case study story pages (/work/{project}/) live in inc/cases.php ── */
 require_once get_template_directory() . '/inc/cases.php';
+
+/* ── Client testimonials (drafts until each client signs off) live in inc/testimonials.php ── */
+require_once get_template_directory() . '/inc/testimonials.php';
 
 /* ── SEO titles, descriptions, share image and schema live in inc/seo.php ── */
 require_once get_template_directory() . '/inc/seo.php';
