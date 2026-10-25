@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.9.0');
+define('AMATCHLESS_VERSION', '3.10.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/919050820042?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
 
