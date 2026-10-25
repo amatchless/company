@@ -2,12 +2,12 @@
 /**
  * Client testimonials for template-parts/section-testimonials.php.
  *
- * The quotes below are DRAFTS written from what we did for each client. They are not the
- * clients' words yet. Send each one to the client, use their edits, fill in the real name and
- * role, and only then set 'approved' => true.
+ * All five quotes were approved by the clients on 25 Oct 2026 (theme 3.10.0).
+ * To add a new one, get the client's sign-off first, then add it with 'approved' => true.
+ * Fill in 'name' when a client gives the name they want shown; until then the card shows role and company.
  *
  * Visitors only ever see approved quotes; if none are approved the section is left out.
- * Logged-in admins see the drafts too, marked DRAFT, so the layout can be checked on the live site.
+ * Logged-in admins also see unapproved drafts, marked DRAFT, so the layout can be checked on the live site.
  */
 defined('ABSPATH') || exit;
 
@@ -16,7 +16,7 @@ function amatchless_testimonials() {
         [
             'slug'     => 'baileys-blossoms',
             'company'  => "Bailey's Blossoms",
-            'name'     => '',                       // the client's real name, once they sign off
+            'name'     => '',                       // add the name the client wants shown
             'role'     => 'Founder',
             'services' => 'Meta ads',
             'rating'   => 5,
@@ -24,7 +24,7 @@ function amatchless_testimonials() {
             'quote'    => "Shark Tank got people to know our name. Amatchless made our ads pay for themselves. They test creative properly, track every dollar, and our Meta campaigns now return four times what we put in, so we scale spend with confidence instead of crossing our fingers.",
             'mark'     => 'return four times what we put in',
             'featured' => true,
-            'approved' => false,
+            'approved' => true,
         ],
         [
             'slug'     => 'isola',
@@ -36,7 +36,7 @@ function amatchless_testimonials() {
             'bg'       => '#FF7A1A',
             'quote'    => "For years my DMs were full of “where can I buy this?” and all I could say was “coming soon”. Amatchless built Isola around how my followers actually shop, on their phones and straight from Instagram, and they run our social every day. The feed and the store finally feel like one brand.",
             'mark'     => 'feel like one brand',
-            'approved' => false,
+            'approved' => true,
         ],
         [
             'slug'     => 'moment',
@@ -48,7 +48,7 @@ function amatchless_testimonials() {
             'bg'       => '#5B2EFF',
             'quote'    => "A drink built around calm can't win by shouting, and Amatchless got that on the first call. They sharpened our branding, grew our organic search and run our paid ads as one plan, so the people looking for a better kind of drink actually find us.",
             'mark'     => 'one plan',
-            'approved' => false,
+            'approved' => true,
         ],
         [
             'slug'     => 'aleuco',
@@ -60,7 +60,7 @@ function amatchless_testimonials() {
             'bg'       => '#FFC2DD',
             'quote'    => "We don't have a salon window anyone walks past. Every booking starts with a search. Amatchless showed us exactly where competitors appeared and we didn't, on Google, on Maps and in AI answers, and they've been closing those gaps month by month. Our brand finally looks as polished as our artists' work.",
             'mark'     => 'as polished as our artists\' work',
-            'approved' => false,
+            'approved' => true,
         ],
         [
             'slug'     => 'haliburton-forest',
@@ -72,7 +72,7 @@ function amatchless_testimonials() {
             'bg'       => '#3DEBB0',
             'quote'    => "We're 100,000 acres and 100 lakes, open all year, and our old website didn't do any of it justice. Amatchless designed a site that feels like the forest and built a booking system our visitors use to reserve stays and activities in every season.",
             'mark'     => 'in every season',
-            'approved' => false,
+            'approved' => true,
         ],
     ];
 }
