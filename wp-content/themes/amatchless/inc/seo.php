@@ -104,11 +104,13 @@ function amatchless_schema() {
         'email'       => AMATCHLESS_EMAIL,
         'address'     => [
             '@type'           => 'PostalAddress',
-            'addressLocality' => 'Rohini, New Delhi',
+            'streetAddress'   => 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5',
+            'addressLocality' => 'North West Delhi',
             'addressRegion'   => 'Delhi',
+            'postalCode'      => '110085',
             'addressCountry'  => 'IN',
         ],
-        'sameAs'      => ['https://www.instagram.com/amatchless_/'],
+        'sameAs'      => ['https://www.instagram.com/amatchless_/', 'https://www.facebook.com/amatchless', 'https://www.linkedin.com/company/amatchless'],
         'knowsAbout'  => ['Custom software', 'AI and automation', 'SEO', 'Digital marketing', 'Influencer marketing', 'Content marketing'],
     ];
 

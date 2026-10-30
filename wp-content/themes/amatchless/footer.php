@@ -13,10 +13,14 @@
       <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
     </nav>
     <div class="foot-bot">
-      <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
+      <div class="foot-meta">
+        <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
+        <address class="foot-addr"><a href="<?php echo esc_url(AMATCHLESS_MAP); ?>" target="_blank" rel="noopener"><?php echo esc_html(AMATCHLESS_ADDRESS); ?></a></address>
+      </div>
       <div class="foot-contact">
         <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>
         <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
+        <a href="https://www.facebook.com/amatchless" target="_blank" rel="noopener" data-social="Facebook">Facebook</a>
         <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn</a>
         <?php $privacy = get_privacy_policy_url(); if ($privacy) : ?>
         <a href="<?php echo esc_url($privacy); ?>">Privacy</a>
