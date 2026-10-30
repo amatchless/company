@@ -64,7 +64,7 @@ $steps = [
         <span class="label" style="color:#5B2EFF">PICK YOUR CHANNEL</span>
         <h2 class="h2" id="ct-channels-title">However you like to talk, <span class="mark-yellow">we're there.</span></h2>
       </div>
-      <p class="sec-aside">Based in Rohini, New Delhi. Working with businesses across India, the US and Canada.</p>
+      <p class="sec-aside">Based in Rohini, Delhi. Working with businesses across India, the US and Canada.</p>
     </div>
 
     <div class="ct-grid reveal">
@@ -80,6 +80,7 @@ $steps = [
       </a>
       <?php endforeach; ?>
     </div>
+    <p class="ct-also ct-office reveal"><span class="sx-tag">OFFICE</span> <a href="<?php echo esc_url(AMATCHLESS_MAP); ?>" target="_blank" rel="noopener"><?php echo esc_html(AMATCHLESS_ADDRESS); ?> ↗</a></p>
     <p class="ct-also reveal">Also on <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn ↗</a></p>
   </div>
 </section>
