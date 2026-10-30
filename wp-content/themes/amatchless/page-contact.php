@@ -11,7 +11,7 @@ $channels = [
    '<path d="M5 11h38v27H5z" fill="none"/><path d="M5 12l19 15 19-15" fill="none"/>'],
   ['#3DEBB0', 'WHATSAPP', 'Message the team', 'Quick question or a voice note on the go? Ping us on WhatsApp and a real person answers.', 'Open WhatsApp', AMATCHLESS_WHATSAPP, true, 'WhatsApp',
    '<path d="M24 5a19 19 0 0 0-16.4 28.6L5 43l9.7-2.5A19 19 0 1 0 24 5z" fill="none"/><path d="M17 16c0 8 7 15 15 15l2.5-4-5-2.5-2 2c-2-1-4.5-3.5-5.5-5.5l2-2L21.5 14z" fill="none"/>'],
-  ['#FF4F9A', 'SOCIAL', '@amatchless_', 'See what we\'re building, say hi in the DMs, or follow along on Instagram and LinkedIn.', 'Instagram', 'https://www.instagram.com/amatchless_/', true, 'Instagram',
+  ['#FF4F9A', 'SOCIAL', '@amatchless_', 'See what we\'re building, say hi in the DMs, or follow along on Instagram, Facebook and LinkedIn.', 'Instagram', 'https://www.instagram.com/amatchless_/', true, 'Instagram',
    '<rect x="7" y="7" width="34" height="34" rx="10" fill="none"/><circle cx="24" cy="24" r="8" fill="none"/><circle cx="34" cy="14" r="1.5"/>'],
 ];
 
@@ -81,7 +81,7 @@ $steps = [
       <?php endforeach; ?>
     </div>
     <p class="ct-also ct-office reveal"><span class="sx-tag">OFFICE</span> <a href="<?php echo esc_url(AMATCHLESS_MAP); ?>" target="_blank" rel="noopener"><?php echo esc_html(AMATCHLESS_ADDRESS); ?> ↗</a></p>
-    <p class="ct-also reveal">Also on <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn ↗</a></p>
+    <p class="ct-also reveal">Also on <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn ↗</a> and <a href="https://www.facebook.com/amatchless" target="_blank" rel="noopener" data-social="Facebook">Facebook ↗</a></p>
   </div>
 </section>
 

@@ -16,6 +16,7 @@
         <ul class="cta-contacts">
           <li><a href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener">WhatsApp us ↗</a></li>
           <li><a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">@amatchless_ ↗</a></li>
+          <li><a href="https://www.facebook.com/amatchless" target="_blank" rel="noopener" data-social="Facebook">Facebook ↗</a></li>
         </ul>
       </div>
 

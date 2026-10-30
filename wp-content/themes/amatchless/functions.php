@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.11.0');
+define('AMATCHLESS_VERSION', '3.12.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // The only office. Shown in the footer and on the contact page, and used in the schema.
 define('AMATCHLESS_ADDRESS', 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5, North West Delhi, Delhi 110085, India');

@@ -20,6 +20,7 @@
       <div class="foot-contact">
         <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>
         <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
+        <a href="https://www.facebook.com/amatchless" target="_blank" rel="noopener" data-social="Facebook">Facebook</a>
         <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn</a>
         <?php $privacy = get_privacy_policy_url(); if ($privacy) : ?>
         <a href="<?php echo esc_url($privacy); ?>">Privacy</a>

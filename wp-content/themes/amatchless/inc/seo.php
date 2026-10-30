@@ -110,7 +110,7 @@ function amatchless_schema() {
             'postalCode'      => '110085',
             'addressCountry'  => 'IN',
         ],
-        'sameAs'      => ['https://www.instagram.com/amatchless_/'],
+        'sameAs'      => ['https://www.instagram.com/amatchless_/', 'https://www.facebook.com/amatchless', 'https://www.linkedin.com/company/amatchless'],
         'knowsAbout'  => ['Custom software', 'AI and automation', 'SEO', 'Digital marketing', 'Influencer marketing', 'Content marketing'],
     ];
 
