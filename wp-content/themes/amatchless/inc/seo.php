@@ -104,10 +104,8 @@ function amatchless_schema() {
         'email'       => AMATCHLESS_EMAIL,
         'address'     => [
             '@type'           => 'PostalAddress',
-            'streetAddress'   => 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5',
-            'addressLocality' => 'North West Delhi',
+            'addressLocality' => 'Delhi',
             'addressRegion'   => 'Delhi',
-            'postalCode'      => '110085',
             'addressCountry'  => 'IN',
         ],
         'sameAs'      => ['https://www.instagram.com/amatchless_/', 'https://www.facebook.com/amatchless', 'https://www.linkedin.com/company/amatchless'],
