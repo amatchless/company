@@ -64,7 +64,7 @@ $steps = [
         <span class="label" style="color:#5B2EFF">PICK YOUR CHANNEL</span>
         <h2 class="h2" id="ct-channels-title">However you like to talk, <span class="mark-yellow">we're there.</span></h2>
       </div>
-      <p class="sec-aside">Based in Rohini, Delhi. Working with businesses across India, the US and Canada.</p>
+      <p class="sec-aside">Working with businesses across India, the US and Canada.</p>
     </div>
 
     <div class="ct-grid reveal">

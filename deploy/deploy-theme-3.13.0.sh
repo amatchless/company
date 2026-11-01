@@ -42,6 +42,6 @@ for p in / /contact/ /about/; do
 done
 echo "== Old number and address must be gone (expect 0 on each page):"
 for p in / /contact/ /about/; do
-  echo "$p $(curl -s -A "$UA" "https://amatchless.com$p?amx=$STAMP" | grep -o '919050820042\|Sachdeva Tower\|110085' | wc -l)"
+  echo "$p $(curl -s -A "$UA" "https://amatchless.com$p?amx=$STAMP" | grep -o '919050820042\|Sachdeva Tower\|110085\|Based in Rohini' | wc -l)"
 done
 echo "To roll back: ssh $SRV \"rsync -a --delete ~/theme-backups/amatchless-$STAMP/ ~/$LIVE/ && rm -rf ~/public_html/wp-content/cache/supercache/*\""
