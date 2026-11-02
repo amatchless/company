@@ -113,47 +113,66 @@
   }
 
 
-  /* ── CTA click tracking ───────────────────────────────────── */
-  document.querySelectorAll('a.btn, button.btn').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var section = el.closest('section, header, footer');
-      dataLayer.push({
-        event: 'cta_click',
-        cta_text: el.textContent.trim().substring(0, 80),
-        cta_location: section ? (section.id || section.className.split(' ')[0] || 'unknown') : 'unknown',
-        cta_href: el.getAttribute('href') || 'button'
-      });
-    });
-  });
+  /* ── Click tracking ───────────────────────────────────────
+     One delegated listener, and each click sends exactly one event, picked in
+     this order: WhatsApp, email, phone, social, other outbound, CTA button,
+     card, navigation. So a WhatsApp button is a whatsapp_click (not also a
+     cta_click, social_click and outbound_click), and a social link is a
+     social_click (not also an outbound_click). */
+  var clip = function(s) { return (s || '').replace(/\s+/g, ' ').trim().substring(0, 80); };
+  var where = function(el) {
+    var s = el.closest('section, header, footer, aside');
+    return s ? (s.id || s.className.split(' ')[0] || 'unknown') : 'unknown';
+  };
+  var cardTitle = function(el) {
+    var t = el.querySelector('.work-name, .ct-title, h2, h3, h4');
+    return clip(t ? t.textContent : (el.getAttribute('aria-label') || el.textContent));
+  };
+  var cardType = function(el) {
+    if (el.matches('.work, .cs-next')) return 'case_study';
+    if (el.matches('.tm-link')) return 'testimonial';
+    if (el.matches('.pcard')) return 'blog_post';
+    if (el.matches('.chip, .pill-link')) return 'blog_topic';
+    if (el.matches('.ct-card')) return 'contact_card';
+    return '';
+  };
 
-  /* ── WhatsApp, phone, nav, social and outbound tracking ──── */
-  var wa = document.querySelector('.wa-float');
-  if (wa) wa.addEventListener('click', function() { dataLayer.push({ event: 'whatsapp_click', click_source: 'floating_button' }); });
-
-  document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      dataLayer.push({ event: 'phone_call_click', phone_number: el.getAttribute('href').replace('tel:', '') });
-    });
-  });
-
-  document.querySelectorAll('.navlinks a, .mobile-menu a').forEach(function(el) {
-    el.addEventListener('click', function() {
-      dataLayer.push({ event: 'nav_click', nav_link_text: el.textContent.trim(), nav_link_url: el.getAttribute('href') });
-    });
-  });
-
-  document.querySelectorAll('[data-social]').forEach(function(el) {
-    el.addEventListener('click', function() { dataLayer.push({ event: 'social_click', social_platform: el.getAttribute('data-social') }); });
-  });
-
-  document.querySelectorAll('a[href]').forEach(function(el) {
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest ? e.target.closest('a[href], button') : null;
+    if (!el) return;
     var href = el.getAttribute('href') || '';
-    if (href.indexOf('http') === 0 && href.indexOf(location.hostname) === -1) {
-      el.addEventListener('click', function() {
-        dataLayer.push({ event: 'outbound_click', outbound_url: href, link_text: el.textContent.trim().substring(0, 80) });
-      });
+    var type = cardType(el);
+    var text = type ? cardTitle(el) : clip(el.textContent.trim() ? el.textContent : el.getAttribute('aria-label'));
+    var source = el.matches('.wa-float') ? 'floating_button' : where(el);
+
+    if (/^https?:\/\/(wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com)\//i.test(href)) {
+      dataLayer.push({ event: 'whatsapp_click', click_source: source, link_text: text });
+    } else if (href.indexOf('mailto:') === 0) {
+      dataLayer.push({ event: 'email_click', click_source: source, link_text: text });
+    } else if (href.indexOf('tel:') === 0) {
+      dataLayer.push({ event: 'phone_call_click', click_source: source, phone_number: href.replace('tel:', '') });
+    } else if (el.hasAttribute('data-social')) {
+      dataLayer.push({ event: 'social_click', social_platform: el.getAttribute('data-social'), click_source: source });
+    } else if (/^https?:\/\//i.test(href) && el.hostname && el.hostname.replace(/^www\./, '') !== location.hostname.replace(/^www\./, '')) {
+      dataLayer.push({ event: 'outbound_click', outbound_url: href, link_text: text, click_source: source });
+    } else if (el.matches('.btn') && !el.matches('[data-cookie], .form-submit')) {
+      dataLayer.push({ event: 'cta_click', cta_text: text, cta_location: source, cta_href: href || 'button' });
+    } else if (type) {
+      dataLayer.push({ event: 'card_click', card_type: type, card_title: text, card_url: href, click_source: source });
+    } else if (el.matches('.navlinks a, .mobile-menu a, .foot-links a, .brand')) {
+      dataLayer.push({ event: 'nav_click', nav_link_text: el.matches('.brand') ? 'Logo' : text, nav_link_url: href, nav_location: el.matches('.foot-links a') ? 'footer' : (el.closest('.mobile-menu') ? 'mobile_menu' : 'header') });
     }
   });
+
+  /* ── FAQ opens ────────────────────────────────────────────── */
+  // 'toggle' doesn't bubble, so listen in the capture phase.
+  document.addEventListener('toggle', function(e) {
+    var d = e.target;
+    if (!d.matches || !d.matches('details.faq-item') || !d.open) return;
+    var q = d.querySelector('summary');
+    var all = Array.prototype.slice.call(document.querySelectorAll('details.faq-item'));
+    dataLayer.push({ event: 'faq_open', faq_question: clip(q ? q.textContent : ''), faq_position: all.indexOf(d) + 1 });
+  }, true);
 
   /* ── Scroll depth (25 / 50 / 75 / 90%) ────────────────────── */
   var milestones = [25, 50, 75, 90], fired = {};
