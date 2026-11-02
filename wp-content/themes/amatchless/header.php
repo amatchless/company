@@ -4,6 +4,8 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FBFAFF">
+<!-- Meta (Facebook) domain verification: must stay plain HTML in the <head>, not in Tag Manager -->
+<meta name="facebook-domain-verification" content="3qz4csx5tyaqf2irotm4jtqstmemi9" />
 <!-- Google Tag Manager -->
 <script>window.dataLayer=window.dataLayer||[];
 // Consent mode: analytics and ad cookies stay off until the visitor accepts the cookie banner (choice kept in localStorage 'amx-consent').
