@@ -43,6 +43,7 @@
     </div>
     <button type="submit" class="btn btn-pink btn-lg form-submit">Send — we reply within 24 hours <span aria-hidden="true">↗</span></button>
     <p class="form-note">Confidential. No spam. A 30-minute call, then a clear plan.</p>
+    <p class="form-legal">By sending this form you agree to our <a href="<?php echo esc_url(amatchless_privacy_url()); ?>">Privacy Policy</a> and <a href="<?php echo esc_url(amatchless_terms_url()); ?>">Terms</a>.</p>
   </form>
   <div class="form-success" id="formOk" tabindex="-1" hidden>
     <div class="tick" aria-hidden="true">✓</div>

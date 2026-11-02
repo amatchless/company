@@ -1,8 +1,14 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.15.0');
+define('AMATCHLESS_VERSION', '3.16.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
+// Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
+define('AMATCHLESS_PHONE', '+91 90508 20042');
+define('AMATCHLESS_PHONE_TEL', '+919050820042');
+// Office address. AMATCHLESS_SHOW_ADDRESS controls whether it shows in the footer on every page.
+define('AMATCHLESS_ADDRESS', 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5, Delhi 110085');
+define('AMATCHLESS_SHOW_ADDRESS', true);
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/918586929882?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
 
 /* ── Template helpers ────────────────────────────────────────── */
@@ -38,6 +44,11 @@ function amatchless_page_url($slug) {
     if ($urls[$slug]) return $urls[$slug];
     return home_url('/#' . ($pages[$slug][1] ?? $slug));
 }
+
+// Privacy Policy and Terms page URLs (pages edited in wp-admin). Fixed paths, so the links work even if
+// Settings → Privacy points at a different page.
+function amatchless_privacy_url() { return home_url('/privacy-policy/'); }
+function amatchless_terms_url()   { return home_url('/terms/'); }
 
 // Create the section pages once per set (only the ones that don't exist yet). Bump the number when a page is added.
 function amatchless_create_section_pages() {
@@ -183,6 +194,9 @@ require_once get_template_directory() . '/inc/seo.php';
 /* ── Contact Form AJAX ───────────────────────────────────────── */
 require_once get_template_directory() . '/inc/leads.php';
 
+/* ── Ad landing pages (/lp/…/), /thank-you/, their lead form, Google Sheet and Conversions API live in inc/landing.php ── */
+require_once get_template_directory() . '/inc/landing.php';
+
 function amatchless_contact_submit() {
     check_ajax_referer('amatchless_contact_nonce', 'nonce');
 
@@ -314,6 +328,7 @@ add_filter('rest_authentication_errors', 'amatchless_rest_auth');
 
 /* ── Security: HTTP Security Headers via PHP (backup) ───────── */
 // connect.facebook.net and www.facebook.com are allowed for the Meta Pixel, which loads through Tag Manager.
+// challenges.cloudflare.com is the Turnstile spam check on the ad landing page form; calendly.com is the booking embed on /thank-you/.
 function amatchless_security_headers() {
     if (!is_admin() && !headers_sent()) {
         header('X-Frame-Options: SAMEORIGIN');
@@ -321,7 +336,7 @@ function amatchless_security_headers() {
         header('X-XSS-Protection: 1; mode=block');
         header('Referrer-Policy: strict-origin-when-cross-origin');
         header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
-        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com https://www.facebook.com");
+        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://challenges.cloudflare.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://challenges.cloudflare.com https://calendly.com; frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://challenges.cloudflare.com https://calendly.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com https://www.facebook.com");
     }
 }
 add_action('send_headers', 'amatchless_security_headers');

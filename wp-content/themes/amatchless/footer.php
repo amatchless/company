@@ -13,15 +13,18 @@
       <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
     </nav>
     <div class="foot-bot">
-      <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
+      <div class="foot-legal">
+        <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
+        <?php if (AMATCHLESS_SHOW_ADDRESS) : ?><address class="foot-addr"><?php echo esc_html(AMATCHLESS_ADDRESS); ?></address><?php endif; ?>
+      </div>
       <div class="foot-contact">
         <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>
         <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
         <a href="https://www.facebook.com/amatchless" target="_blank" rel="noopener" data-social="Facebook">Facebook</a>
         <a href="https://www.linkedin.com/company/amatchless" target="_blank" rel="noopener" data-social="LinkedIn">LinkedIn</a>
-        <?php $privacy = get_privacy_policy_url(); if ($privacy) : ?>
-        <a href="<?php echo esc_url($privacy); ?>">Privacy</a>
-        <?php endif; ?>
+        <?php $privacy = amatchless_privacy_url(); ?>
+        <a href="<?php echo esc_url($privacy); ?>">Privacy Policy</a>
+        <a href="<?php echo esc_url(amatchless_terms_url()); ?>">Terms</a>
         <button type="button" class="foot-cookie" data-cookie-open>Cookie settings</button>
       </div>
     </div>
@@ -34,7 +37,7 @@
 
 <div class="cookie" id="cookieBanner" role="region" aria-label="Cookie consent" hidden>
   <p class="cookie-title"><span aria-hidden="true">🍪</span> Cookies, but only if you're okay with it.</p>
-  <p class="cookie-text">We use analytics and ad cookies to see what's working on this site and to measure our campaigns. None are set until you say yes.<?php if ($privacy) : ?> <a href="<?php echo esc_url($privacy); ?>">Read our privacy policy</a>.<?php endif; ?></p>
+  <p class="cookie-text">We use analytics and ad cookies to see what's working on this site and to measure our campaigns. None are set until you say yes. <a href="<?php echo esc_url($privacy); ?>">Read our privacy policy</a>.</p>
   <div class="cookie-btns">
     <button type="button" class="btn btn-yellow" data-cookie="granted">Accept all</button>
     <button type="button" class="btn btn-white" data-cookie="denied">Decline</button>
