@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.14.0');
+define('AMATCHLESS_VERSION', '3.15.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/918586929882?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
 
@@ -313,6 +313,7 @@ function amatchless_rest_auth($result) {
 add_filter('rest_authentication_errors', 'amatchless_rest_auth');
 
 /* ── Security: HTTP Security Headers via PHP (backup) ───────── */
+// connect.facebook.net and www.facebook.com are allowed for the Meta Pixel, which loads through Tag Manager.
 function amatchless_security_headers() {
     if (!is_admin() && !headers_sent()) {
         header('X-Frame-Options: SAMEORIGIN');
@@ -320,7 +321,7 @@ function amatchless_security_headers() {
         header('X-XSS-Protection: 1; mode=block');
         header('Referrer-Policy: strict-origin-when-cross-origin');
         header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
-        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com");
+        header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.googletagmanager.com https://www.facebook.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://amatchless.com https://www.facebook.com");
     }
 }
 add_action('send_headers', 'amatchless_security_headers');
