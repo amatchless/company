@@ -13,10 +13,7 @@
       <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
     </nav>
     <div class="foot-bot">
-      <div class="foot-meta">
-        <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
-        <address class="foot-addr"><a href="<?php echo esc_url(AMATCHLESS_MAP); ?>" target="_blank" rel="noopener"><?php echo esc_html(AMATCHLESS_ADDRESS); ?></a></address>
-      </div>
+      <span>&copy; <?php echo esc_html(date('Y')); ?> Amatchless · Software × AI × Marketing</span>
       <div class="foot-contact">
         <a href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>
         <a href="https://www.instagram.com/amatchless_/" target="_blank" rel="noopener" data-social="Instagram">Instagram</a>
