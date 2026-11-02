@@ -4,8 +4,8 @@ defined('ABSPATH') || exit;
 define('AMATCHLESS_VERSION', '3.16.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
-define('AMATCHLESS_PHONE', '+91 90508 20042');
-define('AMATCHLESS_PHONE_TEL', '+919050820042');
+define('AMATCHLESS_PHONE', '+91 85869 29882');
+define('AMATCHLESS_PHONE_TEL', '+918586929882');
 // Office address. AMATCHLESS_SHOW_ADDRESS controls whether it shows in the footer on every page.
 define('AMATCHLESS_ADDRESS', 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5, Delhi 110085');
 define('AMATCHLESS_SHOW_ADDRESS', true);

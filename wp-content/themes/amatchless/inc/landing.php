@@ -15,6 +15,7 @@ defined('ABSPATH') || exit;
 
 const AMATCHLESS_LP_PARENT = 'lp';
 const AMATCHLESS_GRAPH_VERSION = 'v24.0'; // Meta Graph API version for the Conversions API
+const AMATCHLESS_META_PIXEL_ID = '1660633172287249'; // public ID (it is in every page's Pixel code); Settings → Ad leads can override it
 
 /* ── Content ─────────────────────────────────────────────────── */
 function amatchless_landing_pages() {
@@ -272,14 +273,15 @@ function amatchless_ads_fields() {
         'sheet_secret'     => ['Google Sheet shared secret', 'The same value as SECRET at the top of the Apps Script.', true],
         'turnstile_site'   => ['Cloudflare Turnstile site key', 'Public key. Leave empty to run with the honeypot only.', false],
         'turnstile_secret' => ['Cloudflare Turnstile secret key', '', true],
-        'pixel_id'         => ['Meta Pixel ID', 'Numbers only, from Meta Events Manager.', false],
+        'pixel_id'         => ['Meta Pixel ID', 'Already set to 1660633172287249. Only change it if you move to another Pixel.', false],
         'capi_token'       => ['Conversions API access token', 'From Events Manager → your Pixel → Settings → Conversions API → Generate access token.', true],
         'capi_test_code'   => ['Conversions API test event code', 'Only while testing in Events Manager → Test events (e.g. TEST12345). Empty it before ads go live.', false],
     ];
 }
 function amatchless_ads_option($key) {
     $o = get_option('amatchless_ads', []);
-    return is_array($o) && isset($o[$key]) ? (string) $o[$key] : '';
+    $v = is_array($o) && isset($o[$key]) ? (string) $o[$key] : '';
+    return ($v === '' && $key === 'pixel_id') ? AMATCHLESS_META_PIXEL_ID : $v;
 }
 
 add_action('admin_menu', function () {

@@ -39,42 +39,36 @@ submits the form, the server sends a `Lead` event to Meta with hashed email, pho
 `_fbc` cookies, IP and browser. `/thank-you/` sends the same `event_id` to GTM, so Meta removes the duplicate.
 Creators are not sent to Meta, so ads don't learn to find creators.
 
+The Pixel ID (1660633172287249) is already set in the theme. Only the token is needed:
+
 1. Events Manager → your Pixel → **Settings → Conversions API → Generate access token**.
-2. In **Settings → Ad leads**, paste the **Pixel ID** and the **access token**. Save.
+2. Paste the **access token** into **Settings → Ad leads**. Save.
 3. While testing, also paste the **test event code** from Events Manager → Test events. Empty it before ads go live.
 
-**GTM (container GTM-N5F7RG6V)**: create these in Tag Manager, then **Submit → Publish**.
+**GTM (container GTM-N5F7RG6V): Meta Pixel tags, ready to import**
 
-Variables (Data Layer Variable, version 2): `lead_event_id`, `lead_service`, `lead_budget`, `lp_service`.
-Constant variable `Meta Pixel ID` = your Pixel ID.
+1. Tag Manager → **Admin → Import container** → choose `docs/gtm-meta-pixel-import.json`.
+2. Workspace: *Existing* (Default Workspace). Option: **Merge → Rename conflicting tags, triggers and variables**.
+   This only adds items; nothing already in the container is changed. Confirm.
+3. Check the import added 5 tags (Meta Pixel Base + PageView, ViewContent, Lead, Contact, Schedule), 4 triggers
+   and 6 variables. If the container already has a Meta Pixel tag, pause the old one so PageView isn't counted twice.
+4. **Preview** on `https://amatchless.com/lp/seo-check/` to see the tags fire, then **Submit → Publish**.
 
-Triggers (Custom Event unless noted):
+What it sets up: PageView on every page, ViewContent on `lp_view`, Lead on `generate_lead` from the landing pages
+(with the same `eventID` the server sends, so Meta dedupes), Contact on WhatsApp and phone clicks, Schedule on a
+Calendly booking. The Lead and other event tags wait for the base tag to load first.
 
-| Trigger | Event name | Condition |
+**GA4 events (add by hand, they need your GA4 Measurement ID):** three GA4 Event tags on the imported triggers:
+
+| Tag | Event name and parameters | Trigger |
 |---|---|---|
-| All Pages | (built-in Page View) | |
-| LP view | `lp_view` | |
-| Ad lead | `generate_lead` | `lead_form` equals `ad_landing_page` (add a Data Layer Variable `lead_form`) |
-| Contact click | `whatsapp_click\|phone_call_click` | tick "Use regex matching" |
-| Calendly booked | `calendly_scheduled` | |
-
-Tags:
-
-| Tag | Type | Trigger |
-|---|---|---|
-| Meta Pixel base + PageView | Custom HTML: the standard Meta Pixel base code with `{{Meta Pixel ID}}`, ending `fbq('track','PageView');` | All Pages |
-| Meta ViewContent | Custom HTML: `<script>fbq('track','ViewContent',{content_name:{{lp_service}}});</script>` | LP view |
-| Meta Lead | Custom HTML: `<script>fbq('track','Lead',{content_name:{{lead_service}},service:{{lead_service}},budget_band:{{lead_budget}}},{eventID:{{lead_event_id}}});</script>` | Ad lead |
-| Meta Contact | Custom HTML: `<script>fbq('track','Contact');</script>` | Contact click |
-| Meta Schedule | Custom HTML: `<script>fbq('track','Schedule');</script>` | Calendly booked |
-| GA4 generate_lead | GA4 Event `generate_lead`, params `service` = `{{lead_service}}`, `budget_band` = `{{lead_budget}}` | Ad lead |
-| GA4 contact | GA4 Event `contact`, param `method` = `{{Event}}` | Contact click |
-| GA4 schedule | GA4 Event `schedule_call` | Calendly booked |
+| GA4 generate_lead | `generate_lead`, `service` = `{{DLV - lead_service}}`, `budget_band` = `{{DLV - lead_budget}}` | Meta - Ad lead (thank-you) |
+| GA4 contact | `contact`, `method` = `{{Event}}` | Meta - Contact click |
+| GA4 schedule | `schedule_call` | Meta - Calendly booked |
 
 GA4 page views already come from your existing GA4 configuration tag.
 
-For every Meta tag set **Tag firing priority** so the base tag fires first (or use "Tag sequencing → fire base tag
-before"). **Consent**: the site's cookie banner keeps ad storage off until a visitor clicks Accept. The brief allows
+**Consent**: the site's cookie banner keeps ad storage off until a visitor clicks Accept. The brief allows
 tags to fire on page load; if you want that, leave "Additional consent checks" off on the Meta tags. If you want
 Meta tags to wait for Accept, set "Require additional consent: ad_storage". The Conversions API Lead is sent either
 way (the visitor ticked the Privacy Policy box), which is why the Privacy Policy addition below matters.
@@ -88,8 +82,8 @@ Under **Cookies and tracking**, add: "When you send a form on our ad landing pag
 (hashed) copy of your email address, phone number, name and city, and a code that identifies the visit, so Meta can
 measure which ads lead to enquiries. Meta cannot read the original details from the scrambled copy."
 
-Phone: the policy lists +91 90508 20042, the same number as the landing pages. Update both if that changes
-(`AMATCHLESS_PHONE` in `functions.php`).
+Under **Who we are**, change the phone to **+91 85869 29882**, the number the landing pages now show. The Terms page
+also lists +91 90508 20042; change it there too. (The theme's number is `AMATCHLESS_PHONE` in `functions.php`.)
 
 ## 5. Test on a real phone (the brief's acceptance checklist)
 
