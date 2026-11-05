@@ -8,9 +8,9 @@
       <div class="cta-copy">
         <span class="label" style="color:#FFE14D">LET'S TALK</span>
         <h2 class="h2 h2-xl reveal">Let's make your business <span style="color:#FFE14D">matchless.</span></h2>
-        <p class="cta-lede">Tell us what's slowing you down and where you want to be in twelve months. 30 minutes. Zero commitment. Reply within 24 hours.</p>
+        <p class="cta-lede">Tell us what's slowing you down and where you want to be in twelve months. Pick a 30-minute slot on our calendar, or send us a message and we'll reply within 24 hours.</p>
         <div class="btn-row">
-          <a class="btn btn-yellow btn-lg" href="#book" id="ctaBook">Book a discovery call <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-yellow btn-lg" <?php echo amatchless_calendly_attrs(); ?> id="ctaBook">Book a discovery call <span aria-hidden="true">↗</span></a>
           <a class="btn btn-outline-white btn-lg" href="mailto:<?php echo esc_attr(AMATCHLESS_EMAIL); ?>"><?php echo esc_html(AMATCHLESS_EMAIL); ?></a>
         </div>
         <ul class="cta-contacts">

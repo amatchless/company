@@ -5,7 +5,7 @@ $ver  = '?ver=' . AMATCHLESS_VERSION;
 
 // Ways to reach us: [colour, tag, title, text, link text, href, external, data attribute, icon]
 $channels = [
-  ['#5B2EFF', 'NEW PROJECT', 'Book a discovery call', 'Tell us where it hurts. 30 minutes, zero commitment, and a clear plan at the end.', 'Fill in the form', '#book', false, '',
+  ['#5B2EFF', 'NEW PROJECT', 'Book a discovery call', 'Pick a 30-minute slot that suits you. Zero commitment, and a clear plan at the end.', 'Pick a time', AMATCHLESS_CALENDLY, true, '',
    '<path d="M6 10h36v30H6z M6 18h36 M15 6v8 M33 6v8" fill="none"/><path d="M16 28l6 6 11-11" fill="none"/>'],
   ['#FFE14D', 'EMAIL', AMATCHLESS_EMAIL, 'For briefs, decks and anything with attachments. Every email lands with the whole team.', 'Write to us', 'mailto:' . AMATCHLESS_EMAIL, false, '',
    '<path d="M5 11h38v27H5z" fill="none"/><path d="M5 12l19 15 19-15" fill="none"/>'],
@@ -33,7 +33,7 @@ $steps = [
       <h1 class="h1 rise d1">Say hi. We'll take it from <span class="hl-purple">here.</span></h1>
       <p class="hero-lede rise d2">Tell us what's slowing your business down and where you want it to be in twelve months. One team for software, AI and marketing reads every message.</p>
       <div class="btn-row rise d3">
-        <a class="btn btn-pink btn-lg" href="#book">Book a discovery call <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-pink btn-lg" <?php echo amatchless_calendly_attrs(); ?>>Book a discovery call <span aria-hidden="true">↗</span></a>
         <a class="btn btn-white btn-lg" href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener" data-social="WhatsApp">WhatsApp us</a>
       </div>
     </div>
@@ -42,7 +42,7 @@ $steps = [
       <figcaption class="ch-caption">Client Head, on duty</figcaption>
       <svg class="ch-sfx" viewBox="0 0 120 120" aria-hidden="true"><polygon points="60,4 71,32 101,19 88,48 116,60 88,72 101,101 71,88 60,116 49,88 19,101 32,72 4,60 32,48 19,19 49,32" fill="#FFE14D" stroke="#0E0B1F" stroke-width="3" stroke-linejoin="round"/><text x="60" y="66" text-anchor="middle">RING!</text></svg>
       <img class="ct-kim" src="<?php echo esc_url($team . 'kim.svg' . $ver); ?>" width="320" height="300" decoding="async" alt="Cartoon of Kim, our Client Head, holding a phone">
-      <p class="bubble bubble-solo has-tail"><b class="bubble-who" style="background:#3DEBB0">Kim</b>Ring me, message me… or just fill in the form. I'm on it either way.</p>
+      <p class="bubble bubble-solo has-tail"><b class="bubble-who" style="background:#3DEBB0">Kim</b>Book a call, message me… or just fill in the form. I'm on it either way.</p>
     </figure>
 
     <div class="hero-seal ct-seal pop d6" aria-hidden="true">
@@ -69,7 +69,7 @@ $steps = [
 
     <div class="ct-grid reveal">
       <?php foreach ($channels as $i => [$c, $tag, $title, $text, $cta, $href, $ext, $social, $icon]) : ?>
-      <a class="sx-card ct-card<?php echo $i === 0 ? ' ct-card-main' : ''; ?>" style="--c:<?php echo esc_attr($c); ?>" href="<?php echo esc_url($href); ?>"<?php echo $ext ? ' target="_blank" rel="noopener"' : ''; ?><?php echo $social ? ' data-social="' . esc_attr($social) . '"' : ''; ?>>
+      <a class="sx-card ct-card<?php echo $i === 0 ? ' ct-card-main' : ''; ?>" style="--c:<?php echo esc_attr($c); ?>" href="<?php echo esc_url($href); ?>"<?php echo $ext ? ' target="_blank" rel="noopener"' : ''; ?><?php echo $social ? ' data-social="' . esc_attr($social) . '"' : ''; ?><?php echo $href === AMATCHLESS_CALENDLY ? ' data-calendly' : ''; ?>>
         <span class="sx-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 48 48" fill="currentColor" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><?php echo $icon; // static markup above ?></svg></span>
         <span class="sx-body">
           <span class="sx-tag"><?php echo esc_html($tag); ?></span>

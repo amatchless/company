@@ -21,7 +21,7 @@
       <div class="hero-copy rise d5">
         <p class="hero-lede">One partner for software, AI and marketing. We start by understanding your business and its pain points, then build what makes it efficient — and market it to grow.</p>
         <div class="btn-row">
-          <a class="btn btn-pink" href="<?php echo esc_url(amatchless_anchor('book')); ?>">Book a discovery call <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-pink" <?php echo amatchless_calendly_attrs(); ?>>Book a discovery call <span aria-hidden="true">↗</span></a>
           <a class="btn btn-white" href="#work">See our work →</a>
         </div>
       </div>

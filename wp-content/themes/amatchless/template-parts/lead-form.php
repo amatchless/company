@@ -1,7 +1,7 @@
-<!-- Book a discovery call form (posts to amatchless_contact_submit via assets/js/site.js) -->
+<!-- Enquiry form (posts to amatchless_contact_submit via assets/js/site.js) -->
 <div class="lead-card" id="book">
   <form id="leadForm" novalidate>
-    <p class="lead-title">Book a discovery call</p>
+    <p class="lead-title">Tell us about your project</p>
     <div class="form-row">
       <div class="form-grp">
         <label class="form-lbl" for="f-name">Your name *</label>
@@ -49,5 +49,6 @@
     <div class="tick" aria-hidden="true">✓</div>
     <h3>You're all set.</h3>
     <p>We've got your details. Expect to hear from the Amatchless team within 24 hours. In a hurry? <a href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
+    <a class="btn btn-pink" <?php echo amatchless_calendly_attrs(); ?>>Pick a time for your call <span aria-hidden="true">↗</span></a>
   </div>
 </div>
