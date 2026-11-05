@@ -28,7 +28,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="<?php echo esc_url(amatchless_page_url('contact')); ?>">Contact</a>
     </div>
     <div class="nav-cta">
-      <a href="<?php echo esc_url(amatchless_anchor('book')); ?>" class="btn btn-ink">Book a call <span aria-hidden="true">↗</span></a>
+      <a <?php echo amatchless_calendly_attrs(); ?> class="btn btn-ink">Book a call <span aria-hidden="true">↗</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>

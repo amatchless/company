@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.16.0');
+define('AMATCHLESS_VERSION', '3.17.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
 define('AMATCHLESS_PHONE', '+91 85869 29882');
@@ -9,10 +9,17 @@ define('AMATCHLESS_PHONE_TEL', '+918586929882');
 // Office address. AMATCHLESS_SHOW_ADDRESS controls whether it shows in the footer on every page.
 define('AMATCHLESS_ADDRESS', 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5, Delhi 110085');
 define('AMATCHLESS_SHOW_ADDRESS', true);
+// Calendly booking page. Links with data-calendly open it as a popup (assets/js/site.js); without JS they open it in a new tab.
+define('AMATCHLESS_CALENDLY', 'https://calendly.com/amatchless');
 define('AMATCHLESS_WHATSAPP', 'https://wa.me/918586929882?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
 
 /* ── Template helpers ────────────────────────────────────────── */
 // Link to a section of the homepage: a bare #anchor on the homepage, a full URL elsewhere.
+// Attributes for a "book a call" link: the Calendly page in a new tab, opened as a popup by site.js.
+function amatchless_calendly_attrs() {
+    return 'href="' . esc_url(AMATCHLESS_CALENDLY) . '" target="_blank" rel="noopener" data-calendly';
+}
+
 function amatchless_anchor($id) {
     return (is_front_page() || amatchless_is_section_page()) ? '#' . $id : home_url('/#' . $id);
 }
@@ -328,7 +335,7 @@ add_filter('rest_authentication_errors', 'amatchless_rest_auth');
 
 /* ── Security: HTTP Security Headers via PHP (backup) ───────── */
 // connect.facebook.net and www.facebook.com are allowed for the Meta Pixel, which loads through Tag Manager.
-// challenges.cloudflare.com is the Turnstile spam check on the ad landing page form; calendly.com is the booking embed on /thank-you/.
+// challenges.cloudflare.com is the Turnstile spam check on the ad landing page form; calendly.com is the booking embed on /thank-you/ and the booking popup on every page.
 function amatchless_security_headers() {
     if (!is_admin() && !headers_sent()) {
         header('X-Frame-Options: SAMEORIGIN');

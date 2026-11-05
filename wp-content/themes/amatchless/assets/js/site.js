@@ -145,7 +145,9 @@
     var text = type ? cardTitle(el) : clip(el.textContent.trim() ? el.textContent : el.getAttribute('aria-label'));
     var source = el.matches('.wa-float') ? 'floating_button' : where(el);
 
-    if (/^https?:\/\/(wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com)\//i.test(href)) {
+    if (el.hasAttribute('data-calendly')) {
+      dataLayer.push({ event: 'calendly_click', click_source: source, link_text: text });
+    } else if (/^https?:\/\/(wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com)\//i.test(href)) {
       dataLayer.push({ event: 'whatsapp_click', click_source: source, link_text: text });
     } else if (href.indexOf('mailto:') === 0) {
       dataLayer.push({ event: 'email_click', click_source: source, link_text: text });
@@ -162,6 +164,58 @@
     } else if (el.matches('.navlinks a, .mobile-menu a, .foot-links a, .brand')) {
       dataLayer.push({ event: 'nav_click', nav_link_text: el.matches('.brand') ? 'Logo' : text, nav_link_url: href, nav_location: el.matches('.foot-links a') ? 'footer' : (el.closest('.mobile-menu') ? 'mobile_menu' : 'header') });
     }
+  });
+
+  /* ── Calendly booking popup ───────────────────────────────
+     Links with data-calendly point at the Calendly page (new tab without JS).
+     With JS, the first click loads Calendly's widget and opens it as a popup
+     over the page; if the widget can't load, the Calendly page opens instead.
+     Name and email typed into the lead form are passed on as prefill. */
+  var CAL_JS = 'https://assets.calendly.com/assets/external/widget.js';
+  var CAL_CSS = 'https://assets.calendly.com/assets/external/widget.css';
+  var calReady = null;
+  function loadCalendly() {
+    if (calReady) return calReady;
+    calReady = new Promise(function(resolve, reject) {
+      if (window.Calendly) return resolve();
+      var css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = CAL_CSS;
+      document.head.appendChild(css);
+      var s = document.createElement('script');
+      s.src = CAL_JS; s.async = true;
+      s.onload = function() { window.Calendly ? resolve() : reject(); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+      setTimeout(reject, 8000);
+    });
+    calReady.catch(function() { calReady = null; });
+    return calReady;
+  }
+  function calField(id) {
+    var f = document.getElementById(id);
+    return f && f.value ? f.value.trim().substring(0, 200) : '';
+  }
+  document.querySelectorAll('[data-calendly]').forEach(function(a) {
+    // Start loading on hover / focus so the popup opens quickly on click.
+    ['mouseenter', 'focus', 'touchstart'].forEach(function(ev) {
+      a.addEventListener(ev, function() { loadCalendly().catch(function() {}); }, { once: true, passive: true });
+    });
+    a.addEventListener('click', function(e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return; // let "open in new tab" work
+      e.preventDefault();
+      var url = a.getAttribute('href') + '?hide_gdpr_banner=1&primary_color=5b2eff';
+      var fallback = function() { location.href = a.getAttribute('href'); }; // same tab: a late window.open would be blocked
+      loadCalendly().then(function() {
+        var prefill = {}, n = calField('f-name'), m = calField('f-email');
+        if (n) prefill.name = n;
+        if (m) prefill.email = m;
+        try { window.Calendly.initPopupWidget({ url: url, prefill: prefill }); } catch (err) { fallback(); }
+      }, fallback);
+    });
+  });
+  window.addEventListener('message', function(e) {
+    if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.event_scheduled') return;
+    dataLayer.push({ event: 'calendly_scheduled', click_source: 'popup' });
   });
 
   /* ── FAQ opens ────────────────────────────────────────────── */

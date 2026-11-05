@@ -60,7 +60,7 @@
       <aside class="sx-card sx-cta reveal">
         <span class="sx-tag">NOT SURE YET?</span>
         <h3>Tell us what's slowing you down. We'll tell you where to start.</h3>
-        <a class="btn btn-yellow" href="<?php echo esc_url(amatchless_anchor('book')); ?>">Book a discovery call <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-yellow" <?php echo amatchless_calendly_attrs(); ?>>Book a discovery call <span aria-hidden="true">↗</span></a>
       </aside>
     </div>
   </div>

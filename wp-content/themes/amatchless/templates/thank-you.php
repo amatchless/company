@@ -18,8 +18,8 @@ get_header('lp');
 <section class="lp-sec lp-cal-sec" id="book-a-call">
   <div class="lp-in">
     <h2 class="lp-h2">Book a call</h2>
-    <div class="lp-cal" id="lpCalendly" data-url="https://calendly.com/amatchless?hide_gdpr_banner=1&amp;primary_color=5b2eff">
-      <p class="lp-cal-fallback">Loading the calendar… If it doesn't appear, <a href="https://calendly.com/amatchless" target="_blank" rel="noopener">open Calendly in a new tab</a>.</p>
+    <div class="lp-cal" id="lpCalendly" data-url="<?php echo esc_url(AMATCHLESS_CALENDLY); ?>?hide_gdpr_banner=1&amp;primary_color=5b2eff">
+      <p class="lp-cal-fallback">Loading the calendar… If it doesn't appear, <a href="<?php echo esc_url(AMATCHLESS_CALENDLY); ?>" target="_blank" rel="noopener">open Calendly in a new tab</a>.</p>
     </div>
   </div>
 </section>
