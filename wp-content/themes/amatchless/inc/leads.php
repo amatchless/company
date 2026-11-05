@@ -12,7 +12,26 @@ const AMATCHLESS_LEAD_FIELDS = [
     'budget'  => 'Budget',
     'ip'      => 'IP address',
     'emailed' => 'Email sent',
+    // Ad landing page leads (inc/landing.php); shown only when set.
+    'source'       => 'Source',
+    'role'         => 'I am',
+    'website'      => 'Website or Instagram',
+    'city'         => 'City',
+    'page_url'     => 'Page',
+    'utm_source'   => 'utm_source',
+    'utm_medium'   => 'utm_medium',
+    'utm_campaign' => 'utm_campaign',
+    'utm_content'  => 'utm_content',
+    'utm_term'     => 'utm_term',
+    'fbclid'       => 'fbclid',
+    'gclid'        => 'gclid',
+    'referrer'     => 'Referrer',
+    'event_id'     => 'Meta event ID',
+    'sheet'        => 'Google Sheet',
+    'capi'         => 'Conversions API',
 ];
+// The fields every lead shows, even when empty (the rest only appear when set).
+const AMATCHLESS_LEAD_CORE = ['email', 'company', 'phone', 'service', 'budget', 'ip', 'emailed'];
 
 function amatchless_register_leads() {
     // Every capability maps to one Editors and Admins have; nobody can create leads by hand.
@@ -144,6 +163,7 @@ function amatchless_render_lead($post) {
     printf('<tr><th>Received</th><td>%s</td></tr>', esc_html(get_the_date('j M Y, g:i a', $post)));
     foreach (AMATCHLESS_LEAD_FIELDS as $key => $label) {
         $val = get_post_meta($post->ID, '_lead_' . $key, true);
+        if ($val === '' && !in_array($key, AMATCHLESS_LEAD_CORE, true)) continue;
         if ($key === 'email' && $val) {
             $val = sprintf('<a href="mailto:%1$s">%1$s</a>', esc_attr($val));
         } else {
