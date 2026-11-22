@@ -97,7 +97,16 @@
               form_name: 'contact_lead_form',
               service_interest: val('f-service') || 'not_specified'
             });
-            dataLayer.push({ event: 'generate_lead', currency: 'INR', value: 1 });
+            // Job applications sent through the form are not sales leads: keep them out of generate_lead
+            // (it fires the Meta Pixel Lead event) and show an applicant-friendly thank-you.
+            if (/^Careers/.test(val('f-service'))) {
+              dataLayer.push({ event: 'careers_application', form_name: 'contact_lead_form' });
+              var okText = formOk.querySelector('p'), okBtn = formOk.querySelector('a[data-calendly]');
+              if (okText) okText.textContent = 'Thanks for your interest in joining Amatchless. We read every application and will be in touch if there\'s a fit.';
+              if (okBtn) okBtn.style.display = 'none';
+            } else {
+              dataLayer.push({ event: 'generate_lead', currency: 'INR', value: 1 });
+            }
           } else {
             resetBtn();
             dataLayer.push({ event: 'form_error', form_name: 'contact_lead_form', error_type: 'server_error' });
