@@ -3,9 +3,144 @@
 $team = get_template_directory_uri() . '/assets/img/team/';
 $ver  = '?ver=' . AMATCHLESS_VERSION;
 
-// Open roles. Empty = the "no open roles" card. To post a role, add a row:
-// ['title' => 'Social Media Executive', 'type' => 'Full-time', 'where' => 'Delhi / hybrid', 'text' => 'One or two sentences on the role.'],
-$roles = [];
+// Open roles. Empty = the "no open roles" card. To post a role, add a row with:
+// title, openings (number), type ('Internship' or 'Full-time'), text (one or two sentences),
+// do / need / learn (short bullet lists for the full description), posted (Y-m-d, for Google's job schema).
+// To close a role, delete its row. Location is the office address in functions.php (AMATCHLESS_ADDRESS).
+$roles = [
+  [
+    'title'    => 'Social Media Intern',
+    'openings' => 2,
+    'type'     => 'Internship',
+    'posted'   => '2026-11-22',
+    'text'     => 'Learn how an agency runs social media for real brands. You\'ll help plan, write and schedule content, and see how SMM, SMO and ORM work day to day.',
+    'do'       => [
+      'Help build monthly content calendars for client brands on Instagram, Facebook and LinkedIn',
+      'Write captions, research hashtags and find trending audio and reel ideas',
+      'Schedule posts and keep an eye on comments, messages and reviews',
+      'Track reach, engagement and follower growth, and help put together monthly client reports',
+      'Support the team on shoots and influencer outreach',
+    ],
+    'need'     => [
+      'You use social media every day and notice what makes a post work',
+      'Good written English (Hindi is a plus)',
+      'Basic Canva skills, or happy to learn them in week one',
+      'A student or recent graduate in marketing, mass communication or a related field. Any background is welcome if you can show us your work',
+    ],
+    'learn'    => [
+      'How SMM, SMO, ORM and Meta ads fit together on a live brand',
+      'Writing content briefs and calendars that clients approve',
+      'Reading Meta Business Suite insights and turning them into a clear report',
+      'Real work for real brands to put in your portfolio',
+    ],
+  ],
+  [
+    'title'    => 'Social Media Manager',
+    'openings' => 1,
+    'type'     => 'Full-time',
+    'posted'   => '2026-11-22',
+    'text'     => 'Own social media for a set of client brands, from strategy and content calendars to community management, online reputation and monthly reporting.',
+    'do'       => [
+      'Build social media strategies and monthly content calendars that match each client\'s business goals',
+      'Lead content production with our designer and video editor: write briefs and copy, review work and get client approval',
+      'Run publishing, community management and online reputation (comments, DMs and reviews) across platforms',
+      'Work with our Meta ads team so organic posts and paid campaigns pull in the same direction',
+      'Report on reach, engagement, leads and growth every month, and walk clients through the results',
+      'Guide and review the work of our social media interns',
+    ],
+    'need'     => [
+      '2+ years managing social media for brands, at an agency or in-house',
+      'Strong copywriting and a steady flow of reel and content ideas',
+      'Confident with Meta Business Suite, Instagram, Facebook, LinkedIn and YouTube',
+      'Comfortable with analytics, and on calls with clients',
+      'Working knowledge of Meta Ads Manager, SEO or ORM tools is a plus',
+    ],
+    'learn'    => [
+      'Run accounts end to end, with direct client contact from day one',
+      'Work across SEO, SMO, ORM and paid ads, not only organic posting',
+      'Help shape how the team works and lead the interns as we grow',
+    ],
+  ],
+  [
+    'title'    => 'Graphic Designer',
+    'openings' => 1,
+    'type'     => 'Full-time',
+    'posted'   => '2026-11-22',
+    'text'     => 'Design posts, carousels, ad creatives and brand assets for our clients, and keep every brand looking consistent across platforms.',
+    'do'       => [
+      'Design social posts, carousels, stories and reel covers from content briefs',
+      'Create Meta ad creatives in several sizes and variants for testing',
+      'Build brand guidelines and templates for each client, and stick to them',
+      'Take on brand work when it comes up: logos, brochures, banners and website graphics',
+      'Turn feedback from the social team and clients into quick revisions',
+    ],
+    'need'     => [
+      'A portfolio with social media or digital work',
+      'Strong in Adobe Photoshop and Illustrator. Canva and Figma are a plus',
+      'A good eye for typography, layout and colour',
+      'Basic motion design (After Effects or similar) is a bonus',
+      '1+ year of experience. Freshers with a strong portfolio are welcome to apply',
+    ],
+    'learn'    => [
+      'See how your ad creatives perform (clicks, cost per lead) and design with the numbers',
+      'Work across fashion, wellness, toys, tourism and more',
+    ],
+  ],
+  [
+    'title'    => 'Video Editor',
+    'openings' => 1,
+    'type'     => 'Full-time',
+    'posted'   => '2026-11-22',
+    'text'     => 'Edit reels, shorts, ads and brand videos for our clients. Turn raw footage into short videos that hold attention and get results.',
+    'do'       => [
+      'Edit Instagram Reels, YouTube Shorts and video ads from raw footage, stock and creator content',
+      'Add captions, motion text, transitions, sound design and colour correction',
+      'Cut versions and sizes (9:16, 1:1, 16:9) for organic posts and paid campaigns',
+      'Keep up with trends, hooks and audio, and pitch ideas to the social team',
+      'Keep project files organised and deliver on time across several clients',
+      'Guide our video editing interns',
+    ],
+    'need'     => [
+      'A portfolio of short-form edits: reels, shorts or ads',
+      'Strong in Premiere Pro or DaVinci Resolve. After Effects and CapCut are a plus',
+      'A feel for hooks, pacing and keeping viewers watching',
+      '1+ year of editing experience',
+    ],
+    'learn'    => [
+      'Edit ads for Meta campaigns and see which cuts bring in leads',
+      'Work on shoots and help plan video content with the social team',
+    ],
+  ],
+  [
+    'title'    => 'Video Editor Intern',
+    'openings' => 2,
+    'type'     => 'Internship',
+    'posted'   => '2026-11-22',
+    'text'     => 'Learn short-form video editing on real client work. You\'ll cut reels, add captions and music, and learn what makes a video perform on social media.',
+    'do'       => [
+      'Edit reels and stories from raw footage, guided by our video editor',
+      'Add captions, text animation, music and simple transitions',
+      'Resize and export videos for each platform',
+      'Organise footage and project files',
+      'Help on shoots and capture behind-the-scenes content',
+      'Research trending formats and audio',
+    ],
+    'need'     => [
+      'Basic editing skills in Premiere Pro, CapCut, DaVinci Resolve or similar',
+      'A few sample edits. College or personal projects count',
+      'An eye for detail and timing',
+      'Keen to learn and happy to take feedback',
+    ],
+    'learn'    => [
+      'A professional editing workflow, from raw footage to final export',
+      'Hooks, pacing and how to keep viewers watching',
+      'How video ads are cut and tested for Meta campaigns',
+      'Real work for real brands to put in your showreel',
+    ],
+  ],
+];
+$where    = AMATCHLESS_SHOW_ADDRESS ? AMATCHLESS_ADDRESS : 'Rohini, Delhi';
+$openings = array_sum(array_column($roles, 'openings'));
 
 // Why work here: [colour, title, text]
 $reasons = [
@@ -21,6 +156,43 @@ $skills = ['Social media management', 'Content calendars', 'Reels & short video'
 $apply_mail = 'mailto:' . AMATCHLESS_EMAIL . '?subject=' . rawurlencode('Careers: [the role you\'re interested in]');
 $contact    = amatchless_page_url('contact');
 $contact    = $contact . (str_contains($contact, '#') ? '' : '#contact');
+
+// Apply links for one role: an email with the subject and a short checklist, or the contact form with the
+// role filled in (assets/js/site.js reads ?role= and picks "Careers / joining the team").
+if (!function_exists('amatchless_role_mail')) : function amatchless_role_mail($title) {
+    $body = "Hi Amatchless team,\n\nI'd like to apply for the {$title} role.\n\nCV / LinkedIn:\nPortfolio or work samples:\nWhy Amatchless:\n";
+    return 'mailto:' . AMATCHLESS_EMAIL . '?subject=' . rawurlencode('Careers: ' . $title) . '&body=' . rawurlencode($body);
+} endif;
+
+// Google job listing schema, one JobPosting per role
+if ($roles) {
+    $jobs = [];
+    foreach ($roles as $r) {
+        $desc = '<p>' . esc_html($r['text']) . '</p>';
+        foreach (['do' => 'What you\'ll do', 'need' => 'What you\'ll need', 'learn' => ($r['type'] === 'Internship' ? 'What you\'ll learn' : 'How you\'ll grow')] as $k => $h) {
+            $desc .= '<p><strong>' . esc_html($h) . '</strong></p><ul><li>' . implode('</li><li>', array_map('esc_html', $r[$k])) . '</li></ul>';
+        }
+        $jobs[] = [
+            '@type'              => 'JobPosting',
+            'title'              => $r['title'],
+            'description'        => $desc,
+            'datePosted'         => $r['posted'],
+            'employmentType'     => $r['type'] === 'Internship' ? 'INTERN' : 'FULL_TIME',
+            'totalJobOpenings'   => $r['openings'],
+            'directApply'        => false,
+            'hiringOrganization' => ['@type' => 'Organization', 'name' => 'Amatchless', 'sameAs' => home_url('/')],
+            'jobLocation'        => ['@type' => 'Place', 'address' => array_filter([
+                '@type'           => 'PostalAddress',
+                'streetAddress'   => AMATCHLESS_SHOW_ADDRESS ? preg_replace('/,\s*Delhi\s*\d{6}$/', '', AMATCHLESS_ADDRESS) : null,
+                'addressLocality' => 'Delhi',
+                'addressRegion'   => 'Delhi',
+                'postalCode'      => AMATCHLESS_SHOW_ADDRESS && preg_match('/(\d{6})$/', AMATCHLESS_ADDRESS, $pin) ? $pin[1] : null,
+                'addressCountry'  => 'IN',
+            ])],
+        ];
+    }
+    echo '<script type="application/ld+json">' . wp_json_encode(['@context' => 'https://schema.org', '@graph' => $jobs], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
 ?>
 
 <!-- ============ CAREERS HERO ============ -->
@@ -72,19 +244,41 @@ $contact    = $contact . (str_contains($contact, '#') ? '' : '#contact');
         <span class="label" style="color:#5B2EFF">CURRENT OPENINGS</span>
         <h2 class="h2" id="cr-open-title">Open roles</h2>
       </div>
-      <p class="sec-aside">We hire as our client list grows. New roles are posted here first.</p>
+      <p class="sec-aside"><?php if ($roles) : ?><b><?php echo esc_html($openings . ' openings across ' . count($roles) . ' roles.'); ?></b> All roles are work from office at our Rohini, Delhi office. Open a role for the full description, then apply by email or the form.<?php else : ?>We hire as our client list grows. New roles are posted here first.<?php endif; ?></p>
     </div>
 
     <?php if ($roles) : ?>
     <ul class="cr-roles">
-      <?php foreach ($roles as $r) : ?>
+      <?php foreach ($roles as $r) :
+        $n     = (int) $r['openings'];
+        $intern = $r['type'] === 'Internship';
+        $form  = add_query_arg('role', rawurlencode($r['title']), $contact); ?>
       <li class="cr-role reveal">
-        <div class="cr-role-body">
+        <div class="cr-role-top">
           <h3><?php echo esc_html($r['title']); ?></h3>
-          <p class="work-svc"><?php echo esc_html(strtoupper($r['type'] . ' · ' . $r['where'])); ?></p>
-          <p><?php echo esc_html($r['text']); ?></p>
+          <ul class="cr-tags">
+            <li><span class="sx-tag" style="--c:<?php echo $intern ? '#3DEBB0' : '#5B2EFF'; ?>"><?php echo esc_html(strtoupper($r['type'])); ?></span></li>
+            <li><span class="sx-tag" style="--c:#FF4F9A"><?php echo esc_html($n . ($n === 1 ? ' OPENING' : ' OPENINGS')); ?></span></li>
+            <li><span class="sx-tag" style="--c:#FFE14D">WORK FROM OFFICE</span></li>
+          </ul>
         </div>
-        <a class="btn btn-ink" href="<?php echo esc_attr('mailto:' . AMATCHLESS_EMAIL . '?subject=' . rawurlencode('Careers: ' . $r['title'])); ?>">Apply <span aria-hidden="true">↗</span></a>
+        <p class="cr-where"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg><span><?php echo esc_html($where); ?></span></p>
+        <p class="cr-role-text"><?php echo esc_html($r['text']); ?></p>
+        <details class="cr-more">
+          <summary>Full job description</summary>
+          <div class="cr-more-grid">
+            <?php foreach (['do' => 'What you\'ll do', 'need' => 'What you\'ll need', 'learn' => ($intern ? 'What you\'ll learn' : 'How you\'ll grow')] as $k => $h) : ?>
+            <div>
+              <h4><?php echo esc_html($h); ?></h4>
+              <ul><?php foreach ($r[$k] as $line) : ?><li><?php echo esc_html($line); ?></li><?php endforeach; ?></ul>
+            </div>
+            <?php endforeach; ?>
+          </div>
+        </details>
+        <div class="btn-row cr-role-btns">
+          <a class="btn btn-ink" href="<?php echo esc_attr(amatchless_role_mail($r['title'])); ?>" data-careers="email">Apply by email <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-white" href="<?php echo esc_url($form); ?>" data-careers="form">Apply with the form</a>
+        </div>
       </li>
       <?php endforeach; ?>
     </ul>
