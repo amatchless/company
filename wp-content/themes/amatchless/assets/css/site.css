@@ -174,7 +174,7 @@ header.nav.scrolled .nav-pill{box-shadow:5px 5px 0 var(--ink)}
 .ticker{position:relative;z-index:3;padding:8px 0 16px}
 .ticker-dark{background:var(--ink);color:#fff;padding:22px 0;transform:rotate(-2deg) scale(1.04)}
 .ticker-pink{background:var(--pink);color:var(--ink);padding:14px 0;transform:rotate(1.5deg) scale(1.04);margin-top:-8px}
-.track{display:flex;width:max-content;animation:amx-marquee 30s linear infinite}
+.track{display:flex;width:max-content;animation:amx-marquee 48s linear infinite}
 .track.rev{animation-direction:reverse;animation-duration:40s}
 .track-run{display:flex;align-items:center;white-space:nowrap}
 .ticker-dark .track-run{gap:48px;padding-right:48px;font-family:var(--f-display);font-weight:800;font-size:clamp(24px, 2.8vw, 38px);letter-spacing:-.03em}
@@ -309,6 +309,12 @@ header.nav.scrolled .nav-pill{box-shadow:5px 5px 0 var(--ink)}
 .work-svc{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--muted)}
 .work-arrow{width:52px;height:52px;flex-shrink:0;border-radius:50%;background:var(--yellow);border:var(--line);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;transition:transform .35s,background .35s}
 .work:hover .work-arrow{transform:translateX(6px);background:var(--pink)}
+.more-clients{display:flex;flex-direction:column;gap:16px}
+.more-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 260px), 1fr));gap:16px}
+.more{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px 64px 20px 24px;border:var(--line);border-radius:24px;background:#fff;color:var(--ink);text-decoration:none;transition:transform .35s,background .35s}
+.more:hover{transform:translateY(-4px);background:var(--yellow);color:var(--ink)}
+.more-name{font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:-.02em}
+.more-arrow{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:22px;font-weight:700}
 
 /* ---- case studies ---- */
 .case{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);border:var(--line);border-radius:32px;overflow:hidden;background:#fff;scroll-margin-top:110px}
