@@ -672,8 +672,9 @@ textarea.form-ctrl{min-height:120px;resize:vertical}
 .cr-role-top{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;width:100%}
 .cr-role h3{font-size:clamp(24px, 2.6vw, 30px);font-weight:800;line-height:1.05}
 .cr-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.cr-where{display:flex;gap:8px;align-items:flex-start;font-size:14px;font-weight:600;color:var(--muted);line-height:1.4}
-.cr-where svg{flex:none;margin-top:1px;color:var(--pink)}
+.cr-facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
+.cr-facts li{display:flex;gap:8px;align-items:flex-start;font-size:14px;font-weight:600;color:var(--muted);line-height:1.4}
+.cr-facts svg{flex:none;margin-top:1px;color:var(--pink)}
 .cr-role-text{font-size:17px;line-height:1.55;max-width:820px}
 .cr-more{width:100%;border-top:2px dashed rgba(14,11,31,.2);padding-top:12px}
 .cr-more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--purple)}

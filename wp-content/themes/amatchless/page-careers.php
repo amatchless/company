@@ -4,7 +4,8 @@ $team = get_template_directory_uri() . '/assets/img/team/';
 $ver  = '?ver=' . AMATCHLESS_VERSION;
 
 // Open roles. Empty = the "no open roles" card. To post a role, add a row with:
-// title, openings (number), type ('Internship' or 'Full-time'), text (one or two sentences),
+// title, openings (number), type ('Internship' or 'Full-time'), pay ([min, max] rupees a month, or null for
+// "Salary based on experience"), text (one or two sentences),
 // do / need / learn (short bullet lists for the full description), posted (Y-m-d, for Google's job schema).
 // To close a role, delete its row. Location is the office address in functions.php (AMATCHLESS_ADDRESS).
 $roles = [
@@ -12,6 +13,7 @@ $roles = [
     'title'    => 'Social Media Intern',
     'openings' => 2,
     'type'     => 'Internship',
+    'pay'      => [2000, 3000],
     'posted'   => '2026-11-22',
     'text'     => 'Learn how an agency runs social media for real brands. You\'ll help plan, write and schedule content, and see how SMM, SMO and ORM work day to day.',
     'do'       => [
@@ -38,6 +40,7 @@ $roles = [
     'title'    => 'Social Media Manager',
     'openings' => 1,
     'type'     => 'Full-time',
+    'pay'      => null,
     'posted'   => '2026-11-22',
     'text'     => 'Own social media for a set of client brands, from strategy and content calendars to community management, online reputation and monthly reporting.',
     'do'       => [
@@ -65,6 +68,7 @@ $roles = [
     'title'    => 'Graphic Designer',
     'openings' => 1,
     'type'     => 'Full-time',
+    'pay'      => null,
     'posted'   => '2026-11-22',
     'text'     => 'Design posts, carousels, ad creatives and brand assets for our clients, and keep every brand looking consistent across platforms.',
     'do'       => [
@@ -90,6 +94,7 @@ $roles = [
     'title'    => 'Video Editor',
     'openings' => 1,
     'type'     => 'Full-time',
+    'pay'      => null,
     'posted'   => '2026-11-22',
     'text'     => 'Edit reels, shorts, ads and brand videos for our clients. Turn raw footage into short videos that hold attention and get results.',
     'do'       => [
@@ -115,6 +120,7 @@ $roles = [
     'title'    => 'Video Editor Intern',
     'openings' => 2,
     'type'     => 'Internship',
+    'pay'      => [2000, 3000],
     'posted'   => '2026-11-22',
     'text'     => 'Learn short-form video editing on real client work. You\'ll cut reels, add captions and music, and learn what makes a video perform on social media.',
     'do'       => [
@@ -140,6 +146,7 @@ $roles = [
   ],
 ];
 $where    = AMATCHLESS_SHOW_ADDRESS ? AMATCHLESS_ADDRESS : 'Rohini, Delhi';
+$hours    = '9:30 AM to 6:00 PM';   // office hours, shown on every role
 $openings = array_sum(array_column($roles, 'openings'));
 
 // Why work here: [colour, title, text]
@@ -164,21 +171,29 @@ if (!function_exists('amatchless_role_mail')) : function amatchless_role_mail($t
     return 'mailto:' . AMATCHLESS_EMAIL . '?subject=' . rawurlencode('Careers: ' . $title) . '&body=' . rawurlencode($body);
 } endif;
 
+if (!function_exists('amatchless_role_pay')) : function amatchless_role_pay($r) {
+    if (empty($r['pay'])) return 'Salary based on experience';
+    [$lo, $hi] = $r['pay'];
+    $label = $r['type'] === 'Internship' ? 'Stipend' : 'Salary';
+    return $label . ' ₹' . number_format($lo) . ($hi && $hi !== $lo ? ' to ₹' . number_format($hi) : '') . ' a month';
+} endif;
+
 // Google job listing schema, one JobPosting per role
 if ($roles) {
     $jobs = [];
     foreach ($roles as $r) {
-        $desc = '<p>' . esc_html($r['text']) . '</p>';
+        $desc = '<p>' . esc_html($r['text']) . '</p><p>' . esc_html(amatchless_role_pay($r) . '. Office hours ' . $hours . ', work from office.') . '</p>';
         foreach (['do' => 'What you\'ll do', 'need' => 'What you\'ll need', 'learn' => ($r['type'] === 'Internship' ? 'What you\'ll learn' : 'How you\'ll grow')] as $k => $h) {
             $desc .= '<p><strong>' . esc_html($h) . '</strong></p><ul><li>' . implode('</li><li>', array_map('esc_html', $r[$k])) . '</li></ul>';
         }
-        $jobs[] = [
+        $job = [
             '@type'              => 'JobPosting',
             'title'              => $r['title'],
             'description'        => $desc,
             'datePosted'         => $r['posted'],
             'employmentType'     => $r['type'] === 'Internship' ? 'INTERN' : 'FULL_TIME',
             'totalJobOpenings'   => $r['openings'],
+            'workHours'          => $hours,
             'directApply'        => false,
             'hiringOrganization' => ['@type' => 'Organization', 'name' => 'Amatchless', 'sameAs' => home_url('/')],
             'jobLocation'        => ['@type' => 'Place', 'address' => array_filter([
@@ -190,6 +205,11 @@ if ($roles) {
                 'addressCountry'  => 'IN',
             ])],
         ];
+        if (!empty($r['pay'])) {
+            $job['baseSalary'] = ['@type' => 'MonetaryAmount', 'currency' => 'INR', 'value' => [
+                '@type' => 'QuantitativeValue', 'minValue' => $r['pay'][0], 'maxValue' => $r['pay'][1], 'unitText' => 'MONTH']];
+        }
+        $jobs[] = $job;
     }
     echo '<script type="application/ld+json">' . wp_json_encode(['@context' => 'https://schema.org', '@graph' => $jobs], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
 }
@@ -244,7 +264,7 @@ if ($roles) {
         <span class="label" style="color:#5B2EFF">CURRENT OPENINGS</span>
         <h2 class="h2" id="cr-open-title">Open roles</h2>
       </div>
-      <p class="sec-aside"><?php if ($roles) : ?><b><?php echo esc_html($openings . ' openings across ' . count($roles) . ' roles.'); ?></b> All roles are work from office at our Rohini, Delhi office. Open a role for the full description, then apply by email or the form.<?php else : ?>We hire as our client list grows. New roles are posted here first.<?php endif; ?></p>
+      <p class="sec-aside"><?php if ($roles) : ?><b><?php echo esc_html($openings . ' openings across ' . count($roles) . ' roles.'); ?></b> All roles are work from office at our Rohini, Delhi office, <?php echo esc_html($hours); ?>. Open a role for the full description, then apply by email or the form.<?php else : ?>We hire as our client list grows. New roles are posted here first.<?php endif; ?></p>
     </div>
 
     <?php if ($roles) : ?>
@@ -262,7 +282,11 @@ if ($roles) {
             <li><span class="sx-tag" style="--c:#FFE14D">WORK FROM OFFICE</span></li>
           </ul>
         </div>
-        <p class="cr-where"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg><span><?php echo esc_html($where); ?></span></p>
+        <ul class="cr-facts">
+          <li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg><span><?php echo esc_html($where); ?></span></li>
+          <li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.2 3.2-1.4 1.4L11 13.2V6h2z" fill="currentColor"/></svg><span><?php echo esc_html($hours); ?></span></li>
+          <li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M6 3h12v2h-4.3c.5.6.9 1.3 1.1 2H18v2h-3.2a5 5 0 0 1-4.6 4H9.4l6.3 7h-2.7l-6.3-7v-2h3.5a3 3 0 0 0 2.8-2H6V7h6.8a3 3 0 0 0-2.8-2H6z" fill="currentColor"/></svg><span><?php echo esc_html(amatchless_role_pay($r)); ?></span></li>
+        </ul>
         <p class="cr-role-text"><?php echo esc_html($r['text']); ?></p>
         <details class="cr-more">
           <summary>Full job description</summary>
