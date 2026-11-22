@@ -40,5 +40,21 @@ $work = [
       </a>
       <?php endforeach; ?>
     </div>
+
+    <?php $more = array_filter(amatchless_clients(), fn($c) => empty($c['case'])); ?>
+    <?php if (is_page('work') && $more) : ?>
+    <div class="more-clients reveal">
+      <span class="label" style="color:#5B2EFF">ALSO WORKING WITH</span>
+      <ul class="more-grid">
+        <?php foreach ($more as $c) : ?>
+        <li><a class="more" href="<?php echo esc_url($c['url']); ?>" target="_blank" rel="noopener">
+          <span class="more-name"><?php echo esc_html($c['name']); ?></span>
+          <span class="work-svc"><?php echo esc_html($c['svc']); ?></span>
+          <span class="more-arrow" aria-hidden="true">↗</span>
+        </a></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+    <?php endif; ?>
   </div>
 </section>

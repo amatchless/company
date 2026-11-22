@@ -28,6 +28,9 @@ html{scroll-padding-top:84px}
 .lp-logo-2{font-family:Georgia,"Times New Roman",serif;font-weight:700}
 .lp-logo-3{font-family:var(--f-body);font-weight:300;letter-spacing:.28em;text-transform:uppercase;font-size:18px}
 .lp-logo-4{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:18px}
+.lp-logo-5{font-family:var(--f-display);font-weight:700;letter-spacing:-.02em}
+.lp-logo-6{font-family:Georgia,"Times New Roman",serif;font-style:italic}
+.lp-logo-7{font-family:var(--f-body);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:17px}
 
 /* ---- sections ---- */
 .lp-sec{padding:clamp(48px, 7vw, 96px) var(--gutter)}

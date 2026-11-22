@@ -4,7 +4,7 @@ $slug = amatchless_current_lp();
 $lp   = amatchless_landing_pages()[$slug];
 // Brand names already shown publicly on the site (/work/). Set as greyscale wordmarks: the site has no logo files
 // for them, and the client illustrations are cartoons, which these pages must not use.
-$logos = ['Isola', 'AleuCo', "Bailey's Blossoms", 'Moment', 'Haliburton Forest'];
+$logos = amatchless_client_names();
 $colors = ['#FFE14D', '#3DEBB0', '#FF4F9A', '#5B2EFF'];
 get_header('lp');
 ?>

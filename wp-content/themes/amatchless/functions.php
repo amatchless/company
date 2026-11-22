@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.17.0');
+define('AMATCHLESS_VERSION', '3.18.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
 define('AMATCHLESS_PHONE', '+91 85869 29882');
@@ -101,6 +101,25 @@ function amatchless_faqs() {
 
 function amatchless_img($file) {
     return get_template_directory_uri() . '/assets/img/' . $file;
+}
+
+// The one client list: the home page ticker, the blog "Trusted by" line and the ad landing page brand strip
+// all read it. [name, what we do, link]. Clients with a case study have 'case' => slug (shown in Selected Work);
+// the rest appear under "Also working with" on /work/. Add a new client here and it shows everywhere.
+function amatchless_clients() {
+    return [
+        ['name' => 'Isola',             'case' => 'isola'],
+        ['name' => 'AleuCo',            'case' => 'aleuco'],
+        ['name' => "Bailey's Blossoms", 'case' => 'baileys-blossoms'],
+        ['name' => 'Moment',            'case' => 'moment'],
+        ['name' => 'Haliburton Forest', 'case' => 'haliburton-forest'],
+        ['name' => 'Khilonaa',    'svc' => 'SOCIAL MEDIA · META ADS', 'url' => 'https://khilonaa.com/'],
+        ['name' => 'Suman Didi',  'svc' => 'SOCIAL MEDIA',            'url' => 'https://www.instagram.com/dydsumandidi/'],
+        ['name' => 'Vihan Sales', 'svc' => 'META ADS',                'url' => 'https://www.facebook.com/profile.php?id=100070857775705'],
+    ];
+}
+function amatchless_client_names() {
+    return array_column(amatchless_clients(), 'name');
 }
 
 /* ── Theme Setup ─────────────────────────────────────────────── */
