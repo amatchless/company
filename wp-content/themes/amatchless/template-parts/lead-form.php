@@ -35,6 +35,7 @@
         <option>Influencer marketing</option>
         <option>Content, social &amp; branding</option>
         <option>Not sure yet — help me decide</option>
+        <option>Careers / joining the team</option>
       </select>
     </div>
     <div class="form-grp">

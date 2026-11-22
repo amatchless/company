@@ -34,6 +34,10 @@ function amatchless_seo_map() {
             'title' => 'Contact Amatchless | Book a Discovery Call',
             'desc'  => 'Book a free 30-minute discovery call, email info@amatchless.com or message us on WhatsApp. One team for software, AI and marketing replies within 24 hours.',
         ],
+        'careers' => [
+            'title' => 'Careers at Amatchless | Join Our Digital Marketing Team',
+            'desc'  => 'Work on social media and Meta ads for real brands in a small, growing team. See open roles or send a speculative application to Amatchless.',
+        ],
         'blog' => [
             'title' => 'Blog: Ideas on Brand, Growth & Automation | Amatchless',
             'desc'  => 'Practical articles on branding, paid ads and marketing automation for businesses and creators.',

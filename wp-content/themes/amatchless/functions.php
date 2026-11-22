@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.18.0');
+define('AMATCHLESS_VERSION', '3.19.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
 define('AMATCHLESS_PHONE', '+91 85869 29882');
@@ -32,6 +32,7 @@ function amatchless_section_pages() {
         'about'         => ['About',         'about'],
         'ai-automation' => ['AI Automation', 'automation'],
         'contact'       => ['Contact',       'contact'],
+        'careers'       => ['Careers',       'careers'],
     ];
 }
 
@@ -59,13 +60,14 @@ function amatchless_terms_url()   { return home_url('/terms/'); }
 
 // Create the section pages once per set (only the ones that don't exist yet). Bump the number when a page is added.
 function amatchless_create_section_pages() {
-    if (get_option('amatchless_pages_created') === '2') return;
+    if (get_option('amatchless_pages_created') === '3') return;
     $excerpts = [
         'services'      => 'Business discovery, custom software, AI, automation and marketing — SEO, digital, influencer and content — from one accountable team.',
         'work'          => 'Selected projects and case studies for Isola, AleuCo, Bailey\'s Blossoms, Moment, and Haliburton Forest.',
         'about'         => 'Amatchless is one partner for the whole business: we understand it first, then build what makes it efficient and market it to grow.',
         'ai-automation' => 'Custom software, AI and automation built around your business so processes run on their own.',
         'contact'       => 'Book a discovery call, email or WhatsApp the Amatchless team. We reply within 24 hours.',
+        'careers'       => 'Work at Amatchless: social media and Meta ads for real brands, in a small team that is growing.',
     ];
     foreach (amatchless_section_pages() as $slug => $info) {
         if (get_page_by_path($slug)) continue;
@@ -77,7 +79,7 @@ function amatchless_create_section_pages() {
             'post_excerpt' => $excerpts[$slug],
         ]);
     }
-    update_option('amatchless_pages_created', '2');
+    update_option('amatchless_pages_created', '3');
 }
 add_action('init', 'amatchless_create_section_pages', 20);
 
@@ -243,6 +245,7 @@ function amatchless_contact_submit() {
     $lead_id = amatchless_save_lead(compact('name', 'email', 'company', 'phone', 'service', 'budget', 'message', 'ip'));
 
     $subject = $company !== '' ? "New Lead: {$name} from {$company}" : "New Lead: {$name}";
+    if (str_starts_with($service, 'Careers')) $subject = "Careers application: {$name}";
     $body    = "New discovery call enquiry from amatchless.com\n\n"
              . "Name:    {$name}\n"
              . "Company: {$company}\n"
