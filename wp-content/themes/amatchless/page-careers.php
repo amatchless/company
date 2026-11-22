@@ -5,7 +5,7 @@ $ver  = '?ver=' . AMATCHLESS_VERSION;
 
 // Open roles. Empty = the "no open roles" card. To post a role, add a row with:
 // title, openings (number), type ('Internship' or 'Full-time'), pay ([min, max] rupees a month, or null for
-// "Salary based on experience"), text (one or two sentences),
+// "Salary based on experience"), length (internships only, e.g. '3 months, extendable to 6'), text (one or two sentences),
 // do / need / learn (short bullet lists for the full description), posted (Y-m-d, for Google's job schema).
 // To close a role, delete its row. Location is the office address in functions.php (AMATCHLESS_ADDRESS).
 $roles = [
@@ -14,6 +14,7 @@ $roles = [
     'openings' => 2,
     'type'     => 'Internship',
     'pay'      => [2000, 3000],
+    'length'   => '3 months, extendable to 6',
     'posted'   => '2026-11-22',
     'text'     => 'Learn how an agency runs social media for real brands. You\'ll help plan, write and schedule content, and see how SMM, SMO and ORM work day to day.',
     'do'       => [
@@ -121,6 +122,7 @@ $roles = [
     'openings' => 2,
     'type'     => 'Internship',
     'pay'      => [2000, 3000],
+    'length'   => '3 months, extendable to 6',
     'posted'   => '2026-11-22',
     'text'     => 'Learn short-form video editing on real client work. You\'ll cut reels, add captions and music, and learn what makes a video perform on social media.',
     'do'       => [
@@ -182,7 +184,7 @@ if (!function_exists('amatchless_role_pay')) : function amatchless_role_pay($r) 
 if ($roles) {
     $jobs = [];
     foreach ($roles as $r) {
-        $desc = '<p>' . esc_html($r['text']) . '</p><p>' . esc_html(amatchless_role_pay($r) . '. Office hours ' . $hours . ', work from office.') . '</p>';
+        $desc = '<p>' . esc_html($r['text']) . '</p><p>' . esc_html((!empty($r['length']) ? 'Internship: ' . $r['length'] . ' months. ' : '') . amatchless_role_pay($r) . '. Office hours ' . $hours . ', work from office.') . '</p>';
         foreach (['do' => 'What you\'ll do', 'need' => 'What you\'ll need', 'learn' => ($r['type'] === 'Internship' ? 'What you\'ll learn' : 'How you\'ll grow')] as $k => $h) {
             $desc .= '<p><strong>' . esc_html($h) . '</strong></p><ul><li>' . implode('</li><li>', array_map('esc_html', $r[$k])) . '</li></ul>';
         }
@@ -286,6 +288,7 @@ if ($roles) {
           <li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg><span><?php echo esc_html($where); ?></span></li>
           <li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.2 3.2-1.4 1.4L11 13.2V6h2z" fill="currentColor"/></svg><span><?php echo esc_html($hours); ?></span></li>
           <li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M6 3h12v2h-4.3c.5.6.9 1.3 1.1 2H18v2h-3.2a5 5 0 0 1-4.6 4H9.4l6.3 7h-2.7l-6.3-7v-2h3.5a3 3 0 0 0 2.8-2H6V7h6.8a3 3 0 0 0-2.8-2H6z" fill="currentColor"/></svg><span><?php echo esc_html(amatchless_role_pay($r)); ?></span></li>
+          <?php if (!empty($r['length'])) : ?><li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3zm-1 8v10h12V10z" fill="currentColor"/></svg><span><?php echo esc_html($r['length'] . ' months'); ?></span></li><?php endif; ?>
         </ul>
         <p class="cr-role-text"><?php echo esc_html($r['text']); ?></p>
         <details class="cr-more">
