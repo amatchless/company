@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.19.0');
+define('AMATCHLESS_VERSION', '3.20.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
 define('AMATCHLESS_PHONE', '+91 85869 29882');

@@ -32,6 +32,22 @@
 
   /* ── Lead form — AJAX submission ──────────────────────────── */
   var leadForm  = document.getElementById('leadForm');
+
+  /* Careers "Apply with the form" links: /contact/?role=Video%20Editor#contact picks the Careers option
+     and starts the message with the role, so the applicant only adds their details. */
+  var role = '';
+  try { role = (new URLSearchParams(location.search).get('role') || '').replace(/[\r\n]+/g, ' ').trim().substring(0, 80); } catch (e) {}
+  if (leadForm && role) {
+    var svc = document.getElementById('f-service'), msg = document.getElementById('f-msg');
+    if (svc) {
+      for (var i = 0; i < svc.options.length; i++) {
+        if (/^Careers/.test(svc.options[i].text)) { svc.selectedIndex = i; break; }
+      }
+    }
+    if (msg && !msg.value) {
+      msg.value = 'I\'d like to apply for the ' + role + ' role.\n\nCV / LinkedIn: \nPortfolio or work samples: \nWhy Amatchless: ';
+    }
+  }
   var formOk    = document.getElementById('formOk');
   var submitBtn = leadForm ? leadForm.querySelector('.form-submit') : null;
   var submitLabel = submitBtn ? submitBtn.innerHTML : '';
