@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.21.0');
+define('AMATCHLESS_VERSION', '3.22.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
 // The company's only phone number (also the WhatsApp number). Shown on the ad landing pages and /thank-you/ (display text and the tel: number).
 define('AMATCHLESS_PHONE', '+91 92667 36111');
