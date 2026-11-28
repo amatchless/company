@@ -1,17 +1,17 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('AMATCHLESS_VERSION', '3.20.0');
+define('AMATCHLESS_VERSION', '3.21.0');
 define('AMATCHLESS_EMAIL', 'info@amatchless.com');
-// Phone shown on the ad landing pages and /thank-you/ (display text and the tel: number).
-define('AMATCHLESS_PHONE', '+91 85869 29882');
-define('AMATCHLESS_PHONE_TEL', '+918586929882');
+// The company's only phone number (also the WhatsApp number). Shown on the ad landing pages and /thank-you/ (display text and the tel: number).
+define('AMATCHLESS_PHONE', '+91 92667 36111');
+define('AMATCHLESS_PHONE_TEL', '+919266736111');
 // Office address. AMATCHLESS_SHOW_ADDRESS controls whether it shows in the footer on every page.
 define('AMATCHLESS_ADDRESS', 'Unit No. 612/A, Plot No 8, 6th Floor, Sachdeva Tower, Rohini Sector 5, Delhi 110085');
 define('AMATCHLESS_SHOW_ADDRESS', true);
 // Calendly booking page. Links with data-calendly open it as a popup (assets/js/site.js); without JS they open it in a new tab.
 define('AMATCHLESS_CALENDLY', 'https://calendly.com/amatchless');
-define('AMATCHLESS_WHATSAPP', 'https://wa.me/918586929882?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
+define('AMATCHLESS_WHATSAPP', 'https://wa.me/919266736111?text=' . rawurlencode("Hi Amatchless, I'd like to discuss a project with you."));
 
 /* ── Template helpers ────────────────────────────────────────── */
 // Link to a section of the homepage: a bare #anchor on the homepage, a full URL elsewhere.
