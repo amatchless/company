@@ -10,7 +10,7 @@ get_header('lp');
     <h1 class="lp-h1">Thank you. We'll call you within 2 working hours.</h1>
     <p class="lp-sub">Want to skip the wait? Pick a time for a call below, or message us on WhatsApp.</p>
     <div class="btn-row">
-      <a class="btn btn-pink btn-lg" href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener">WhatsApp us on +91 85869 29882</a>
+      <a class="btn btn-pink btn-lg" href="<?php echo esc_url(AMATCHLESS_WHATSAPP); ?>" target="_blank" rel="noopener">WhatsApp us on <?php echo esc_html(AMATCHLESS_PHONE); ?></a>
     </div>
   </div>
 </section>

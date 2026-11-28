@@ -82,8 +82,8 @@ Under **Cookies and tracking**, add: "When you send a form on our ad landing pag
 (hashed) copy of your email address, phone number, name and city, and a code that identifies the visit, so Meta can
 measure which ads lead to enquiries. Meta cannot read the original details from the scrambled copy."
 
-Under **Who we are**, change the phone to **+91 85869 29882**, the number the landing pages now show. The Terms page
-also lists +91 90508 20042; change it there too. (The theme's number is `AMATCHLESS_PHONE` in `functions.php`.)
+Under **Who we are**, change the phone to **+91 92667 36111**, the number the landing pages now show. The Terms page
+also listed the old +91 90508 20042; it should show +91 92667 36111 too. (The theme's number is `AMATCHLESS_PHONE` in `functions.php`.)
 
 ## 5. Test on a real phone (the brief's acceptance checklist)
 
