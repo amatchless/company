@@ -73,27 +73,38 @@ $services = ['CUSTOM SOFTWARE', 'AI & AUTOMATION', 'SEO', 'META & GOOGLE ADS', '
 </section>
 
 <!-- ============ PROBLEM → FIX ============ -->
-<section class="sec" id="pain">
+<section class="sec pain-sec" id="pain">
+  <div class="blob pain-blob" aria-hidden="true"></div>
+  <svg class="spin hide-sm pain-star" aria-hidden="true" width="96" height="96" viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z" fill="#FF4F9A"/></svg>
   <div class="sec-in">
     <div class="sec-split reveal">
-      <h2 class="h2">Most agencies sell you a service. We start with <span class="mark-yellow">your business.</span></h2>
+      <div class="sec-head">
+        <span class="label" style="color:#FF4F9A">SOUND FAMILIAR?</span>
+        <h2 class="h2">Most agencies sell you a service. We start with <span class="mark-yellow">your business.</span></h2>
+      </div>
       <p class="sec-aside">We dig into how you operate and where it hurts — then recommend the fix and build it ourselves. One team, one plan, nothing lost between vendors.</p>
     </div>
     <div class="pain-grid">
       <?php
       $pains = [
-          ['Leads slip through the cracks',        'Automated capture and follow-up'],
-          ['Too much manual, repetitive work',     'Process automation and AI'],
-          ["Tools that don't talk to each other",  'Custom software that joins them up'],
-          ["Customers can't find us online",       'SEO and content marketing'],
-          ["Ad spend that doesn't pay back",       'Performance campaigns built for ROAS'],
-          ['Our brand has no reach',               'Influencer and social marketing'],
+          ['Leads slip through the cracks',        'Automated capture and follow-up',     'yellow'],
+          ['Too much manual, repetitive work',     'Process automation and AI',           'mint'],
+          ["Tools that don't talk to each other",  'Custom software that joins them up',  'pink'],
+          ["Customers can't find us online",       'SEO and content marketing',           'mint'],
+          ["Ad spend that doesn't pay back",       'Performance campaigns built for ROAS', 'pink'],
+          ['Our brand has no reach',               'Influencer and social marketing',     'yellow'],
       ];
-      foreach ($pains as [$pain, $fix]) : ?>
-      <div class="pain reveal">
-        <span class="pain-label">PAIN</span>
-        <p class="pain-text"><?php echo esc_html($pain); ?></p>
-        <p class="pain-fix">→ <?php echo esc_html($fix); ?></p>
+      foreach ($pains as $i => [$pain, $fix, $tone]) : ?>
+      <div class="pain pain-<?php echo esc_attr($tone); ?> reveal">
+        <div class="pain-top">
+          <span class="pain-label">PAIN <?php echo esc_html(sprintf('%02d', $i + 1)); ?></span>
+          <p class="pain-text"><?php echo esc_html($pain); ?></p>
+        </div>
+        <div class="pain-fix">
+          <span class="pain-fix-label">THE FIX</span>
+          <p><?php echo esc_html($fix); ?></p>
+          <span class="pain-arrow" aria-hidden="true">→</span>
+        </div>
       </div>
       <?php endforeach; ?>
     </div>
